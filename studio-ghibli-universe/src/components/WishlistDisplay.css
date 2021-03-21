@@ -1,0 +1,31 @@
+.table-responsive{
+  font-family: Nora;
+  color:#716944;
+}
+.wishlist_film{
+    display:inline-block;
+    width: 150px;
+    height: 220px;
+    transition: transform .4s;
+    border-radius: 10px;
+    box-shadow: none;
+    border: 3px solid #716944;
+    transition:  transform .2s;
+  }
+  .wishlist_film:hover{
+    box-shadow: 0 0 25px  #716944;
+    transform: scale(1.3);
+    border: 3px solid #716944;
+    transform: translate(0, -1px);
+  }
+  #wishlist_heading{
+    font-family: Nora;
+    color:#302b19;
+    margin-top: 20px;
+  }
+
+  .empty_wishlist{
+    font-family: Nora;
+    color:#302b19;
+    margin: 100px;
+  }

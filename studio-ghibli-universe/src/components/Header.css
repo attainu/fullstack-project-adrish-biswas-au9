@@ -1,0 +1,59 @@
+
+.navbar{
+    /* height: 80px;
+    padding: 0px;
+    border:0px; */
+    transition: all 1s;
+  }
+#navbarDropdown{
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #cccdb4;
+    margin-left: 30px;
+    transition : all 1s;
+}
+#navbarDropdown:hover {
+    background-color:#1a1503;
+}
+
+#home-link{
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #cccdb4;
+    margin-left: 30px;
+    transition : all 1s;
+}
+#home-link:hover {
+    background-color:#1a1503;
+}
+#link-link{
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #cccdb4;
+    margin-left: 30px;
+    transition : all 1s;
+}
+#link-link:hover {
+    background-color:#1a1503;
+}
+
+#header-image{
+    background-color:#fefefe;
+}
+#menu{
+    background-color: #716944;
+    border: none;
+    transition : all 1s;
+}
+.dropdown-item{
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 30px;
+    margin-right: 30px;
+    color: #cccdb4;
+    transition : all 0.5s;
+}
+.dropdown-item:hover{
+    background-color:#1a1503;
+    color: #cccdb4;
+}
