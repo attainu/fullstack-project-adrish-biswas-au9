@@ -19,9 +19,9 @@ const LocationComponent = (props) => {
 
           <div className='container'>
 
-            <div className="row " style={{ margin: '80px 0px 80px 0px', color: '#716944' }}>
+            <div className="row " style={{ margin: '80px 0px 80px 0px', color: '#1daeed' }}>
               <div className="col-xs-5 col-sm-6 col-lg-3">
-                <div ><img className='location_banner' src={locationdetails.image_url} alt='location_poster' style={{ border: '3px solid #716944 ' }}></img><br />
+                <div ><img className='location_banner' src={locationdetails.image_url} alt='location_poster' style={{ border: '3px solid #1daeed ' }}></img><br />
                   <div style={{ textAlign: 'left' }}>{locationdetails.name}</div>
                 </div>
 
@@ -65,7 +65,7 @@ const LocationComponent = (props) => {
 
   return (
     <>
-      <div>{location_info(props)}</div>
+      <div className='main'> {location_info(props)}</div>
 
       <div style={{ margin: '10px' }}>
 
@@ -76,7 +76,7 @@ const LocationComponent = (props) => {
 
             </div>
 
-            <div className="location_tile" id='location _page_location'>
+            <div className="location_tile main" id='location _page_location'>
                 <h4 style={{ marginLeft: '20px' }}>Appeared In </h4>
                 <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                 {location_tile(props.locationdetails)}

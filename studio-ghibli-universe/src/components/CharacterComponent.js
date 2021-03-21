@@ -3,6 +3,7 @@ import './CharacterComponent.css';
 import { HashLink } from 'react-router-hash-link';
 
 
+
 const CharacterComponent = (props) => {
   console.log(props, "props passed")
 
@@ -18,9 +19,9 @@ const CharacterComponent = (props) => {
 
           <div className='container'>
 
-            <div className="row " style={{ margin: '80px 0px 80px 0px', color: '#716944' }}>
+            <div className="row " style={{ margin: '80px 0px 80px 0px', color: '#1daeed' }}>
               <div className="col-xs-5 col-sm-6 col-lg-3">
-                <div ><img className='character_banner' src={characterdetails.image_url} alt='character_poster' style={{ border: '3px solid #716944 ' }}></img><br />
+                <div ><img className='character_banner' src={characterdetails.image_url} alt='character_poster' style={{ border: '3px solid #1daeed ' }}></img><br />
                   <div style={{ textAlign: 'left' }}>{characterdetails.name}</div>
                 </div>
 
@@ -66,7 +67,7 @@ const CharacterComponent = (props) => {
 
   return (
     <>
-      <div>{character_info(props)}</div>
+      <div className='main'>{character_info(props)}</div>
 
       <div style={{ margin: '10px' }}>
 
@@ -77,7 +78,7 @@ const CharacterComponent = (props) => {
 
             </div>
 
-            <div className="chatacter_tile" id='character _page_character'>
+            <div className="chatacter_tile main" id='character _page_character'>
                 <h4 style={{ marginLeft: '20px' }}>Performed In </h4>
                 <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                 {character_tile(props.characterdetails)}

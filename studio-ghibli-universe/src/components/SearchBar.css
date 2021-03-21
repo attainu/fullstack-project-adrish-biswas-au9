@@ -1,7 +1,7 @@
 header {
     font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    color: #504721;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: #0f78af;
     margin: 5px;
     padding: 5px;
     /* padding-top:20px; */
@@ -11,7 +11,7 @@ header {
 
 
 header img{
-    filter: sepia();
+    /* filter: sepia(); */
     margin-left:0px;
     left: 0px;
 }

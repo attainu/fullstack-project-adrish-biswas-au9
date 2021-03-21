@@ -4,7 +4,8 @@ import axios from 'axios';
 import Logout from './Logout';
 import VehicleComponent from '../components/VehicleComponent';
 import VideoComponent from '../components/VideoComponent'
-const vehicle_url = 'https://studio-ghibli-universe-api.herokuapp.com/vehicles';
+import './Unimain.css'
+const vehicle_url = 'https://ghibli-json-server.herokuapp.com/vehicles';
 
 
 class Vehicle extends Component {

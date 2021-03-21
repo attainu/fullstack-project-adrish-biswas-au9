@@ -6,12 +6,13 @@ import HomeVehiclesGridDisplay from '../components/HomeVehiclesGridDisplay'
 import HomeTopDisplay from '../components/HomeTopDisplay';
 import SearchBar from '../components/SearchBar';
 import axios from 'axios';
+import './Unimain.css'
 
 
-const filmsUrl = 'https://studio-ghibli-universe-api.herokuapp.com/films';
-const characters_url = 'https://studio-ghibli-universe-api.herokuapp.com/characters';
-const locations_url = 'https://studio-ghibli-universe-api.herokuapp.com/locations';
-const vehicles_url = 'https://studio-ghibli-universe-api.herokuapp.com/vehicles';
+const filmsUrl = 'https://ghibli-json-server.herokuapp.com/films';
+const characters_url = 'https://ghibli-json-server.herokuapp.com/characters';
+const locations_url = 'https://ghibli-json-server.herokuapp.com/locations';
+const vehicles_url = 'https://ghibli-json-server.herokuapp.com/vehicles';
 class Home extends Component {
     constructor() {
         super()
@@ -63,6 +64,8 @@ class Home extends Component {
         if (sessionStorage.getItem('email') == null) {
             this.props.history.push('/')
         }
+        
+        
         return (
             <>
                 <HomeTopDisplay filmslist={this.state.films_filtered} />

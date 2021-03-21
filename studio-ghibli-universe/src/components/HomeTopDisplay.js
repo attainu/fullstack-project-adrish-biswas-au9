@@ -45,21 +45,29 @@ const HomeTopDisplay = (props) => {
     }
     return (
         <>
-            <center class='slider_container'>
+            <center class='slider_container main'>
                 <Slider {...settings}>
                     {slick(props.filmslist)}
                 </Slider>
             </center>
-            <div className='HomeDescription'>
+            <div className='HomeDescription main'>
                 <center>
+                <br/>
                     <h2>Studio Ghibli Universe</h2>
-                    <p>
-                        One of the most acclaimed studios in the world, Studio Ghibli is the home of some of the most revered and beloved animated works to have ever graced the screen.
-                    </p>
-                    <br />
-                    <p>
-                        The Studio Ghibli catalogue is now available to buy along with all it's merchandise of characters, vehicles, and locations. Click on your favourite tag below to order.
-                    </p>
+                    <h6>
+                        One of the most acclaimed studios in the world.
+                    </h6>
+                    
+                    <h6>
+                        Studio Ghibli is the home of some of the most revered and beloved animated works to have ever graced the screen.
+                    </h6>
+                    
+
+                    <h6>
+                        The Studio Ghibli catalogue is now available to buy along with all it's merchandise of characters, vehicles, and iconic locations.
+                    </h6>
+
+                    <br/>
                 </center>
             </div>
             <br />

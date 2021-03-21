@@ -1,8 +1,13 @@
 div#footer{
-    background-color: #100d04;
+    background-color: #0f78af;
     color: #cccdb4;
-    padding: 100px;
+    padding: 80px;
     /* margin-top: 50px; */
     font-size: 14px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
+.main {
+     
+    padding: 0px 10px;
+  }
+  

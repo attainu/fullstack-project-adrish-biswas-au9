@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import WishlistDisplay from '../components/WishlistDisplay';
 import { wishlist } from '../actions/actionfile';
 import { connect } from 'react-redux';
+import './Unimain.css'
 //import axios from 'axios';
-//const wishlist_url = "https://studio-ghibli-universe-api.herokuapp.com/wishlist";
+//const wishlist_url = "https://ghibli-json-server.herokuapp.com/wishlist";
 
 class Wishlist extends Component {
     // constructor() {

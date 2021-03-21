@@ -5,14 +5,14 @@ import ReactPlayer from 'react-player'
 function VideoComponent(props) {
   return (
     <>
-      <div className="VideoComponent" style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#716944', padding: '20px' }}>
-        <div style={{ display: 'inline-block', justifyContent: 'right', backgroundColor: '#716944', padding: '20px', color: '#cccdb4' }}>
+      <div className="VideoComponent" style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#111', padding: '20px' }}>
+        <div style={{ display: 'inline-block', justifyContent: 'right', backgroundColor: '#111', padding: '20px', color: '#cccdb4' }}>
 
-          <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal" style={{ backgroundColor: '#2b250f', color: '#cccdb4', padding: '10px 30px 10px 30px', fontFamily: 'Lora', margin: '10px' }}>
+          <button type="button" class="btn " data-toggle="modal" data-target="#exampleModal" style={{ backgroundColor: '#1278a8', color: '#cccdb4', padding: '10px 30px 10px 30px', fontFamily: 'Lora', margin: '10px' }}>
             Watch Trailer
           </button>
 
-          <button type="button" class="btn  " data-toggle="modal" data-target="#exampleModalTwo" style={{ backgroundColor: '#2b250f', color: '#cccdb4', padding: '10px 30px 10px 30px', fontFamily: 'Lora', margin: '10px' }}>
+          <button type="button" class="btn  " data-toggle="modal" data-target="#exampleModalTwo" style={{ backgroundColor: '#1278a8', color: '#cccdb4', padding: '10px 30px 10px 30px', fontFamily: 'Lora', margin: '10px' }}>
             Watch Movie
           </button>
 
@@ -37,8 +37,6 @@ function VideoComponent(props) {
           </div>
         </div>
       </div>
-
-
 
 
 

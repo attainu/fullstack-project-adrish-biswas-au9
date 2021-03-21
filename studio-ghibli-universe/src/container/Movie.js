@@ -3,8 +3,9 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { wishlist } from '../actions/actionfile';
 import MovieComponent from '../components/MovieComponent';
-const filmsUrl = 'https://studio-ghibli-universe-api.herokuapp.com/films';
-//const wishlist_url = 'https://studio-ghibli-universe-api.herokuapp.com/wishlist';
+import './Unimain.css'
+const filmsUrl = 'https://ghibli-json-server.herokuapp.com/films';
+//const wishlist_url = 'https://ghibli-json-server.herokuapp.com/wishlist';
 
 class Movie extends Component {
   constructor(props) {

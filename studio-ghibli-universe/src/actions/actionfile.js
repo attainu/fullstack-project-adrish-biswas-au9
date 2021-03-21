@@ -1,4 +1,4 @@
-const base_url ="https://studio-ghibli-universe-api.herokuapp.com"
+const base_url ="https://ghibli-json-server.herokuapp.com"
 
 
 export function wishlist(){

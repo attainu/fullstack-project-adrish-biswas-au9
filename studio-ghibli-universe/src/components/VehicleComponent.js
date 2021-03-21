@@ -19,9 +19,9 @@ const VehicleComponent = (props) => {
 
           <div className='container'>
 
-            <div className="row " style={{ margin: '80px 0px 80px 0px', color: '#716944' }}>
+            <div className="row " style={{ margin: '80px 0px 80px 0px', color: '#1daeed' }}>
               <div className="col-xs-5 col-sm-6 col-lg-3">
-                <div ><img className='vehicle_banner' src={vehicledetails.image_url} alt='vehicle_poster' style={{ border: '3px solid #716944 ' }}></img><br />
+                <div ><img className='vehicle_banner' src={vehicledetails.image_url} alt='vehicle_poster' style={{ border: '3px solid #1daeed ' }}></img><br />
                   <div style={{ textAlign: 'left' }}>{vehicledetails.name}</div>
                 </div>
 
@@ -64,9 +64,9 @@ const VehicleComponent = (props) => {
 
   return (
     <>
-      <div>{vehicle_info(props)}</div>
+      <div className="main">{vehicle_info(props)}</div>
 
-      <div style={{ margin: '10px' }}>
+      <div  style={{ margin: '10px' }}>
 
 
 
@@ -75,7 +75,7 @@ const VehicleComponent = (props) => {
 
             </div>
 
-            <div className="vehicle_tile" id='vehicle _page_vehicle'>
+            <div className="vehicle_tile main" id='vehicle _page_vehicle'>
                 <h4 style={{ marginLeft: '20px' }}>Appeared In </h4>
                 <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                 {vehicle_tile(props.vehicledetails)}

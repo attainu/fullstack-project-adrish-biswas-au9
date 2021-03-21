@@ -30,19 +30,23 @@ class SearchBar extends Component {
         return (
             <React.Fragment>
                 <header id={`${this.props.category}_search`}>
-                    <div className='Search_conatiner' id={`${this.props.category}s_heading`}>
+                    <div className='Search_conatiner main' style={{textAlign:'left',paddingTop: '70px'}} id={`${this.props.category}s_heading`}>
                         <div>{this.state.title}</div>
                        
                         <input onFocus={this.focusHandler} onBlur={this.focusOutHandler} onChange={this.inputHandler} value={this.state.search} style={{
                             fontSize: '20px',
-                            fontFamily: 'Times New Roman', color: '#504721',
-                            border: '0.1px solid #504721',
-                            backgroundColor: '#ffe5b2',
-                            borderRadius: '20px',
+                            fontFamily: 'Times New Roman', color: '#111',
+                            // border: '0.5px solid #0f78af',
+                            borderBottom:'5px solid #0f78af',
+                            border: 'none',
+                            backgroundColor: '',
+                            // borderRadius: '5px',
+                            
+
                             outline: 'none',
                             padding: '15px',
-                            margin: '0px',
-                            width: '400px',
+                            marginTop: '10px',
+                            width: '100%',
                             height: '45px'
                         }} />
                         

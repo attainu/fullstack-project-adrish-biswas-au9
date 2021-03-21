@@ -11,11 +11,14 @@ import Character from './container/Character';
 import Location from './container/Location';
 import Vehicle from './container/Vehicle';
 import Wishlist from './container/Wishlist';
+import SideBar from './components/SideBar';
 
 const Routing = () => {
     return (
         <BrowserRouter>
           <Header />
+          <SideBar/>
+
           <Route exact path='/' component={SignupComponent} />
           <Route path='/logincomponent' component={LoginComponent}/>
           <Route path="/home" component={Home}/>

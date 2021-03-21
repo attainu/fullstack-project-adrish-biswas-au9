@@ -4,7 +4,7 @@ import { wishlist_add, wishlist_delete } from '../actions/actionfile';
 import './MovieComponent.css';
 import VideoComponent from './VideoComponent'
 import { HashLink } from 'react-router-hash-link';
-//const wishlist_url = 'https://studio-ghibli-universe-api.herokuapp.com/wishlist';
+//const wishlist_url = 'https://ghibli-json-server.herokuapp.com/wishlist';
 
 class MovieComponent extends Component{
     handleSubmit = () => {
@@ -52,9 +52,9 @@ class MovieComponent extends Component{
 
                     <div id="movie_page_navbar" className='container'>
 
-                        <div className="row " style={{ margin: '80px 0px 80px 0px', color: '#716944' }}>
+                        <div className="row " style={{ margin: '80px 0px 80px 0px'}}>
                             <div className="col-xs-5 col-sm-6 col-lg-3">
-                                <div ><img className='movie_banner' src={moviedetails.image_url} alt='movie_poster' style={{ border: '3px solid #716944 ' }}></img><br />
+                                <div ><img className='movie_banner' src={moviedetails.image_url} alt='movie_poster' style={{ border: '3px solid #1daeed ' }}></img><br />
                                     <div style={{ textAlign: 'left' }}>{moviedetails.title}</div>
                                 </div>
 
@@ -129,7 +129,7 @@ class MovieComponent extends Component{
             return moviedetails.video_buy.map((item) => {
                 return (
                     <>
-                        <div className="card mb-3 card movie_p_c" style={{ maxWidth: '370px', backgroundColor: '#716944' }}>
+                        <div className="card mb-3 card movie_p_c" style={{ maxWidth: '370px', backgroundColor: '#1daeed' }}>
                             <div className="row no-gutters">
                                 <div className="col-md-4">
                                     <img src={item.image_url} className="card-img" alt="product_image" />
@@ -155,7 +155,7 @@ class MovieComponent extends Component{
             return moviedetails.merch_buy.map((item) => {
                 return (
                     <>
-                        <div className="card mb-3 card movie_p_c" style={{ maxWidth: '370px', backgroundColor: '#716944' }}>
+                        <div className="card mb-3 card movie_p_c" style={{ maxWidth: '370px', backgroundColor: '#1daeed' }}>
                             <div className="row no-gutters">
                                 <div className="col-md-4">
                                     <img src={item.image_url} className="card-img" alt="product_image" />
@@ -178,7 +178,8 @@ class MovieComponent extends Component{
     render(){
         return (
             <>
-                <div>{this.movie_info(this.props)}</div>
+            <div className='main'>
+                <div >{this.movie_info(this.props)}</div>
     
                 <div style={{ margin: '10px' }}>
     
@@ -229,6 +230,7 @@ class MovieComponent extends Component{
                     <hr style={{ backgroundColor: '#cccdb4', height: '1px', marginLeft: '10px', marginRight: '10px' }}></hr>
                     {this.collectables(this.props.moviedetails)}
                     <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+                </div>
                 </div>
             </>
     

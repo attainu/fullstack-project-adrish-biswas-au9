@@ -7,10 +7,11 @@ import { HashLink } from 'react-router-hash-link';
 const HomeMovieGridDisplay = (props) => {
     
     const display = (filmslist) => {
+        let count =1
         if (filmslist) {
             const snippet=(filmslist.length > 4) ?
             (
-                <div >Slide the horizontal scroll bar to see the entire list.</div>
+                <div ></div>
             ) :
             (
                 <div ></div>
@@ -26,35 +27,41 @@ const HomeMovieGridDisplay = (props) => {
                 )
             }
             return filmslist.map((item, index) => {
+                count  += 1
+
                 const movieRoute = '/films/' + item.id + '#top';
-                if (index === 0) {
-                    return (
-                        <>
-                            
-                            <div id="movie_first" className='movie_poster_container'>
-                            {snippet}
-                                <HashLink to={movieRoute}><img className='movie_poster' src={item.image_url} alt='movie_poster'></img></HashLink>
-                                <br />
+                if (count <= 5){
+                    if (index === 0) {
+                        return (
+                            <>
+                                
+                                <div id="movie_first" className='movie_poster_container'>
+                                {snippet}
+                                    <HashLink to={movieRoute}><img className='movie_poster' src={item.image_url} alt='movie_poster'></img></HashLink>
+                                    <br />
+                                    <center>{item.title}</center>
+                                </div>
+                            </>
+                        )
+                    }
+                    else {
+                        return (
+                            <div className='movie_poster_container'>
+                                <HashLink to={movieRoute}><img className='movie_poster' src={item.image_url} alt='movie_poster'></img><br /></HashLink>
                                 <center>{item.title}</center>
                             </div>
-                        </>
-                    )
+                        )
+                    }
+                    
                 }
-                else {
-                    return (
-                        <div className='movie_poster_container'>
-                            <HashLink to={movieRoute}><img className='movie_poster' src={item.image_url} alt='movie_poster'></img><br /></HashLink>
-                            <center>{item.title}</center>
-                        </div>
-                    )
-                }
+
             })
         }
 
     }
 
     return (
-        <div className="Home_sub_containers">
+        <div className="Home_sub_containers main">
             <div className="container" >
                
 

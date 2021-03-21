@@ -53,7 +53,7 @@ const HomeVehiclesGridDisplay = (props) => {
     }
 
     return (
-        <div className="Home_sub_containers">
+        <div className="Home_sub_containers main">
             <div className="container" >
                 <div className="movie_grid">
                     {display(props.vehicleslist)}

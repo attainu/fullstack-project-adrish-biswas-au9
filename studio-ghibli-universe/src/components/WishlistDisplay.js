@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { wishlist_delete } from '../actions/actionfile';
 import { HashLink } from 'react-router-hash-link';
 
-//const wishlist_url = "https://studio-ghibli-universe-api.herokuapp.com/wishlist";
+//const wishlist_url = "https://ghibli-json-server.herokuapp.com/wishlist";
 
 
 class WishlistDisplay extends Component {
@@ -78,7 +78,7 @@ class WishlistDisplay extends Component {
         }
 
         return (
-            <div className="container" style={{ paddingTop: '50px' }}>
+            <div className="container main" style={{ paddingTop: '50px' }}>
                 <h3 className='wishlist_heading'>{sessionStorage.getItem('name')}'s Ghibli Universe</h3>
                 { object }
             </div >

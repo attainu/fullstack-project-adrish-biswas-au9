@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import CharacterComponent from '../components/CharacterComponent';
+import './Unimain.css'
 import VideoComponent from '../components/VideoComponent'
-const characters_url = 'https://studio-ghibli-universe-api.herokuapp.com/characters';
+const characters_url = 'https://ghibli-json-server.herokuapp.com/characters';
 
 
 class Character extends Component {

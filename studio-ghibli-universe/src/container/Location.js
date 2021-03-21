@@ -4,7 +4,8 @@ import axios from 'axios';
 import Logout from './Logout';
 import LocationComponent from '../components/LocationComponent';
 import VideoComponent from '../components/VideoComponent'
-const location_url = 'https://studio-ghibli-universe-api.herokuapp.com/locations';
+import './Unimain.css'
+const location_url = 'https://ghibli-json-server.herokuapp.com/locations';
 
 
 class Location extends Component {
