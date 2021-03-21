@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { wishlist } from '../actions/actionfile';
 import MovieComponent from '../components/MovieComponent';
 const filmsUrl = 'https://studio-ghibli-universe-api.herokuapp.com/films';
-const wishlist_url = 'https://studio-ghibli-universe-api.herokuapp.com/wishlist';
+//const wishlist_url = 'https://studio-ghibli-universe-api.herokuapp.com/wishlist';
 
 class Movie extends Component {
   constructor(props) {
@@ -18,29 +20,58 @@ class Movie extends Component {
   async getMovieDetails() {
     const { data: resp } = await axios.get(`${filmsUrl}/${this.props.match.params.id}`)
     this.setState({ movie: resp })
-    axios.get(wishlist_url)
-      .then((response) => {
+    await this.props.dispatch(wishlist())
 
-        response.data.map((item) => {
-          if (item.email === sessionStorage.getItem('email') && item.moviename === resp.title) {
-            this.setState({ in_wishlist: true, wishlist_movie_id: item.id });
-          }
-        })
-      })
+    console.log(this.props.wishlist)
+
+
+    //axios.get(wishlist_url)
+
+    // .then((response) => {
+
+
+    //})
   }
   render() {
-    console.log(this.state, 'inside render')
+    let in_wishlist = false;
+    let wishlist = {};
+    console.log(this.props.wishlist, 'inside render')
+    if (this.props.wishlist) {
+      this.props.wishlist.map((item) => {
+        if (item.email === sessionStorage.getItem('email') && item.moviename === this.state.movie.title) {
+          in_wishlist = true;
+          wishlist = item;
+        }
+      })
+    }
+    console.log(in_wishlist, 'inside render')
+    console.log(wishlist, 'inside render')
     return (
       <>
         {/* <Logout history={this.props.history} /> */}
-        <MovieComponent moviedetails={this.state.movie} in_wishlist={this.state.in_wishlist} wishlist_movie_id={this.state.wishlist_movie_id} />
+        <MovieComponent moviedetails={this.state.movie} in_wishlist={in_wishlist} wishlist={wishlist} />
       </>
     )
   }
+
   componentDidMount() {
     this.getMovieDetails()
+    // axios.get(`${filmsUrl}/${this.props.match.params.id}`)
+    //   .then((response) => {
+    //     this.setState({ movie: response.data })
+
+    //   })
+
   }
 
 }
 
-export default Movie;
+function mapStateToProps(state) {
+  console.log(state.wishlist)
+  return {
+    wishlist: state.wishlist
+  }
+
+}
+
+export default connect(mapStateToProps)(Movie);

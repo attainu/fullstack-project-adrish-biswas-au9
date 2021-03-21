@@ -1,22 +1,53 @@
-const base_url ="http://localhost:8900"
+const base_url ="https://studio-ghibli-universe-api.herokuapp.com"
 
-export function latestNews(){
-    const output = fetch(`${base_url}/articles?_end=3`,{method:'GET'})
+
+export function wishlist(){
+    const output = fetch(`${base_url}/wishlist`,{method:'GET'})
     .then((data) => data.json())
 
     return{
-        type:'LATEST_NEWS',
+        type:'WISHLIST',
         payload:output
     }
 }
 
-export function articleNews(){
-    const output = fetch(`${base_url}/articles?_start=3&_end=10`,{method:'GET'})
-    .then((data) => data.json())
+export function wishlist_add(obj){
+    fetch(`${base_url}/wishlist`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
 
+        body: JSON.stringify(obj)
+        
+    })
+    .then((data) => data.json())
+    const output = fetch(`${base_url}/wishlist`,{method:'GET'})
+    .then((data) => data.json())
+    console.log(output,'inside action file')
     return{
-        type:'ARTICLE_NEWS',
-        payload:output
+        type:'WISHLIST_ADD',
+        payload:obj
+    }
+}
+
+export function wishlist_delete(wishlist){
+    fetch(`${base_url}/wishlist/${wishlist.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json'
+        },
+
+
+    })
+    .then((data) => data.json())
+    // const output = fetch(`${base_url}/wishlist/${wishlist.id}`,{method:'GET'})
+    // .then((data) => data.json())
+    console.log(wishlist,'inside action file')
+    return{
+        type:'WISHLIST_DELETE',
+        payload:wishlist
     }
 }
 
@@ -26,7 +57,7 @@ export function galleryNews(){
 
     return {
         type:'GALLERY_NEWS',
-        payload:output
+        payload: output
     }
 }
 
