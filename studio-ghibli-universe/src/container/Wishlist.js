@@ -25,16 +25,15 @@ class Wishlist extends Component {
         //console.log(response.data)
     }
     render() {
+        if (sessionStorage.getItem('email') === null) {
+            this.props.history.push('/')
+        }
         let filtering='';
         if (this.props.wishlist) {
             filtering = this.props.wishlist.filter((item) => {
                 return sessionStorage.getItem('email') === item.email
             })
         }
-        if (sessionStorage.getItem('email') === null) {
-            this.props.history.push('/')
-        }
-
         return (
             
             <div className="container">
