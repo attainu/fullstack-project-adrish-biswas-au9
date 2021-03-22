@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from "react-router";
 
-const Logout = () => {
+const Logout = (props) => {
     const logout = () => {
         localStorage.removeItem('user')
         sessionStorage.removeItem('email')
         sessionStorage.removeItem('name')
         localStorage.setItem("isloggedin", false);
-        this.props.history.push('/')
+        props.history.push('/')
     }
     return (
         <>
