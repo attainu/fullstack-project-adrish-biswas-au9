@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import GoogleLoginN from './GoogleLoginN';
 
-
-const burl = "http://localhost:5000/api/auth/register";
+const burl = "https://studio-ghibli-universe-backend.herokuapp.com/api/auth/register";
 
 class SignupComponent extends Component {
   constructor() {
@@ -29,7 +29,7 @@ class SignupComponent extends Component {
     this.setState({ role: event.target.value })
   }
   handleSubmit = () => {
-    console.log(this.state)
+    //console.log(this.state)
     fetch(burl, {
       method: 'POST',
       headers: {
@@ -59,7 +59,8 @@ class SignupComponent extends Component {
 
             <div class="col">
 
-              <div style={{ textAlign: 'right' }}><h5  style={{ margin: '10px', color: '#cccdb4', display: 'inline-block' }}>JWT</h5>
+              <div style={{ textAlign: 'right' }}>
+                {/* <h5  style={{ margin: '10px', color: '#cccdb4', display: 'inline-block' }}>JWT</h5> */}
 
                 <NavLink to='./LoginComponent'><button className="btn" style={{ margin: '10px', backgroundColor: '#2b250f', color: '#cccdb4', display: 'inline-block' }}>LOGIN </button></NavLink>
                 <NavLink to='./'><button className="btn " style={{ backgroundColor: '#2b250f', color: '#cccdb4', display: 'inline-block' }} > SIGNUP</button></NavLink>
@@ -104,6 +105,7 @@ class SignupComponent extends Component {
                         onChange={this.handleChangePassword} required />
                     </div>
                     <button className="btn btn-info" onClick={this.handleSubmit}>Signup</button>
+                    <div style={{padding:'5px'}}><GoogleLoginN /></div>
                     
                   </div>
                 </div>

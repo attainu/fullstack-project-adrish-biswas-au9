@@ -20,7 +20,9 @@ class GoogleLoginN extends React.Component {
     if(user){
       this.setState({
         loggedIn: true
+        
       });
+      this.props.history.push('/home');
     }
   }
   responseGoogle = (response) => {
@@ -52,29 +54,14 @@ class GoogleLoginN extends React.Component {
     }
   }
 
-  logout=()=>{
-    localStorage.removeItem('user')
-    sessionStorage.removeItem('email')
-    sessionStorage.removeItem('name')
-    this.setState ({
-      loggedIn: false
-    })
-    this.props.history.push('/')
-  }
+  
   render() {
 
     return (
       <div>
-      {
-        this.state.loggedIn &&
-        <>
-          
-          <button className='btn' onClick={this.logout} style={{width:'95px', height:'46px', backgroundColor:'white', fontFamily:'Nora', color:'grey'}}><img alt ='g logo' src="https://img.icons8.com/small/16/000000/google-logo.png" style={{display:'inlineBlock', paddingRight:'3px'}}/>Logout</button>
-
-        </>
-      }
-        {
-          !this.state.loggedIn &&
+      
+        
+          {/* !this.state.loggedIn && */}
           <GoogleLogin
           clientId="827339527611-lkbcb6n0msqjpbrhv0ldqskfqkvk6b2h.apps.googleusercontent.com"
           buttonText="Login"
@@ -82,10 +69,9 @@ class GoogleLoginN extends React.Component {
           onFailure={this.responseGoogle}
           cookiePolicy={'single_host_origin'}
         />
-        }
+        
       </div>
     );
   }
 }
 export default withRouter(GoogleLoginN)
-
