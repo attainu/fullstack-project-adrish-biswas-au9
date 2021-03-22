@@ -20,31 +20,25 @@ const Header = () => {
           <li className="nav-item nav-item active" >
             <HashLink className="nav-link" id="home-link" 
               to="/home#Movies_heading"
-            >The Films
+            >Community
             <span className="sr-only">(current)</span>
             </HashLink>
           </li>
           <li className="nav-item nav-item active" >
             <HashLink className="nav-link" id="home-link" 
               to="/home#Characters_heading"
-            >Characters
+            >Shopping
             <span className="sr-only">(current)</span>
             </HashLink>
           </li>
           <li className="nav-item nav-item active" >
             <HashLink className="nav-link" id="home-link" 
               to="/home#Locations_heading"
-            >Locations
+            >Upgrade
             <span className="sr-only">(current)</span>
             </HashLink>
           </li>
-          <li className="nav-item nav-item active" >
-            <HashLink className="nav-link" id="home-link" 
-              to="/home#Vehicles_heading"
-            >Vehicles
-            <span className="sr-only">(current)</span>
-            </HashLink>
-          </li>
+          
           <li className="nav-item nav-item active" >
             <HashLink className="nav-link" id="home-link" 
               to="/wishlist#top"
