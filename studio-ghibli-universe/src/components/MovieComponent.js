@@ -6,9 +6,9 @@ import VideoComponent from './VideoComponent'
 import { HashLink } from 'react-router-hash-link';
 //const wishlist_url = 'https://ghibli-json-server.herokuapp.com/wishlist';
 
-class MovieComponent extends Component{
+class MovieComponent extends Component {
     handleSubmit = () => {
-        
+
         if (this.props.in_wishlist === true) {
             this.props.dispatch(wishlist_delete(this.props.wishlist))
             alert("Removed from wishlist!")
@@ -23,7 +23,7 @@ class MovieComponent extends Component{
                 username: sessionStorage.getItem('name'),
                 date: new Date().toDateString()
             }))
-            
+
             alert("Added to wishlist!")
         }
 
@@ -34,10 +34,10 @@ class MovieComponent extends Component{
         if (moviedetails) {
             const object = (this.props.in_wishlist === false) ?
                 (
-                    <div style={{ filter: 'sepia()' }}><button type="button" class="btn" onClick={this.handleSubmit}> <img alt='wishlist' src="https://img.icons8.com/cute-clipart/64/000000/wish-list.png"/></button></div>
+                    <div > <img alt='wishlist' onClick={this.handleSubmit} src="https://img.icons8.com/officel/80/000000/like--v2.png"/></div>
                 ) :
                 (
-                    <div style={{  filter: 'grayscale()' }}><button type="button" class="btn" onClick={this.handleSubmit}> <img alt='remove_from_wishlist' src="https://img.icons8.com/flat_round/64/000000/remove-document.png" /></button></div>
+                    <div > <img alt='remove_wishlist' onClick={this.handleSubmit} src="https://img.icons8.com/office/80/000000/like--v1.png"/></div>
                 );
 
             return (
@@ -46,13 +46,13 @@ class MovieComponent extends Component{
 
                     <VideoComponent video={moviedetails.trailer_url} movie={moviedetails.video_url} />
 
-                    
+
 
 
 
                     <div id="movie_page_navbar" className='container'>
 
-                        <div className="row " style={{ margin: '80px 0px 80px 0px'}}>
+                        <div className="row " style={{ margin: '80px 0px 80px 0px' }}>
                             <div className="col-xs-5 col-sm-6 col-lg-3">
                                 <div ><img className='movie_banner' src={moviedetails.image_url} alt='movie_poster' style={{ border: '3px solid #1daeed ' }}></img><br />
                                     <div style={{ textAlign: 'left' }}>{moviedetails.title}</div>
@@ -175,69 +175,69 @@ class MovieComponent extends Component{
             })
         }
     }
-    render(){
+    render() {
         return (
             <>
-            <div className='main'>
-                <div >{this.movie_info(this.props)}</div>
-    
-                <div style={{ margin: '10px' }}>
-    
-    
-                    <div className="row" style={{ textAlign: 'center', padding: '15px', backgroundColor: '#2b250f' }}>
-                        <div className="col-sm-2 movie_page_navigation"><a className = "movie_categories_link" href="#movie_page_character" ><h6>Characters</h6></a ></div>
-                        <div className="col-sm-2 movie_page_navigation"><a className = "movie_categories_link" href="#movie_page_location"><h6>Locations</h6></a ></div>
-                        <div className="col-sm-2 movie_page_navigation"><a className = "movie_categories_link" href="#movie_page_vehicle"><h6>Vehicles</h6></a ></div>
-                        <div className="col-sm-2 movie_page_navigation"><a className = "movie_categories_link" href="#officialprdct"><h6>Official Products</h6></a ></div>
-                        <div className="col-sm-2 movie_page_navigation"><a className = "movie_categories_link" href="#collectables"><h6>Collectables</h6></a ></div>
-    
+                <div className='main'>
+                    <div >{this.movie_info(this.props)}</div>
+
+                    <div style={{ margin: '10px' }}>
+
+
+                        <div className="row" style={{ textAlign: 'center', padding: '15px', backgroundColor: '#2b250f' }}>
+                            <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#movie_page_character" ><h6>Characters</h6></a ></div>
+                            <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#movie_page_location"><h6>Locations</h6></a ></div>
+                            <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#movie_page_vehicle"><h6>Vehicles</h6></a ></div>
+                            <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#officialprdct"><h6>Official Products</h6></a ></div>
+                            <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#collectables"><h6>Collectables</h6></a ></div>
+
+                        </div>
+                    </div>
+
+
+                    <h4 id='movie_page_character' style={{ marginLeft: '20px', paddingTop: '80px' }}>Characters</h4>
+                    <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                    <div className="character_tile scrollmenu" >
+                        {this.character_tile(this.props.moviedetails)}
+
+                    </div><br />
+                    <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+
+                    <div className="character_tile" >
+                        <h4 id='movie_page_location' style={{ marginLeft: '20px', paddingTop: '80px' }}>Locations</h4>
+                        <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                        {this.location_tile(this.props.moviedetails)}
+                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+                    </div>
+
+                    <div className="character_tile" id='movie_page_vehicle'>
+                        <h4 style={{ marginLeft: '20px', paddingTop: '80px' }}>Vehicles</h4>
+                        <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                        {this.vehicle_tile(this.props.moviedetails)}
+                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+                    </div>
+
+
+                    <div className="video_links" id="officialprdct" style={{ marginTop: '20px', paddingBottom: '30px', paddingTop: '80px', backgroundColor: '#2b250f' }}>
+                        <h4 style={{ backgroundColor: '#2b250f', color: '#cccdb4', padding: '30px 0px 0px 20px' }}>Official Products</h4>
+                        <hr style={{ backgroundColor: '#cccdb4', height: '1px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                        {this.merch(this.props.moviedetails)}
+                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+                    </div>
+
+                    <div className="video_links" id="collectables" style={{ paddingBottom: '30px', paddingTop: '80px', backgroundColor: '#2b250f' }}>
+                        <h4 style={{ backgroundColor: '#2b250f', color: '#cccdb4', padding: '30px 0px 0px 20px' }}>Collectables</h4>
+                        <hr style={{ backgroundColor: '#cccdb4', height: '1px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                        {this.collectables(this.props.moviedetails)}
+                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
                     </div>
                 </div>
-    
-    
-                <h4 id='movie_page_character' style={{ marginLeft: '20px', paddingTop:'80px'}}>Characters</h4>
-                <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
-                <div className="character_tile scrollmenu" >
-                    {this.character_tile(this.props.moviedetails)}
-    
-                </div><br/>
-                <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
-    
-                <div className="character_tile" >
-                    <h4 id='movie_page_location' style={{ marginLeft: '20px', paddingTop:'80px' }}>Locations</h4>
-                    <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
-                    {this.location_tile(this.props.moviedetails)}
-                    <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
-                </div>
-    
-                <div className="character_tile" id='movie_page_vehicle'>
-                    <h4 style={{ marginLeft: '20px', paddingTop:'80px' }}>Vehicles</h4>
-                    <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
-                    {this.vehicle_tile(this.props.moviedetails)}
-                    <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
-                </div>
-    
-    
-                <div className="video_links" id="officialprdct" style={{ marginTop: '20px', paddingBottom: '30px', paddingTop:'80px',backgroundColor: '#2b250f' }}>
-                    <h4 style={{ backgroundColor: '#2b250f', color: '#cccdb4', padding: '30px 0px 0px 20px' }}>Official Products</h4>
-                    <hr style={{ backgroundColor: '#cccdb4', height: '1px', marginLeft: '10px', marginRight: '10px' }}></hr>
-                    {this.merch(this.props.moviedetails)}
-                    <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
-                </div>
-    
-                <div className="video_links" id="collectables" style={{ paddingBottom: '30px',paddingTop:'80px', backgroundColor: '#2b250f' }}>
-                    <h4 style={{ backgroundColor: '#2b250f', color: '#cccdb4', padding: '30px 0px 0px 20px' }}>Collectables</h4>
-                    <hr style={{ backgroundColor: '#cccdb4', height: '1px', marginLeft: '10px', marginRight: '10px' }}></hr>
-                    {this.collectables(this.props.moviedetails)}
-                    <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
-                </div>
-                </div>
             </>
-    
+
         )
     }
-    
-    componentDidMount(){
+
+    componentDidMount() {
         // this.props.dispatch(latestNews())
         // this.props.dispatch(articleNews())
         // this.props.dispatch(galleryNews())

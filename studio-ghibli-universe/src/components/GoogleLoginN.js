@@ -17,10 +17,16 @@ class GoogleLoginN extends React.Component {
     }
   }
   componentDidMount() {
-    // const user = localStorage.getItem('user');
-    // if (user) {
-    //   this.props.history.push('/home');
-    // }
+    const user = localStorage.getItem('user');
+    
+    if (user) {
+      let obj = JSON.parse(user);
+      //user.json();
+      this.setState({loggedIn: true})
+      sessionStorage.setItem('email', obj.email);
+      sessionStorage.setItem('name', obj.name);
+      this.props.history.push('/home');
+    }
   }
   responseGoogle = (response) => {
     try {
@@ -34,10 +40,7 @@ class GoogleLoginN extends React.Component {
         name: response.profileObj.givenName,
         loggedIn: true
       })
-      const user = {
-        token: response.accessToken,
-        name: response.profileObj,
-      }
+      const user = this.state;
       localStorage.setItem('user', JSON.stringify(user));
       localStorage.setItem("isloggedin", true);
       sessionStorage.setItem('email', this.state.email);
