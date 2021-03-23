@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './SignupComponent.css'
+import GoogleLoginN from './GoogleLoginN';
 
-
-const burl = "http://localhost:5000/api/auth/register";
+const burl = "https://studio-ghibli-universe-backend.herokuapp.com/api/auth/register";
 
 class SignupComponent extends Component {
   constructor() {
@@ -12,10 +12,11 @@ class SignupComponent extends Component {
     this.state = {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   }
-
+  
   handleChangeName = (event) => {
     this.setState({ name: event.target.value })
   }
@@ -30,7 +31,7 @@ class SignupComponent extends Component {
     this.setState({ role: event.target.value })
   }
   handleSubmit = () => {
-    console.log(this.state)
+    //console.log(this.state)
     fetch(burl, {
       method: 'POST',
       headers: {
@@ -39,9 +40,26 @@ class SignupComponent extends Component {
       },
       body: JSON.stringify(this.state)
     })
-      .then(
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message == "Email already taken! Use another email!") {
+          this.setState({
+            name: '', email: '',
+            password: '', error: data.message
+          })
+        }
+        else{
+          this.props.history.push('/LoginComponent')
+        }
 
-        this.props.history.push('/LoginComponent'))
+      })
+      .catch((err, data) => {
+        this.setState({
+          name: '', email: '',
+          password: '', error: 'Email already taken!'
+        })
+      })
+    //.then(this.props.history.push('/LoginComponent'))
   }
   topFunction = () => {
     document.body.scrollTop = 0;
@@ -60,7 +78,8 @@ class SignupComponent extends Component {
 
           <div className="col-xs-5 col-sm-6 col-lg-4">
 
-              <div style={{ textAlign: 'right' }}><h5  style={{ margin: '10px', color: '#cccdb4', display: 'inline-block' }}>JWT</h5>
+              <div style={{ textAlign: 'right' }}>
+                {/* <h5  style={{ margin: '10px', color: '#cccdb4', display: 'inline-block' }}>JWT</h5> */}
 
                 <NavLink to='./LoginComponent'><button className="btn" style={{ margin: '10px', backgroundColor: '#1278a8', color: 'black', display: 'inline-block' }}>LOGIN </button></NavLink>
                 <NavLink to='./'><button className="btn " style={{ backgroundColor: '#1278a8', color: 'black', display: 'inline-block' }} > SIGNUP</button></NavLink>
@@ -87,7 +106,7 @@ class SignupComponent extends Component {
                   <h5 > Signup </h5>
                   <hr style={{ backgroundColor: 'black', height: '2px' }}></hr>
 
-
+                  <p style={{ color: '#c6461e' }}>{this.state.error}</p>
                   <div className="panel-body">
                     <div className="form-group">
                       <label className="control-label">Name</label>
@@ -104,8 +123,10 @@ class SignupComponent extends Component {
                       <input type="password" name="password" value={this.state.password} className="form-control"
                         onChange={this.handleChangePassword} required />
                     </div>
-                    <button className="but"  onClick={this.handleSubmit}>Signup</button>
-                    
+                    <button className="btn btn-info" onClick={this.handleSubmit}>Signup</button>
+                    <center><div style={{ padding: '5px' }}><GoogleLoginN /></div></center>
+
+
                   </div>
                 </div>
 
@@ -136,7 +157,7 @@ class SignupComponent extends Component {
 
           <div class="row">
             <div className="col-xs-7 col-sm-6 col-lg-8">
-               <br /> <br /> <br /> <br />
+              <br /> <br /> <br /> <br />
 
               <h5>Buy the wearables of your favorite choice and feel yourself elevated!</h5>
               <button className="btn btn-info" onClick={this.topFunction} >Get Started</button>
@@ -159,7 +180,7 @@ class SignupComponent extends Component {
 
             </div>
             <div className="col-xs-7 col-sm-6 col-lg-8"  >
-               <br /> <br />
+              <br /> <br />
 
               <h5>Collect Exclusive Action figures of your favorite character and brighten up your place and ofcourse your mood!</h5>
               <button className="btn btn-info" onClick={this.topFunction} >Get Started</button> <br />
@@ -167,7 +188,7 @@ class SignupComponent extends Component {
 
 
           </div>
-           <br />
+          <br />
         </div>
       </div>
 

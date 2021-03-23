@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import GoogleLoginN from './GoogleLoginN'
-import './LoginComponent.css'
-const burl = "http://localhost:5000/api/auth/login";
+import './LoginComponent.css';
+import axios from 'axios';
+const burl = "https://studio-ghibli-universe-backend.herokuapp.com/api/auth/login";
+
 
 class LoginComponent extends Component {
   constructor() {
@@ -44,13 +46,16 @@ class LoginComponent extends Component {
       .then((data) => {
 
         sessionStorage.setItem('email', this.state.email);
-        sessionStorage.setItem('_ltk', data.token);
-        this.props.history.push('/home')
+        sessionStorage.setItem('name', data.name);
+        localStorage.setItem('user', JSON.stringify(data));
+        localStorage.setItem("isloggedin", true);
+        this.props.history.push('/home');
       })
       .catch((err) => {
         this.setState({ error: "Invalid Credentials!!!" })
       })
   }
+
 
   topFunction = () => {
     document.body.scrollTop = 0;
@@ -71,9 +76,10 @@ class LoginComponent extends Component {
 
             <div className="col-xs-7 col-sm-6 col-lg-8"><h5>Welcome to Studio Ghibli Universe</h5></div>
             <div className="col-xs-5 col-sm-6 col-lg-4">
-              <div style={{ textAlign: 'right' }} ><h5  style={{ margin: '10px', color: 'white', display: 'inline-block' }}>JWT</h5>
-                <NavLink to='./LoginComponent'><button className='btn' style={{ margin: '10px', backgroundColor: '#1278a8', color: 'black', display: 'inline-block' }}>LOGIN </button></NavLink>
-                <NavLink to='./'><button className='btn' style={{ backgroundColor: '#1278a8', color: 'black', display: 'inline-block' }} > SIGNUP</button></NavLink>
+              <div style={{ textAlign: 'right' }} >
+                {/* <h5 style={{ margin: '10px', color: '#cccdb4', display: 'inline-block' }}>JWT</h5> */}
+                <NavLink to='./LoginComponent'><button className='btn' style={{ margin: '10px', backgroundColor: '#2b250f', color: '#cccdb4', display: 'inline-block' }}>LOGIN </button></NavLink>
+                <NavLink to='./'><button className='btn' style={{ backgroundColor: '#2b250f', color: '#cccdb4', display: 'inline-block' }} > SIGNUP</button></NavLink>
               </div>
             </div>
           </div>
@@ -106,13 +112,10 @@ class LoginComponent extends Component {
                       <input type="password" name="order_id" value={this.state.password} className="form-control"
                         onChange={this.handleChangePassword} required />
                     </div>
-                      {
-                        this.state.allowLogIn ? <button className="but" onClick={this.handleSubmit}>Login</button> : null
-                      }
-
-
-
-
+                    {
+                      this.state.allowLogIn ? <button className="btn btn-info" onClick={this.handleSubmit}>Login</button> : null
+                    }
+                    <center><div style={{padding:'5px'}}><GoogleLoginN /></div></center>
                   </div>
                 </div>
 

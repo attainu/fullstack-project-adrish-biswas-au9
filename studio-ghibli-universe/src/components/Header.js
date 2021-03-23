@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import "./Header.css"
 import { HashLink } from 'react-router-hash-link';
 import { NavHashLink } from 'react-router-hash-link';
-import GoogleLoginN from './GoogleLoginN'
+import Logout from './Logout';
 
 const Header = () => {
   return (
@@ -49,8 +49,8 @@ const Header = () => {
 
         </ul>
         
-        <div style={{padding:'5px'}}><GoogleLoginN /></div>
         
+        <div style={{padding:'5px'}}><Logout/></div>
 
         <HashLink to = '/home#top'><img style={{borderRadius: '5px' }} src="https://www.studioghibli.com.au/wp-content/uploads/2017/07/ghibli_logo_gold.png" width="100" height="46" id="header-image" className="d-inline-block align-bottom" alt="" loading="lazy" /></HashLink>
 
