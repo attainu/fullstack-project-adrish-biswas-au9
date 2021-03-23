@@ -1,0 +1,20 @@
+{
+  "name": "fullstack-project-adrish-biswas-au9",
+  "version": "1.0.0",
+  "description": "[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attainu/fullstack-project-adrish-biswas-au9.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attainu/fullstack-project-adrish-biswas-au9/issues"
+  },
+  "homepage": "https://github.com/attainu/fullstack-project-adrish-biswas-au9#readme"
+}
