@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import CharacterComponent from '../components/CharacterComponent';
+import Header from '../components/Header';
+import SideBar from '../components/SideBar'
 import './Unimain.css'
 import VideoComponent from '../components/VideoComponent'
 const characters_url = 'https://ghibli-json-server.herokuapp.com/characters';
@@ -24,6 +26,8 @@ class Character extends Component {
     console.log(this.state, 'inside render')
     return (
       <>
+      <Header />
+      <SideBar/>
         {/* <Logout history={this.props.history} /> */}
         <CharacterComponent characterdetails={this.state.character} />
 

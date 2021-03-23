@@ -4,6 +4,8 @@ import axios from 'axios';
 import Logout from './Logout';
 import LocationComponent from '../components/LocationComponent';
 import VideoComponent from '../components/VideoComponent'
+import Header from '../components/Header';
+import SideBar from '../components/SideBar'
 import './Unimain.css'
 const location_url = 'https://ghibli-json-server.herokuapp.com/locations';
 
@@ -25,7 +27,8 @@ class Location extends Component {
     console.log(this.state, 'inside render')
     return (
       <>
-        {/* <Logout history={this.props.history} /> */}
+      <Header />
+      <SideBar/>        {/* <Logout history={this.props.history} /> */}
         <LocationComponent locationdetails={this.state.location} />
 
 

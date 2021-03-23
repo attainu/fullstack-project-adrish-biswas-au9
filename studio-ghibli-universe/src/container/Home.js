@@ -7,6 +7,8 @@ import HomeTVGridDisplay from '../components/HomeTVGridDisplay';
 import HomeStageProductionGridDisplay from '../components/HomeStageProductionGridDisplay';
 import HomeTopDisplay from '../components/HomeTopDisplay';
 import SearchBar from '../components/SearchBar';
+import Header from '../components/Header';
+import SideBar from '../components/SideBar'
 import axios from 'axios';
 import './Unimain.css'
 
@@ -97,6 +99,8 @@ class Home extends Component {
         
         return (
             <>
+            <Header />
+            <SideBar/>
                 <HomeTopDisplay filmslist={this.state.films_filtered} />
                 <center>
                     <SearchBar category='Movie' filter={(input) => { this.changeHandler(input) }} />

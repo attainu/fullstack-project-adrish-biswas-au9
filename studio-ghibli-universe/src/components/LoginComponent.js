@@ -67,7 +67,7 @@ class LoginComponent extends Component {
   render() {
     return (
 
-      <div className="welcome_background main" >
+      <div className="welcome_background " style={{marginTop:'40px'}} >
 
         <div className="container" > <br />
           <div className="row ">
@@ -78,8 +78,8 @@ class LoginComponent extends Component {
             <div className="col-xs-5 col-sm-6 col-lg-4">
               <div style={{ textAlign: 'right' }} >
                 {/* <h5 style={{ margin: '10px', color: '#cccdb4', display: 'inline-block' }}>JWT</h5> */}
-                <NavLink to='./LoginComponent'><button className='btn' style={{ margin: '10px', backgroundColor: '#2b250f', color: '#cccdb4', display: 'inline-block' }}>LOGIN </button></NavLink>
-                <NavLink to='./'><button className='btn' style={{ backgroundColor: '#2b250f', color: '#cccdb4', display: 'inline-block' }} > SIGNUP</button></NavLink>
+                <NavLink to='./LoginComponent'><button className="btn" style={{ margin: '10px', backgroundColor: '#1278a8', color: 'black', display: 'inline-block' }}>LOGIN </button></NavLink>
+                <NavLink to='./'><button className="btn " style={{ backgroundColor: '#1278a8', color: 'black', display: 'inline-block' }} > SIGNUP</button></NavLink>
               </div>
             </div>
           </div>

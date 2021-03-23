@@ -69,7 +69,7 @@ class SignupComponent extends Component {
   render() {
     return (
 
-      <div className='welcome_background main' >
+      <div className='welcome_background' style={{marginTop:'40px'}} >
 
         <div class="container"> <br />
           <div class="row">

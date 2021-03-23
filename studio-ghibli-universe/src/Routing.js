@@ -5,7 +5,7 @@ import {Route} from 'react-router-dom'
 import Home from './container/Home'
 import {BrowserRouter} from 'react-router-dom';
 import Footer from './components/Footer';
-import Header from './components/Header';
+
 import Movie from './container/Movie';
 import Character from './container/Character';
 import Location from './container/Location';
@@ -16,8 +16,8 @@ import SideBar from './components/SideBar';
 const Routing = () => {
     return (
         <BrowserRouter>
-          <Header />
-          <SideBar/>
+          
+          
 
           <Route exact path='/' component={SignupComponent} />
           <Route path='/logincomponent' component={LoginComponent}/>
