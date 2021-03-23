@@ -113,7 +113,7 @@ class LoginComponent extends Component {
                         onChange={this.handleChangePassword} required />
                     </div>
                     {
-                      this.state.allowLogIn ? <button className="btn btn-info" onClick={this.handleSubmit}>Login</button> : null
+                      this.state.allowLogIn ? <button className="but" onClick={this.handleSubmit}>Login</button> : null
                     }
                     <center><div style={{padding:'5px'}}><GoogleLoginN /></div></center>
                   </div>

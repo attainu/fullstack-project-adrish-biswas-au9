@@ -13,7 +13,8 @@ class SignupComponent extends Component {
       name: '',
       email: '',
       password: '',
-      error: ''
+      error: '',
+      allowSignup: false
     }
   }
   
@@ -29,6 +30,16 @@ class SignupComponent extends Component {
   handleChangeRole = (event) => {
     // console.log(event.target.value);
     this.setState({ role: event.target.value })
+  }
+
+  componentDidUpdate() {
+    if (this.state.email && this.state.name && this.state.password && !this.state.allowSignup) {
+      this.setState({ allowSignup: true })
+    }
+    if ((!this.state.email || !this.state.password || !this.state.name) && this.state.allowSignup) {
+      this.setState({ allowSignup: false })
+    }
+    
   }
   handleSubmit = () => {
     //console.log(this.state)
@@ -115,7 +126,7 @@ class SignupComponent extends Component {
                     </div>
                     <div className="form-group">
                       <label className="control-label">Email</label>
-                      <input type="text" name="email" value={this.state.email} className="form-control"
+                      <input type="email" name="email" value={this.state.email} className="form-control"
                         required onChange={this.handleChangeEmail} />
                     </div>
                     <div className="form-group">
@@ -123,8 +134,11 @@ class SignupComponent extends Component {
                       <input type="password" name="password" value={this.state.password} className="form-control"
                         onChange={this.handleChangePassword} required />
                     </div>
-                    <button className="btn btn-info" onClick={this.handleSubmit}>Signup</button>
-                    <center><div style={{ padding: '5px' }}><GoogleLoginN /></div></center>
+                    {
+                      this.state.allowSignup ? <button className="but" onClick={this.handleSubmit}>Signup</button> : null
+                    }
+                    {/* <button className="but" onClick={this.handleSubmit}>Signup</button> */}
+                    <center><div  style={{ padding: '5px' }}><GoogleLoginN /></div></center>
 
 
                   </div>
