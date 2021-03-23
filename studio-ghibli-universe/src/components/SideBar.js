@@ -29,8 +29,19 @@ class SideBar extends React.Component {
             <span className="sr-only">(current)</span>
       </HashLink>
       <a href="#about">Graphic Novels</a>
-      <a href="#services">TV-Series</a>
-      <a href="#clients">Stage Productions</a>
+
+      <HashLink 
+        to="/home#Televisions_heading"
+      >TV-series
+            <span className="sr-only">(current)</span>
+      </HashLink>
+
+      <HashLink 
+        to="/home#StageProductions_heading"
+      >Stage Productions
+            <span className="sr-only">(current)</span>
+      </HashLink>
+      
       <a href="#contact">Video Games</a>
       <a href="#contact">Exibitions</a>
       <a href="#contact">Pre-Ghibli</a>

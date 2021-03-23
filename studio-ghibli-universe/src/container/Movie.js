@@ -3,6 +3,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { wishlist } from '../actions/actionfile';
 import MovieComponent from '../components/MovieComponent';
+import Header from '../components/Header';
+import SideBar from '../components/SideBar'
 import './Unimain.css'
 const filmsUrl = 'https://ghibli-json-server.herokuapp.com/films';
 //const wishlist_url = 'https://ghibli-json-server.herokuapp.com/wishlist';
@@ -49,6 +51,8 @@ class Movie extends Component {
     console.log(wishlist, 'inside render')
     return (
       <>
+      <Header />
+      <SideBar/>
         {/* <Logout history={this.props.history} /> */}
         <MovieComponent moviedetails={this.state.movie} in_wishlist={in_wishlist} wishlist={wishlist} />
       </>

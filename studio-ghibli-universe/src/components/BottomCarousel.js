@@ -5,7 +5,7 @@ import './BottomCarousel.css'
 const BottomCarousel = (props) => {
     return (
         <React.Fragment>
-            <div className="bottom_carousel" style={{ backgroundColor: 'black', padding: '20px' }}>
+            <div className="bottom_carousel main" style={{ backgroundColor: 'black', padding: '20px' }}>
                 <div className="row">
 
                     <div className="col-sm">

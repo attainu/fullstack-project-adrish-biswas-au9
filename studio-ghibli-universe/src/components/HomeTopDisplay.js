@@ -20,7 +20,7 @@ const HomeTopDisplay = (props) => {
                 return (
                     <>
                         <div class='slider' style={{ width: '100%', height: 1300, backgroundImage: `url(${item.image_url})` }} >
-                            <h3 id="HomeSlide1">{item.title}</h3>
+                            <h3 id="HomeSlide1" >{item.title}</h3>
                             <br />
                             <h4 id="HomeSlide2">Slide to see matching movie images</h4>
                             <br />

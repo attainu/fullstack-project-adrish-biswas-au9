@@ -4,7 +4,7 @@ import BottomCarousel from './BottomCarousel'
 const Footer = () => {
     return (
         <React.Fragment>
-            <div id="footer" className="main" style={{clear:'both'}}>
+            <div id="footer" style={{clear:'both'}}>
                 <BottomCarousel />
                 <br/>
                 <br/>
