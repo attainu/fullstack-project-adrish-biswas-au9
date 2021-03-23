@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
-import Logout from './Logout';
+//import Logout from './Logout';
 import VehicleComponent from '../components/VehicleComponent';
 import VideoComponent from '../components/VideoComponent'
 import './Unimain.css'
