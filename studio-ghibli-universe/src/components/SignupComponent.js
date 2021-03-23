@@ -15,7 +15,7 @@ class SignupComponent extends Component {
       error: ''
     }
   }
-
+  
   handleChangeName = (event) => {
     this.setState({ name: event.target.value })
   }

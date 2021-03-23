@@ -17,14 +17,10 @@ class GoogleLoginN extends React.Component {
     }
   }
   componentDidMount() {
-    const user = localStorage.getItem('user');
-    if (user) {
-      this.setState({
-        loggedIn: true
-
-      });
-      this.props.history.push('/home');
-    }
+    // const user = localStorage.getItem('user');
+    // if (user) {
+    //   this.props.history.push('/home');
+    // }
   }
   responseGoogle = (response) => {
     try {
@@ -63,6 +59,7 @@ class GoogleLoginN extends React.Component {
 
 
   render() {
+    
 
     return (
       <div>

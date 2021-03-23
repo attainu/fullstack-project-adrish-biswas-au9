@@ -18,4 +18,5 @@ const Logout = (props) => {
         </>
     )
 }
+
 export default withRouter(Logout);
