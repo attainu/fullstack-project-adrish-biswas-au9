@@ -11,7 +11,8 @@ class SignupComponent extends Component {
     this.state = {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   }
 
@@ -38,9 +39,15 @@ class SignupComponent extends Component {
       },
       body: JSON.stringify(this.state)
     })
-      .then(
-
-        this.props.history.push('/LoginComponent'))
+      .then((res) => res.json())
+      .then((data) => {
+        this.props.history.push('/LoginComponent')
+      })
+      .catch((err,data) => {
+        this.setState({name:'',email: '',
+        password: '', error: 'Email already taken!'})
+      })
+      //.then(this.props.history.push('/LoginComponent'))
   }
   topFunction = () => {
     document.body.scrollTop = 0;
@@ -87,7 +94,7 @@ class SignupComponent extends Component {
                   <h3 > Signup </h3>
                   <hr style={{ backgroundColor: '#2b250f', height: '2px' }}></hr>
 
-
+                  <p style={{ color: '#c6461e' }}>{this.state.error}</p>
                   <div className="panel-body">
                     <div className="form-group">
                       <label className="control-label">Name</label>

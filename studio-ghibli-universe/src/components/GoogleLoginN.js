@@ -4,23 +4,24 @@ import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login'
 import { withRouter } from "react-router";
 import { Link, Redirect } from "react-router-dom";
+const gurl = "https://studio-ghibli-universe-backend.herokuapp.com/api/auth/google";
 
 class GoogleLoginN extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       loggedIn: false,
-      email: "", 
+      email: "",
       name: ""
 
     }
   }
-  componentDidMount(){
+  componentDidMount() {
     const user = localStorage.getItem('user');
-    if(user){
+    if (user) {
       this.setState({
         loggedIn: true
-        
+
       });
       this.props.history.push('/home');
     }
@@ -28,11 +29,11 @@ class GoogleLoginN extends React.Component {
   responseGoogle = (response) => {
     try {
       console.log(response, 'props');
-      if (!response || !response.accessToken) { 
+      if (!response || !response.accessToken) {
         alert("sorry, login failed")
         return;
       }
-      this.setState ({
+      this.setState({
         email: response.profileObj.email,
         name: response.profileObj.givenName,
         loggedIn: true
@@ -45,31 +46,37 @@ class GoogleLoginN extends React.Component {
       localStorage.setItem("isloggedin", true);
       sessionStorage.setItem('email', this.state.email);
       sessionStorage.setItem('name', this.state.name);
-      
-      
-      
-      this.props.history.push('/home')
+      fetch(gurl, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.state)
+      })
+        .then(this.props.history.push('/home'))
+      //this.props.history.push('/home')
     } catch (error) {
       console.log('this is error', error)
     }
   }
 
-  
+
   render() {
 
     return (
       <div>
-      
-        
-          {/* !this.state.loggedIn && */}
-          <GoogleLogin
+
+
+        {/* !this.state.loggedIn && */}
+        <GoogleLogin
           clientId="827339527611-lkbcb6n0msqjpbrhv0ldqskfqkvk6b2h.apps.googleusercontent.com"
           buttonText="Login"
           onSuccess={this.responseGoogle}
           onFailure={this.responseGoogle}
           cookiePolicy={'single_host_origin'}
         />
-        
+
       </div>
     );
   }
