@@ -41,13 +41,24 @@ class SignupComponent extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        this.props.history.push('/LoginComponent')
+        if (data.message == "Email already taken! Use another email!") {
+          this.setState({
+            name: '', email: '',
+            password: '', error: data.message
+          })
+        }
+        else{
+          this.props.history.push('/LoginComponent')
+        }
+
       })
-      .catch((err,data) => {
-        this.setState({name:'',email: '',
-        password: '', error: 'Email already taken!'})
+      .catch((err, data) => {
+        this.setState({
+          name: '', email: '',
+          password: '', error: 'Email already taken!'
+        })
       })
-      //.then(this.props.history.push('/LoginComponent'))
+    //.then(this.props.history.push('/LoginComponent'))
   }
   topFunction = () => {
     document.body.scrollTop = 0;
@@ -82,7 +93,7 @@ class SignupComponent extends Component {
           <div className="row">
             <div className="col-xs-7 col-sm-6 col-lg-8">
               <img src={'https://wallpaperaccess.com/full/244846.jpg'} alt="Logo" width='100%' style={{ borderRadius: '10px' }} />
-               <br /> <br /><h3>Make your Studio Ghibli Account and watch the latest anime movies from our collection.</h3> <br /></div>
+              <br /> <br /><h3>Make your Studio Ghibli Account and watch the latest anime movies from our collection.</h3> <br /></div>
 
             <div class="col-xs-5 col-sm-6 col-lg-4" style={{ textAlign: 'right' }}>
 
@@ -112,8 +123,9 @@ class SignupComponent extends Component {
                         onChange={this.handleChangePassword} required />
                     </div>
                     <button className="btn btn-info" onClick={this.handleSubmit}>Signup</button>
-                    <div style={{padding:'5px'}}><GoogleLoginN /></div>
-                    
+                    <center><div style={{ padding: '5px' }}><GoogleLoginN /></div></center>
+
+
                   </div>
                 </div>
 
@@ -134,7 +146,7 @@ class SignupComponent extends Component {
               <img src={'https://images.saymedia-content.com/.image/t_share/MTc2MjQ0MzQ1NjQ3OTMyODQx/studio-ghibli-movies-and-films-on-netflix.jpg'} alt="Logo" width='300px' style={{ borderRadius: '5px', border: '3px solid #2b250f' }} />
             </div>
             <div className="col-xs-7 col-sm-6 col-lg-8 "  >
-               <br /> <br /> <br /> <br />
+              <br /> <br /> <br /> <br />
               <h3>Lookout for the highest rated movies, learn in detail about your favorite movies, characters, locations and vehicles</h3>
               <button className="btn btn-info" onClick={this.topFunction}>Get Started</button>
             </div>
@@ -144,7 +156,7 @@ class SignupComponent extends Component {
 
           <div class="row">
             <div className="col-xs-7 col-sm-6 col-lg-8">
-               <br /> <br /> <br /> <br />
+              <br /> <br /> <br /> <br />
 
               <h3>Buy the wearables of your favorite choice and feel yourself elevated!</h3>
               <button className="btn btn-info" onClick={this.topFunction} >Get Started</button>
@@ -167,7 +179,7 @@ class SignupComponent extends Component {
 
             </div>
             <div className="col-xs-7 col-sm-6 col-lg-8"  >
-               <br /> <br />
+              <br /> <br />
 
               <h3>Collect Exclusive Action figures of your favorite character and brighten up your place and ofcourse your mood!</h3>
               <button className="btn btn-info" onClick={this.topFunction} >Get Started</button> <br />
@@ -175,7 +187,7 @@ class SignupComponent extends Component {
 
 
           </div>
-           <br />
+          <br />
         </div>
       </div>
 

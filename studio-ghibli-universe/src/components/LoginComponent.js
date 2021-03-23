@@ -115,7 +115,7 @@ class LoginComponent extends Component {
                     {
                       this.state.allowLogIn ? <button className="btn btn-info" onClick={this.handleSubmit}>Login</button> : null
                     }
-                    <div style={{padding:'5px'}}><GoogleLoginN /></div>
+                    <center><div style={{padding:'5px'}}><GoogleLoginN /></div></center>
                   </div>
                 </div>
 
