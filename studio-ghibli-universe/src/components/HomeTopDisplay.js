@@ -19,11 +19,11 @@ const HomeTopDisplay = (props) => {
             return filmslist.map((item) => {
                 return (
                     <>
-                        <div class='slider' style={{ width: '100%', height: 1300, backgroundImage: `url(${item.image_url})` }} >
+                        <div class='slider backgroundWall' style={{backgroundImage: `url(${item.back_wall})` }} >
                             <h3 id="HomeSlide1" >{item.title}</h3>
                             <br />
-                            <h4 id="HomeSlide2">Slide to see matching movie images</h4>
-                            <br />
+                            {/* <h4 id="HomeSlide2">Slide to see matching movie images</h4>
+                            <br /> */}
                             <h6 id='Brought_to_you_by'>Brought to you by:</h6>
                             <br />
                             <div className='PresentedBy1'>
@@ -34,7 +34,7 @@ const HomeTopDisplay = (props) => {
 
                             </div>
                             <div id='HomeLogo'>
-                                <img id="HomeImage3" src='https://www.studioghibli.com.au/wp-content/uploads/2017/07/ghibli_logo_gold.png' alt='logo' />
+                                <img id="HomeImage3"  src='https://www.studioghibli.com.au/wp-content/uploads/2017/07/ghibli_logo_gold.png' style={{height:'100px', width:'240px'}} alt='logo'  />
                                 <p>Studio Ghibli Universe</p>
                             </div>
                         </div>

@@ -85,7 +85,7 @@ body{
     background-position: right;
     
 }
-.slider > h5{
+/* .slider > h6{
     margin-right: 100%;
     padding-left: 30px;
     padding-right: 20px;
@@ -95,8 +95,8 @@ body{
     background-color:#1a1503;
     display:inline-block;
     color: #cccdb4;
-}
-.slider > h5{
+} */
+.slider > h3{
     margin-right: 100%;
     margin-top: 50px;
     padding-left: 30px;
@@ -112,7 +112,7 @@ body{
 #HomeLogo{
     display: inline-block;
     margin: 0px;
-    margin-left: 19.65%;
+    margin-left: 20%;
     padding: 30px;
     background-color:#fefefe;
 }
@@ -122,7 +122,7 @@ body{
     display: inline-block;
     
     margin:0px;
-    margin-left: 30px;
+    margin-left: 10px;
     margin-top: 0%;
 }
 
@@ -130,26 +130,27 @@ body{
     display: inline-block;
     margin: 0px;
     
-    margin-left: 30px;
+    margin-left: 10px;
     margin-right: 5%;
     background-color: rgb(9, 177, 233);
 }
 
 #HomeImage1{
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     filter: sepia();
 }
 
 #HomeImage2{
-    height: 90px;
-    width: 180px;
+    height: 60px;
+    width: 120px;
     
 }
 
 #Brought_to_you_by{
-    margin-right: 800px;
-    margin-top: 27%;
+    text-align: left;
+    margin-top: 7%;
+    margin-right: 84.4%;
     display:inline-block;
     font-family: "Lucida Console", "Courier New", monospace;
     background-color:#1a1503;
@@ -160,7 +161,7 @@ body{
     background-color: #0f78af;
     
     font-weight: 400;
-    margin-top: 210px;
+    /* margin-top: 210px; */
     color: #ede6cb;
 }
 .HomeDescription p {
@@ -170,7 +171,13 @@ body{
 .HomeDescription h2 {
     font-size: 30px;
 }
-
+.backgroundWall{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    width: 100%;
+    height: 550px;
+  }
 #HomeLogo p{
     font-size: 9px;
     color:#0f78af;
@@ -187,8 +194,8 @@ body{
     
 }
 .slider_container{
-    /* background-color:#111; */
-    height: 1300px;
+    
+    height: 550px;
     
 }
 .Home_sub_containers{

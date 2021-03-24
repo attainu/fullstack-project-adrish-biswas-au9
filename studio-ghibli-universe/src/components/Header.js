@@ -26,7 +26,7 @@ const Header = () => {
           </li>
           <li className="nav-item nav-item active" >
             <HashLink className="nav-link" id="home-link" 
-              to="/home#Characters_heading"
+              to="/shopping#top"
             >Shopping
             <span className="sr-only">(current)</span>
             </HashLink>

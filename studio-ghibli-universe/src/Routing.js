@@ -12,6 +12,7 @@ import Location from './container/Location';
 import Vehicle from './container/Vehicle';
 import Wishlist from './container/Wishlist';
 import SideBar from './components/SideBar';
+import Shopping from './container/Shopping'
 
 const Routing = () => {
     return (
@@ -27,6 +28,7 @@ const Routing = () => {
           <Route path="/locations/:id" component={Location}/>
           <Route path="/vehicles/:id" component={Vehicle}/>
           <Route path="/wishlist" component={Wishlist}/>
+          <Route path="/shopping" component={Shopping}/>
           <Footer />
         </BrowserRouter>
     );
