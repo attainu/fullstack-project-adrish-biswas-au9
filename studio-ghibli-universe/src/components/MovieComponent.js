@@ -44,7 +44,7 @@ class MovieComponent extends Component {
                 <>
                     <div className='backgroundWall' style={{ backgroundImage: `url(${moviedetails.back_wall})` }} ></div>
 
-                    <VideoComponent video={moviedetails.trailer_url} movie={moviedetails.video_url} />
+                    <VideoComponent thumbnail={moviedetails.image_url} video={moviedetails.trailer_url} movie={moviedetails.video_url} />
 
 
 
