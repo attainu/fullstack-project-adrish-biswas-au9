@@ -166,13 +166,13 @@ body{
 .HomeDescription h2 {
   font-size: 30px;
 }
-.backgroundWall{
+/* .backgroundWall{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
   width: 100%;
   height: 550px;
-}
+} */
 #HomeLogo p{
   font-size: 9px;
   color:#0f78af;

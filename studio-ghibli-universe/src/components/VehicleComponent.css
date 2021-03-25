@@ -12,13 +12,13 @@
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
-.backgroundWall{
+/* .backgroundWall{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
   width: 100%;
   height: 550px;
-}
+} */
 .bottomCar{
   height: 200px;
 }

@@ -18,11 +18,11 @@ const Header = () => {
             <HashLink className="nav-link" id="home-link" to="/home#top">Home<span className="sr-only">(current)</span></HashLink>
           </li>
           <li className="nav-item nav-item active" >
-            <HashLink className="nav-link" id="home-link" 
+            {/* <HashLink className="nav-link" id="home-link" 
               to="/home#Movies_heading"
             >Community
             <span className="sr-only">(current)</span>
-            </HashLink>
+            </HashLink> */}
           </li>
           <li className="nav-item nav-item active" >
             <HashLink className="nav-link" id="home-link" 
@@ -34,7 +34,7 @@ const Header = () => {
           <li className="nav-item nav-item active" >
             <HashLink className="nav-link" id="home-link" 
               to="/home#Locations_heading"
-            >Upgrade
+            >Become a Ghiblian!
             <span className="sr-only">(current)</span>
             </HashLink>
           </li>

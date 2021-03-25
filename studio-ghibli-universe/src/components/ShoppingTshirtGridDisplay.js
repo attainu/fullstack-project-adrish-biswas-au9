@@ -11,19 +11,20 @@ const ShoppingTshirtGridDisplay = (props) => {
            
 
             return tshirtslist.map((item,index) => {
+                const tshirtRoute = '/tshirt/' + item.id + '#top';
                     return (
                         < >
                             <div className="card mb-3 card shopping_p_c" style={{ maxWidth: '300px', backgroundColor: '#1daeed' }}>
                             <div className="row no-gutters">
                                 <div className="col-md-4">
-                                    <img src={item.image_url} className="card-img" alt="product_image" />
+                                <HashLink to={tshirtRoute}><img className='card-img' src={item.image_url} alt='movie_poster'></img><br /></HashLink>
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
 
 
                                         <p className="card-text" style={{ textAlign: 'left' }}><small>{item.name}</small></p>
-                                        <a href={item.merch_link} className="btn btn-primary">Buy Now</a>
+                                        <HashLink to={tshirtRoute} className='btn btn-primary'> know more</HashLink>
                                     </div>
                                 </div>
                             </div>
