@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './HomeDisplay.css';
 import Slider from "react-slick";
+import { HashLink } from 'react-router-hash-link';
 
 var settings = {
     // dots: true,
@@ -16,9 +17,12 @@ const HomeTopDisplay = (props) => {
 
     const slick = (filmslist) => {
         if (filmslist) {
+            
             return filmslist.map((item) => {
+                const movieRoute = '/films/' + item.id + '#top';
                 return (
-                    <>
+                    
+                    <HashLink to={movieRoute}>
                         <div class='slider backgroundWall' style={{backgroundImage: `url(${item.back_wall})` }} >
                             <h3 id="HomeSlide1" >{item.title}</h3>
                             <br />
@@ -38,18 +42,30 @@ const HomeTopDisplay = (props) => {
                                 <p>Studio Ghibli Universe</p>
                             </div>
                         </div>
-                    </>
+                        </HashLink>
                 )
             })
         }
     }
     return (
         <>
+
+
+
+
+
+
+
+
+        
             <center class='slider_container main'>
+            <div className="container">
                 <Slider {...settings}>
                     {slick(props.filmslist)}
                 </Slider>
+                </div>
             </center>
+            
             <div className='HomeDescription main'>
                 <center>
                 <br/>

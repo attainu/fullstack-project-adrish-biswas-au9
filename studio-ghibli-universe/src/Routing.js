@@ -14,6 +14,14 @@ import Wishlist from './container/Wishlist';
 import SideBar from './components/SideBar';
 import Shopping from './container/Shopping'
 
+import Bluray from './container/Bluray';
+import Dvd from './container/Dvd';
+import Accessories from './container/Accessories';
+import Poster from './container/Poster';
+import Tshirt from './container/Tshirts';
+import Videogames from './container/Videogames';
+
+
 const Routing = () => {
     return (
         <BrowserRouter>
@@ -29,6 +37,12 @@ const Routing = () => {
           <Route path="/vehicles/:id" component={Vehicle}/>
           <Route path="/wishlist" component={Wishlist}/>
           <Route path="/shopping" component={Shopping}/>
+          <Route path="/bluray/:id" component={Bluray}/>
+          <Route path="/dvd/:id" component={Dvd}/>
+          <Route path="/poster/:id" component={Poster}/>
+          <Route path="/tshirt/:id" component={Tshirt}/>
+          <Route path="/accessories/:id" component={Accessories}/>
+          <Route path="/videogames/:id" component={Videogames}/>
           <Footer />
         </BrowserRouter>
     );

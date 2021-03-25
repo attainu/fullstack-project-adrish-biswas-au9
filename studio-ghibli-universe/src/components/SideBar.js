@@ -42,7 +42,12 @@ class SideBar extends React.Component {
             <span className="sr-only">(current)</span>
       </HashLink>
       
-      <a href="#contact">Video Games</a>
+      <HashLink 
+        to="/shopping#Videogames_heading"
+      >Video Games
+            <span className="sr-only">(current)</span>
+      </HashLink>
+      
       <a href="#contact">Exibitions</a>
       <a href="#contact">Pre-Ghibli</a>
       <a href="#contact">Coperative works</a>

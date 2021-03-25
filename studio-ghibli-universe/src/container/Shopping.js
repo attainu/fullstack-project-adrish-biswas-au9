@@ -4,6 +4,7 @@ import ShoppingPosterGridDisplay from '../components/ShoppingPosterGridDisplay';
 import ShoppingTshirtGridDisplay from '../components/ShoppingTshirtGridDisplay';
 import ShoppingAccessoriesGridDisplay from '../components/ShoppingAccessoriesGridDisplay'
 import ShoppingBlurayGridDisplay from '../components/ShoppingBlurayGridDisplay';
+import ShoppingVideogamesGridDisplay from '../components/ShoppingVideogamesGridDisplay';
 import HomeTopDisplay from '../components/HomeTopDisplay';
 import SearchBar from '../components/SearchBar';
 import Header from '../components/Header';
@@ -17,6 +18,7 @@ const posters_url = 'https://ghibli-json-server.herokuapp.com/poster';
 const tshirts_url = 'https://ghibli-json-server.herokuapp.com/tshirt';
 const accessories_url = 'https://ghibli-json-server.herokuapp.com/accessories';
 const blu_rays_url ='https://ghibli-json-server.herokuapp.com/blu_ray';
+const videogames_url ='https://ghibli-json-server.herokuapp.com/videogames';
 class Shopping extends Component {
     constructor() {
         super()
@@ -29,8 +31,10 @@ class Shopping extends Component {
             tshirts_filtered: '',
             accessories: '',
             accessories_filtered: '',
-            blu_rays: '',
+            videogames: '',
             blu_rays_filtered: '',
+            videogames: '',
+            videogames_filtered: '',
             
         }
     }
@@ -77,6 +81,15 @@ class Shopping extends Component {
         this.setState({ blu_rays_filtered: filtering });//changing state's value
     }
 
+    changeHandler7 = (input) => { //a callback function which is called once it's triggered from the SearchBar.js, input conatins the input by the user inside the search bar
+        const filtering = this.state.videogames.filter(//using filter to filter the data; it sees whether the input is present in any of the list's city_name
+            (data) => {
+                return data.name.toLowerCase().indexOf(input.toLowerCase()) > -1 //the returned value will always be true if input is present in any of the list's city_name as indexOf() will return a value greater than -1
+            }
+        )
+        this.setState({ videogames_filtered: filtering });//changing state's value
+    }
+
 
 
 
@@ -117,6 +130,11 @@ class Shopping extends Component {
                 </center>
                 <ShoppingAccessoriesGridDisplay accessorieslist={this.state.accessories_filtered} />
 
+                <center>
+                    <SearchBar category='Videogame' filter={(input) => { this.changeHandler7(input) }} />
+                </center>
+                <ShoppingVideogamesGridDisplay videogameslist={this.state.videogames_filtered} />
+
 
                 
             </>
@@ -151,6 +169,12 @@ class Shopping extends Component {
         .then((response) => {
             this.setState({ blu_rays: response.data })
             this.setState({ blu_rays_filtered: response.data })
+        })
+
+        axios.get(videogames_url)
+        .then((response) => {
+            this.setState({ videogames: response.data })
+            this.setState({ videogames_filtered: response.data })
         })
 
 
