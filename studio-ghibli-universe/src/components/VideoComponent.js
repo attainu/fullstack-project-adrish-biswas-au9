@@ -52,7 +52,7 @@ function VideoComponent(props) {
             <div class="modal-body">
               <div className="VideoComponent" style={{ display: 'flex', justifyContent: 'center', backgroundColor: 'black', padding: '20px' }}>
 
-                <ReactPlayer controls width='800px' onEnded={() => { alert("Add this movie to wishlist and buy it to watch the rest!") }} url={props.video}/></div>
+                <ReactPlayer controls width='800px' onEnded={() => { alert("Add this movie to wishlist and buy it to watch the rest!") }} url={props.movie}/></div>
 
             </div>
           </div>
