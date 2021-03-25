@@ -7,9 +7,9 @@ import { HashLink } from 'react-router-hash-link';
 const HomeCharacterGridDisplay = (props) => {
     const display = (characterslist) => {
         if (characterslist) {
-            const snippet=(characterslist.length > 4) ?
+            const snippet=(characterslist.length > 3) ?
             (
-                <div >Slide the horizontal scroll bar to see the entire list.</div>
+                <div >See all</div>
             ) :
             (
                 <div ></div>
@@ -27,6 +27,7 @@ const HomeCharacterGridDisplay = (props) => {
             }
             return characterslist.map((item,index) => {
                 const movieRoute ='/characters/'+item.id +'#top';
+                
                 if(index === 0){
                     return (
                         <div id="character_first" className='movie_poster_container'>
@@ -52,7 +53,7 @@ const HomeCharacterGridDisplay = (props) => {
     
     return (
         <div className="Home_sub_containers main">  
-            <div className="container" >
+            <div className="container-fluid" >
 
                 <div className="movie_grid">
                     {display(props.characterslist)}

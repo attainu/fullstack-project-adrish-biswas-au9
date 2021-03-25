@@ -7,11 +7,11 @@ import { HashLink } from 'react-router-hash-link';
 const HomeMovieGridDisplay = (props) => {
     
     const display = (filmslist) => {
-        let count =1
+        
         if (filmslist) {
-            const snippet=(filmslist.length > 4) ?
+            const snippet=(filmslist.length > 3) ?
             (
-                <div ></div>
+                <div >See all</div>
             ) :
             (
                 <div ></div>
@@ -27,10 +27,10 @@ const HomeMovieGridDisplay = (props) => {
                 )
             }
             return filmslist.map((item, index) => {
-                count  += 1
+                
 
                 const movieRoute = '/films/' + item.id + '#top';
-                if (count <= 5){
+                
                     if (index === 0) {
                         return (
                             <>
@@ -53,7 +53,7 @@ const HomeMovieGridDisplay = (props) => {
                         )
                     }
                     
-                }
+                
 
             })
         }
@@ -62,7 +62,7 @@ const HomeMovieGridDisplay = (props) => {
 
     return (
         <div className="Home_sub_containers main">
-            <div className="container" >
+            <div className="container-fluid" >
                
 
                 <div className="movie_grid">

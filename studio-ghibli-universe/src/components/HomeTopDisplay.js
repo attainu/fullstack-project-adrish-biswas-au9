@@ -59,7 +59,7 @@ const HomeTopDisplay = (props) => {
 
         
             <center class='slider_container main'>
-            <div className="container">
+            <div className="container-fluid">
                 <Slider {...settings}>
                     {slick(props.filmslist)}
                 </Slider>

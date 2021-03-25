@@ -7,9 +7,9 @@ import { HashLink } from 'react-router-hash-link';
 const HomeStageProductionGridDisplay = (props) => {
     const display = (stageproductionslist) => {
         if (stageproductionslist) {
-            const snippet=(stageproductionslist.length > 4) ?
+            const snippet=(stageproductionslist.length > 3) ?
             (
-                <div >Slide the horizontal scroll bar to see the entire list.</div>
+                <div >See all</div>
             ) :
             (
                 <div ></div>
@@ -52,7 +52,7 @@ const HomeStageProductionGridDisplay = (props) => {
 
     return (
         <div className="Home_sub_containers main">
-            <div className="container" >
+            <div className="container-fluid" >
                 <div className="movie_grid">
                     {display(props.stageproductionslist)}
                 </div>
