@@ -77,7 +77,7 @@ export function shopping_wishlist_add(obj){
     .then((data) => data.json())
     console.log(output,'inside action file')
     return{
-        type:'WISHLIST_ADD',
+        type:'SHOPPING_WISHLIST_ADD',
         payload:obj
     }
 }
@@ -96,7 +96,7 @@ export function shopping_wishlist_delete(wishlist){
     // .then((data) => data.json())
     console.log(wishlist,'inside action file')
     return{
-        type:'WISHLIST_DELETE',
+        type:'SHOPPING_WISHLIST_DELETE',
         payload:wishlist
     }
 }

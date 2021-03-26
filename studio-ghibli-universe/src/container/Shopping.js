@@ -5,12 +5,11 @@ import ShoppingTshirtGridDisplay from '../components/ShoppingTshirtGridDisplay';
 import ShoppingAccessoriesGridDisplay from '../components/ShoppingAccessoriesGridDisplay'
 import ShoppingBlurayGridDisplay from '../components/ShoppingBlurayGridDisplay';
 import ShoppingVideogamesGridDisplay from '../components/ShoppingVideogamesGridDisplay';
-import HomeTopDisplay from '../components/HomeTopDisplay';
 import SearchBar from '../components/SearchBar';
 import Header from '../components/Header';
-import SideBar from '../components/SideBar'
+import SideBar from '../components/SideBar';
 import axios from 'axios';
-import './Unimain.css'
+import './Unimain.css';
 
 
 const dvds_url = 'https://ghibli-json-server.herokuapp.com/dvd';
