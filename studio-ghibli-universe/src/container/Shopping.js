@@ -7,7 +7,8 @@ import ShoppingBlurayGridDisplay from '../components/ShoppingBlurayGridDisplay';
 import ShoppingVideogamesGridDisplay from '../components/ShoppingVideogamesGridDisplay';
 import SearchBar from '../components/SearchBar';
 import Header from '../components/Header';
-import SideBar from '../components/SideBar';
+import SideBar from '../components/SideBar'
+import { HashLink } from 'react-router-hash-link';
 import axios from 'axios';
 import './Unimain.css';
 
@@ -16,8 +17,8 @@ const dvds_url = 'https://ghibli-json-server.herokuapp.com/dvd';
 const posters_url = 'https://ghibli-json-server.herokuapp.com/poster';
 const tshirts_url = 'https://ghibli-json-server.herokuapp.com/tshirt';
 const accessories_url = 'https://ghibli-json-server.herokuapp.com/accessories';
-const blu_rays_url ='https://ghibli-json-server.herokuapp.com/blu_ray';
-const videogames_url ='https://ghibli-json-server.herokuapp.com/videogames';
+const blu_rays_url = 'https://ghibli-json-server.herokuapp.com/blu_ray';
+const videogames_url = 'https://ghibli-json-server.herokuapp.com/videogames';
 class Shopping extends Component {
     constructor() {
         super()
@@ -34,7 +35,7 @@ class Shopping extends Component {
             blu_rays_filtered: '',
             videogames: '',
             videogames_filtered: '',
-            
+
         }
     }
     changeHandler = (input) => { //a callback function which is called once it's triggered from the SearchBar.js, input conatins the input by the user inside the search bar
@@ -97,12 +98,63 @@ class Shopping extends Component {
         if (sessionStorage.getItem('email') == null) {
             this.props.history.push('/')
         }
-        
-        
+
+
         return (
             <>
-            <Header />
-            <SideBar/>
+                <Header />
+                <SideBar />
+
+                <div className="row navbar sticky-top  main" style={{ textAlign: 'center', padding: '15px', backgroundColor: '#111', marginRight: '0px' }}>
+                    <div className="col-sm-2 movie_page_navigation">
+                    <HashLink className="movie_categories_link" 
+                        to="/shopping#bluray_shopping"
+                    ><h6>Blu_Ray</h6>
+                    <span className="sr-only">(current)</span>
+                    </HashLink>
+                    </div>
+
+                    <div className="col-sm-2 movie_page_navigation">
+                    <HashLink className="movie_categories_link" 
+                        to="/shopping#DVD_shopping"
+                    ><h6>DVD</h6>
+                    <span className="sr-only">(current)</span>
+                    </HashLink>
+                    </div>
+
+                    <div className="col-sm-2 movie_page_navigation">
+                    <HashLink className="movie_categories_link" 
+                        to="/shopping#poster_shopping"
+                    ><h6>Poster</h6>
+                    <span className="sr-only">(current)</span>
+                    </HashLink>
+                    </div>
+
+                    <div className="col-sm-2 movie_page_navigation">
+                    <HashLink className="movie_categories_link" 
+                        to="/shopping#Tshirt_shopping"
+                    ><h6>T-Shirts</h6>
+                    <span className="sr-only">(current)</span>
+                    </HashLink>
+                    </div>
+
+                    <div className="col-sm-2 movie_page_navigation">
+                    <HashLink className="movie_categories_link" 
+                        to="/shopping#accessories_shopping"
+                    ><h6>Accessories</h6>
+                    <span className="sr-only">(current)</span>
+                    </HashLink>
+                    </div>
+
+                    <div className="col-sm-2 movie_page_navigation">
+                    <HashLink className="movie_categories_link" 
+                        to="/shopping#videogames_shopping"
+                    ><h6>Videogames</h6>
+                    <span className="sr-only">(current)</span>
+                    </HashLink>
+                    </div>
+
+                </div>
 
                 <center>
                     <SearchBar category='Blu-Ray' filter={(input) => { this.changeHandler(input) }} />
@@ -113,17 +165,17 @@ class Shopping extends Component {
                     <SearchBar category='DVD' filter={(input) => { this.changeHandler(input) }} />
                 </center>
                 <ShoppingDVDGridDisplay dvdslist={this.state.dvds_filtered} />
-                
+
                 <center>
                     <SearchBar category='Poster' filter={(input) => { this.changeHandler2(input) }} />
                 </center>
                 <ShoppingPosterGridDisplay posterslist={this.state.posters_filtered} />
-                
+
                 <center>
                     <SearchBar category='Tshirt' filter={(input) => { this.changeHandler3(input) }} />
                 </center>
                 <ShoppingTshirtGridDisplay tshirtslist={this.state.tshirts_filtered} />
-                
+
                 <center>
                     <SearchBar category='Accessories' filter={(input) => { this.changeHandler5(input) }} />
                 </center>
@@ -135,7 +187,7 @@ class Shopping extends Component {
                 <ShoppingVideogamesGridDisplay videogameslist={this.state.videogames_filtered} />
 
 
-                
+
             </>
         )
     }
@@ -165,16 +217,16 @@ class Shopping extends Component {
             })
 
         axios.get(blu_rays_url)
-        .then((response) => {
-            this.setState({ blu_rays: response.data })
-            this.setState({ blu_rays_filtered: response.data })
-        })
+            .then((response) => {
+                this.setState({ blu_rays: response.data })
+                this.setState({ blu_rays_filtered: response.data })
+            })
 
         axios.get(videogames_url)
-        .then((response) => {
-            this.setState({ videogames: response.data })
-            this.setState({ videogames_filtered: response.data })
-        })
+            .then((response) => {
+                this.setState({ videogames: response.data })
+                this.setState({ videogames_filtered: response.data })
+            })
 
 
     }

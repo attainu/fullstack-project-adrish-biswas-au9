@@ -29,7 +29,7 @@ const VehicleComponent = (props) => {
 
               <div className="col-xs-7 col-sm-6 col-lg-9" style={{ marginTop: '20px' }}>
                 <p>Disclosed Information about <b>{vehicledetails.name} </b></p>
-                <hr style={{ backgroundColor: '#2b250f', height: '0.01px' }}></hr>
+                <hr style={{ backgroundColor: '#687693', height: '0.01px' }}></hr>
 
                 <br />
                 <small>
@@ -77,7 +77,7 @@ const VehicleComponent = (props) => {
 
             <div className="vehicle_tile main" id='vehicle _page_vehicle'>
                 <h4 style={{ marginLeft: '20px' }}>Appeared In </h4>
-                <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                <hr style={{ backgroundColor: '#687693', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                 {vehicle_tile(props.vehicledetails)}
             </div>
     </>
