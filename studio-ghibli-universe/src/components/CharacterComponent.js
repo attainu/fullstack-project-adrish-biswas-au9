@@ -29,7 +29,7 @@ const CharacterComponent = (props) => {
 
               <div className="col-xs-7 col-sm-6 col-lg-9" style={{ marginTop: '20px' }}>
                 <p>Disclosed Information about <b>{characterdetails.name} </b></p>
-                <hr style={{ backgroundColor: '#2b250f', height: '0.01px' }}></hr>
+                <hr style={{ backgroundColor: '#687693', height: '0.01px' }}></hr>
 
                 <br />
                 <small>
@@ -80,7 +80,7 @@ const CharacterComponent = (props) => {
 
             <div className="chatacter_tile main" id='character _page_character'>
                 <h4 style={{ marginLeft: '20px' }}>Performed In </h4>
-                <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                <hr style={{ backgroundColor: '#687693', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                 {character_tile(props.characterdetails)}
             </div>
 

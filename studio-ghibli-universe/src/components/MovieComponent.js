@@ -62,7 +62,7 @@ class MovieComponent extends Component {
 
                             <div className="col-xs-7 col-sm-6 col-lg-9" style={{ marginTop: '20px' }}>
                                 <p>Directed by <b>{moviedetails.director} </b></p>
-                                <hr style={{ backgroundColor: '#2b250f', height: '0.01px' }}></hr>
+                                <hr style={{ backgroundColor: '#687693', height: '0.01px' }}></hr>
                                 <div> {moviedetails.description}</div>
                                 <br />
                                 <small>
@@ -181,55 +181,55 @@ class MovieComponent extends Component {
                 <div className='main'>
                     <div >{this.movie_info(this.props)}</div>
 
-                    <div style={{ margin: '10px' }}>
+                    {/* <div style={{ margin: '10px' }}> */}
 
 
-                        <div className="row" style={{ textAlign: 'center', padding: '15px', backgroundColor: '#2b250f' }}>
+                        <div className="row navbar sticky-top" style={{ textAlign: 'center', padding: '10px', backgroundColor: '#111' }}>
                             <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#movie_page_character" ><h6>Characters</h6></a ></div>
                             <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#movie_page_location"><h6>Locations</h6></a ></div>
                             <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#movie_page_vehicle"><h6>Vehicles</h6></a ></div>
                             <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#officialprdct"><h6>Official Products</h6></a ></div>
                             <div className="col-sm-2 movie_page_navigation"><a className="movie_categories_link" href="#collectables"><h6>Collectables</h6></a ></div>
 
-                        </div>
+                        {/* </div> */}
                     </div>
 
 
                     <h4 id='movie_page_character' style={{ marginLeft: '20px', paddingTop: '80px' }}>Characters</h4>
-                    <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                    <hr style={{ backgroundColor: '#687693', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                     <div className="character_tile scrollmenu" >
                         {this.character_tile(this.props.moviedetails)}
 
                     </div><br />
-                    <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+                    <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#687693', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
 
                     <div className="character_tile" >
                         <h4 id='movie_page_location' style={{ marginLeft: '20px', paddingTop: '80px' }}>Locations</h4>
-                        <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                        <hr style={{ backgroundColor: '#687693', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                         {this.location_tile(this.props.moviedetails)}
-                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#687693', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
                     </div>
 
                     <div className="character_tile" id='movie_page_vehicle'>
                         <h4 style={{ marginLeft: '20px', paddingTop: '80px' }}>Vehicles</h4>
-                        <hr style={{ backgroundColor: '#2b250f', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
+                        <hr style={{ backgroundColor: '#687693', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                         {this.vehicle_tile(this.props.moviedetails)}
-                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#687693', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
                     </div>
 
 
-                    <div className="video_links" id="officialprdct" style={{ marginTop: '20px', paddingBottom: '30px', paddingTop: '80px', backgroundColor: '#2b250f' }}>
-                        <h4 style={{ backgroundColor: '#2b250f', color: '#cccdb4', padding: '30px 0px 0px 20px' }}>Official Products</h4>
+                    <div className="video_links" id="officialprdct" style={{ marginTop: '20px', paddingBottom: '30px', paddingTop: '80px', backgroundColor: '#687693' }}>
+                        <h4 style={{ backgroundColor: '#687693', color: '#cccdb4', padding: '30px 0px 0px 20px' }}>Official Products</h4>
                         <hr style={{ backgroundColor: '#cccdb4', height: '1px', marginLeft: '10px', marginRight: '10px' }}></hr>
                         {this.merch(this.props.moviedetails)}
-                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#687693', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
                     </div>
 
-                    <div className="video_links" id="collectables" style={{ paddingBottom: '30px', paddingTop: '80px', backgroundColor: '#2b250f' }}>
-                        <h4 style={{ backgroundColor: '#2b250f', color: '#cccdb4', padding: '30px 0px 0px 20px' }}>Collectables</h4>
+                    <div className="video_links" id="collectables" style={{ paddingBottom: '30px', paddingTop: '80px', backgroundColor: '#687693' }}>
+                        <h4 style={{ backgroundColor: '#687693', color: '#cccdb4', padding: '30px 0px 0px 20px' }}>Collectables</h4>
                         <hr style={{ backgroundColor: '#cccdb4', height: '1px', marginLeft: '10px', marginRight: '10px' }}></hr>
                         {this.collectables(this.props.moviedetails)}
-                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#2b250f', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
+                        <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#687693', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center>
                     </div>
                 </div>
             </>

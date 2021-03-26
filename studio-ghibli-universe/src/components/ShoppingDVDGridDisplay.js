@@ -14,7 +14,7 @@ const ShoppingDVDGridDisplay = (props) => {
             const dvdRoute = '/dvd/' + item.id + '#top';
                 return (
                     < >
-                        <div className="card mb-3 card shopping_p_c" style={{ maxWidth: '300px', backgroundColor: '#1daeed' }}>
+                        <div className="card mb-3 card shopping_p_c" style={{ maxWidth: '320px', backgroundColor: '#1daeed' }}>
                         <div className="row no-gutters">
                             <div className="col-md-4">
                             <HashLink to={dvdRoute}><img className='card-img' src={item.image_url} alt='movie_poster'></img><br /></HashLink>
@@ -37,7 +37,7 @@ const ShoppingDVDGridDisplay = (props) => {
 }
 
 return (
-<div className="Shopping_sub_containers main">
+<div className="Shopping_sub_containers main" id= 'DVD_shopping'>
             <div className="shoppingcontainer" >
                 <div className="shopping_grid">
                 {display(props.dvdslist)}
