@@ -12,7 +12,8 @@ class VideoComponent extends Component {
       video_url: '',
       movie_url: '',
       allow_modal_1: false,
-      allow_modal_2: false
+      allow_modal_2: false,
+      allow_movie: false
     }
 
 
@@ -31,9 +32,9 @@ class VideoComponent extends Component {
     this.setState({ video_url: '', allow_modal_1: false })
   }
   handleStartOver = () => {
-   
-   this.setState({ movie_url: '' })
-   this.setState({ movie_url: this.props.movie }) 
+
+    this.setState({ movie_url: '' })
+    this.setState({ movie_url: this.props.movie })
   }
   handleStop = () => {
     this.setState({ movie_url: '' })
@@ -48,10 +49,15 @@ class VideoComponent extends Component {
             <a href='#exampleModal'><button onClick={this.handleVideo} type="button" class="btn " style={{ backgroundColor: '#1278a8', color: '#cccdb4', padding: '10px 30px 10px 30px', fontFamily: 'Lora', margin: '10px' }}>
               Watch Trailer
             </button></a>
+            {
+              this.state.allow_movie ?
+              <a href='#exampleModalTwo'><button onClick={this.handleMovie} type="button" class="btn  " style={{ backgroundColor: '#1278a8', color: '#cccdb4', padding: '10px 30px 10px 30px', fontFamily: 'Lora', margin: '10px' }}>
+                Watch Movie
+              </button></a>
+              : 
+              <h4>First become a Ghiblian to stream and watch the movie!</h4>
+            }
 
-            <a href='#exampleModalTwo'><button onClick={this.handleMovie} type="button" class="btn  " style={{ backgroundColor: '#1278a8', color: '#cccdb4', padding: '10px 30px 10px 30px', fontFamily: 'Lora', margin: '10px' }}>
-              Watch Movie
-            </button></a>
 
 
           </div></div>
@@ -62,7 +68,7 @@ class VideoComponent extends Component {
               <div class="modal-dialog modal-xl" >
                 <div class="modal-content" style={{ backgroundColor: 'black' }}>
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel" style={{ color: 'white' }}>{this.props.name }    Trailer</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" style={{ color: 'white' }}>{this.props.name}    Trailer</h5>
                     <button onClick={this.handleCloseVideo} type="button" class="close" data-dismiss="modal" aria-label="Close" style={{ color: 'white' }}>
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -86,7 +92,7 @@ class VideoComponent extends Component {
               <div class="modal-dialog modal-xl" >
                 <div class="modal-content" style={{ backgroundColor: 'black' }}>
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabelTwo" style={{ color: 'white' }}>{this.props.name }       Movie</h5>
+                    <h5 class="modal-title" id="exampleModalLabelTwo" style={{ color: 'white' }}>{this.props.name}       Movie</h5>
                     <button onClick={this.handleCloseMovie} type="button" class="close" data-dismiss="modal" aria-label="Close" style={{ color: 'white' }}>
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -111,7 +117,11 @@ class VideoComponent extends Component {
       </>
     );
   }
-
+  componentDidMount() {
+    if (sessionStorage.getItem('role') == 'admin' || sessionStorage.getItem('role') == 'ghiblian') {
+      this.setState({ allow_movie: true })
+    }
+  }
 }
 
 export default VideoComponent

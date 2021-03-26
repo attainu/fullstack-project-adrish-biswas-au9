@@ -17,30 +17,37 @@ const Header = () => {
 
             <HashLink className="nav-link" id="home-link" to="/home#top">Home<span className="sr-only">(current)</span></HashLink>
           </li>
+
           <li className="nav-item nav-item active" >
-            {/* <HashLink className="nav-link" id="home-link" 
-              to="/home#Movies_heading"
-            >Community
-            <span className="sr-only">(current)</span>
-            </HashLink> */}
-          </li>
-          <li className="nav-item nav-item active" >
-            <HashLink className="nav-link" id="home-link" 
+            <HashLink className="nav-link" id="home-link"
               to="/shopping#top"
             >Shopping
             <span className="sr-only">(current)</span>
             </HashLink>
           </li>
+          {
+            sessionStorage.getItem('role') == 'admin' ?
+              <li className="nav-item nav-item active" >
+                <HashLink className="nav-link" id="home-link"
+                  to="/home#Locations_heading"
+                >Admin Dashboard
+              <span className="sr-only">(current)</span>
+                </HashLink>
+              </li> :
+              sessionStorage.getItem('role') == 'ghiblian'?
+              null:
+              <li className="nav-item nav-item active" >
+                <HashLink className="nav-link" id="home-link"
+                  to="/home#Locations_heading"
+                >Become a Ghiblian!
+              <span className="sr-only">(current)</span>
+                </HashLink>
+              </li>
+          }
+
+
           <li className="nav-item nav-item active" >
-            <HashLink className="nav-link" id="home-link" 
-              to="/home#Locations_heading"
-            >Become a Ghiblian!
-            <span className="sr-only">(current)</span>
-            </HashLink>
-          </li>
-          
-          <li className="nav-item nav-item active" >
-            <HashLink className="nav-link" id="home-link" 
+            <HashLink className="nav-link" id="home-link"
               to="/wishlist#top"
             >My Ghibli Universe
             <span className="sr-only">(current)</span>
@@ -48,11 +55,11 @@ const Header = () => {
           </li>
 
         </ul>
-        
-        
-        <div style={{padding:'5px'}}><Logout/></div>
 
-        <HashLink to = '/home#top'><img style={{borderRadius: '5px' }} src="https://www.studioghibli.com.au/wp-content/uploads/2017/07/ghibli_logo_gold.png" width="100" height="46" id="header-image" className="d-inline-block align-bottom" alt="" loading="lazy" /></HashLink>
+
+        <div style={{ padding: '5px' }}><Logout /></div>
+
+        <HashLink to='/home#top'><img style={{ borderRadius: '5px' }} src="https://www.studioghibli.com.au/wp-content/uploads/2017/07/ghibli_logo_gold.png" width="100" height="46" id="header-image" className="d-inline-block align-bottom" alt="" loading="lazy" /></HashLink>
 
       </div>
     </nav>
