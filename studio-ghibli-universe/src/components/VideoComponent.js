@@ -31,6 +31,8 @@ class VideoComponent extends Component {
     this.setState({ video_url: '', allow_modal_1: false })
   }
   handleStartOver = () => {
+   
+   this.setState({ movie_url: '' })
    this.setState({ movie_url: this.props.movie }) 
   }
   handleStop = () => {
@@ -60,7 +62,7 @@ class VideoComponent extends Component {
               <div class="modal-dialog modal-xl" >
                 <div class="modal-content" style={{ backgroundColor: 'black' }}>
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel" style={{ color: 'white' }}>Trailer</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" style={{ color: 'white' }}>{this.props.name }    Trailer</h5>
                     <button onClick={this.handleCloseVideo} type="button" class="close" data-dismiss="modal" aria-label="Close" style={{ color: 'white' }}>
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -84,7 +86,7 @@ class VideoComponent extends Component {
               <div class="modal-dialog modal-xl" >
                 <div class="modal-content" style={{ backgroundColor: 'black' }}>
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabelTwo" style={{ color: 'white' }}>Movie</h5>
+                    <h5 class="modal-title" id="exampleModalLabelTwo" style={{ color: 'white' }}>{this.props.name }       Movie</h5>
                     <button onClick={this.handleCloseMovie} type="button" class="close" data-dismiss="modal" aria-label="Close" style={{ color: 'white' }}>
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -98,7 +100,7 @@ class VideoComponent extends Component {
                   </div>
                 </div>
               </div>
-              <center><button onClick={this.handleStartOver} type="button" class="btn btn-info">Start Over</button> <button onClick={this.handleStop} type="button" class="btn btn-danger">Stop</button></center>
+              <center><button onClick={this.handleStartOver} type="button" class="btn btn-info">Start Over</button> <button onClick={this.handleStop} type="button" class="btn btn-danger">Stop Before Start Over</button></center>
 
             </div>
 
