@@ -7,6 +7,7 @@ const Logout = (props) => {
         localStorage.removeItem('user')
         sessionStorage.removeItem('email')
         sessionStorage.removeItem('name')
+        sessionStorage.removeItem('role')
         localStorage.setItem("isloggedin", false);
         props.history.push('/')
     }

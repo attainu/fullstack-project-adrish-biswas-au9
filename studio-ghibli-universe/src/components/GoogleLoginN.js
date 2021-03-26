@@ -12,7 +12,8 @@ class GoogleLoginN extends React.Component {
     this.state = {
       loggedIn: false,
       email: "",
-      name: ""
+      name: "",
+      error: ''
 
     }
   }
@@ -23,6 +24,7 @@ class GoogleLoginN extends React.Component {
       let obj = JSON.parse(user);
       //user.json();
       this.setState({loggedIn: true})
+      sessionStorage.setItem('role', obj.role);
       sessionStorage.setItem('email', obj.email);
       sessionStorage.setItem('name', obj.name);
       this.props.history.push('/home');
@@ -41,10 +43,10 @@ class GoogleLoginN extends React.Component {
         loggedIn: true
       })
       const user = this.state;
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem("isloggedin", true);
-      sessionStorage.setItem('email', this.state.email);
-      sessionStorage.setItem('name', this.state.name);
+      // localStorage.setItem('user', JSON.stringify(user));
+      // localStorage.setItem("isloggedin", true);
+      // sessionStorage.setItem('email', this.state.email);
+      // sessionStorage.setItem('name', this.state.name);
       fetch(gurl, {
         method: 'POST',
         headers: {
@@ -53,7 +55,20 @@ class GoogleLoginN extends React.Component {
         },
         body: JSON.stringify(this.state)
       })
-        .then(this.props.history.push('/home'))
+      .then((res) => res.json())
+      .then((data) => {
+
+        sessionStorage.setItem('email', this.state.email);
+        sessionStorage.setItem('name', data.name);
+        sessionStorage.setItem('role', data.role);
+        localStorage.setItem('user', JSON.stringify(data));
+        localStorage.setItem("isloggedin", true);
+        this.props.history.push('/home');
+      })
+      .catch((err) => {
+        this.setState({ error: "Invalid Credentials!!!" })
+        console.log(this.state.error)
+      })
       //this.props.history.push('/home')
     } catch (error) {
       console.log('this is error', error)
