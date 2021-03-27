@@ -3,8 +3,46 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ShoppingDisplay.css';
 
-import { HashLink } from 'react-router-hash-link';
 
+const order_url = 'https://studio-ghibli-universe-backend.herokuapp.com/orders/edit';
+const user_edit_url = 'https://studio-ghibli-universe-backend.herokuapp.com/api/auth/edit';
+
+
+
+
+const handle_accept = (item) => {
+  console.log({ email: item.email })
+  alert('account changed to ghiblian')
+  fetch(`${order_url}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json'
+    },
+
+    body: JSON.stringify({ email: item.email, status: "accepted" })
+  });
+  fetch(`${user_edit_url}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json'
+    },
+
+    body: JSON.stringify({ email: item.email, role: "ghiblian" })
+  });
+}
+
+const handle_reject = (item) => {
+  console.log({ email: item.email })
+  alert('account conversion rejected')
+  fetch(`${order_url}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json'
+    },
+
+    body: JSON.stringify({ email: item.email, status: "rejected" })
+  });
+}
 const AdminUpgradeRequestGridDisplay = (props) => {
   const display = (upgrade_list) => {
 
@@ -31,8 +69,8 @@ const AdminUpgradeRequestGridDisplay = (props) => {
                   
 
 
-                <center><button type="button" className="btn btn-success" style={{margin:'8px'}}><p className="card-text " ><small>Accept</small></p></button>
-                <button type="button" className="btn btn-danger" style={{margin:'8px'}}><p className="card-text " ><small>Reject</small></p></button></center>
+                <center><button onClick={() => { handle_accept(item) }} type="button" className="btn btn-success" style={{margin:'8px'}}><p className="card-text " ><small>Accept</small></p></button>
+                <button onClick={() => { handle_reject(item) }} type="button" className="btn btn-danger" style={{margin:'8px'}}><p className="card-text " ><small>Reject</small></p></button></center>
                    
 
                   
