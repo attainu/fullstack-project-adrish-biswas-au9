@@ -5,6 +5,31 @@ import { HashLink } from 'react-router-hash-link';
 import { NavHashLink } from 'react-router-hash-link';
 import Logout from './Logout';
 
+const gurl = "https://studio-ghibli-universe-backend.herokuapp.com/orders/register"
+ const handleGhiblian = (props) =>{
+  fetch(gurl, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({email:sessionStorage.getItem('email'), status:"pending"})
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.message == "Data Registered!") {
+        alert("Your request has been registered; wait for a while and login again.")
+        
+      }
+      else{
+        alert("error")
+      }
+
+    })
+    .catch((err, data) => {
+      alert("error catch")
+    })
+}
 const Header = () => {
   return (
     <nav className="navbar sticky-top navbar-expand navbar-dark main" style={{ backgroundColor: "#111" }}>
@@ -25,6 +50,15 @@ const Header = () => {
             <span className="sr-only">(current)</span>
             </HashLink>
           </li>
+
+          <li className="nav-item nav-item active" >
+            <HashLink className="nav-link" id="home-link"
+              to="/wishlist#top"
+            >My Ghibli Universe
+            <span className="sr-only">(current)</span>
+            </HashLink>
+          </li>
+
           {
             sessionStorage.getItem('role') == 'admin' ?
               <li className="nav-item nav-item active" >
@@ -35,24 +69,22 @@ const Header = () => {
                 </HashLink>
               </li> :
               sessionStorage.getItem('role') == 'ghiblian'?
-              null:
               <li className="nav-item nav-item active" >
                 <HashLink className="nav-link" id="home-link"
                   to="/home#Locations_heading"
-                >Become a Ghiblian!
+                >My Plan
               <span className="sr-only">(current)</span>
                 </HashLink>
+              </li>:
+              <li className="nav-item nav-item active" >
+                <HashLink to="/"><button type='button' className='btn btn-info' style={{marginLeft: '30px', padding:'5px 2px 0px 3px'}} onClick={handleGhiblian}><h6>Become a Ghiblian!</h6>
+              <span className="sr-only">(current)</span>
+                </button></HashLink>
               </li>
           }
 
 
-          <li className="nav-item nav-item active" >
-            <HashLink className="nav-link" id="home-link"
-              to="/wishlist#top"
-            >My Ghibli Universe
-            <span className="sr-only">(current)</span>
-            </HashLink>
-          </li>
+          
 
         </ul>
 

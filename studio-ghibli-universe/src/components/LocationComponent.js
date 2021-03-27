@@ -15,7 +15,7 @@ const LocationComponent = (props) => {
 
       return (
         <>
-          <div className='backgroundWall' style={{ backgroundImage: `url(${locationdetails.image_url})` }} ></div>
+          {/* <div className='backgroundWall' style={{ backgroundImage: `url(${locationdetails.image_url})` }} ></div> */}
 
           <div className='container'>
 

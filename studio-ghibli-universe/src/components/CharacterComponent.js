@@ -15,7 +15,7 @@ const CharacterComponent = (props) => {
 
       return (
         <>
-          <div className='backgroundWall' style={{ backgroundImage: `url(${characterdetails.image_url})` }} ></div>
+          {/* <div className='backgroundWall' style={{ backgroundImage: `url(${characterdetails.image_url})` }} ></div> */}
 
           <div className='container'>
 

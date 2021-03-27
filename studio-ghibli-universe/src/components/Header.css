@@ -19,12 +19,12 @@
 #home-link{
     font-size: 14px;
     font-family: "Lucida Console", "Courier New", monospace;
-    color: #cccdb4;
+    color: #c0c5c7;
     margin-left: 30px;
-    transition : all 1s;
+    transition : all 0.2s;
 }
 #home-link:hover {
-    background-color:#1a1503;
+    color:#0f78af;
 }
 #link-link{
     font-size: 14px;
