@@ -56,7 +56,7 @@ const AdminUserControlGridDisplay = (props) => {
                             <center><button type="button" className="btn btn-info" style={{margin:'5px', padding:'0px 5px 0px 5px'}}><p className="card-text" ><small>change to ghiblian</small></p></button> </center>
                           }
                           
-                            <center><button type="button" className="btn btn-danger" style={{margin:'5px', padding:'0px 5px 0px 5px'}}><p className="card-text" ><small>deactivate account</small></p></button> </center>
+                            <center><button type="button" className="btn btn-danger" style={{margin:'5px', padding:'0px 5px 0px 5px'}}><p className="card-text" ><small>delete account</small></p></button> </center>
                           
                           
           
