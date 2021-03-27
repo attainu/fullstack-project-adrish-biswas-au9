@@ -48,8 +48,8 @@ class LoginComponent extends Component {
         sessionStorage.setItem('email', this.state.email);
         sessionStorage.setItem('name', data.name);
         sessionStorage.setItem('role', data.role);
-        localStorage.setItem('user', JSON.stringify(data));
-        localStorage.setItem("isloggedin", true);
+        localStorage.setItem('userGhibli', JSON.stringify(data));
+        localStorage.setItem("isloggedinGhibli", true);
         this.props.history.push('/home');
       })
       .catch((err) => {

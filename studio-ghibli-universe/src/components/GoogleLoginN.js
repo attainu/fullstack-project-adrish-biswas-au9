@@ -18,7 +18,7 @@ class GoogleLoginN extends React.Component {
     }
   }
   componentDidMount() {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem('userGhibli');
     
     if (user) {
       let obj = JSON.parse(user);
@@ -61,8 +61,8 @@ class GoogleLoginN extends React.Component {
         sessionStorage.setItem('email', this.state.email);
         sessionStorage.setItem('name', data.name);
         sessionStorage.setItem('role', data.role);
-        localStorage.setItem('user', JSON.stringify(data));
-        localStorage.setItem("isloggedin", true);
+        localStorage.setItem('userGhibli', JSON.stringify(data));
+        localStorage.setItem("isloggedinGhibli", true);
         this.props.history.push('/home');
       })
       .catch((err) => {
