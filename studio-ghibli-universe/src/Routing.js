@@ -21,6 +21,8 @@ import Poster from './container/Poster';
 import Tshirt from './container/Tshirts';
 import Videogames from './container/Videogames';
 
+import Admin from './container/Admin'
+
 
 const Routing = () => {
     return (
@@ -43,6 +45,7 @@ const Routing = () => {
           <Route path="/tshirt/:id" component={Tshirt}/>
           <Route path="/accessories/:id" component={Accessories}/>
           <Route path="/videogames/:id" component={Videogames}/>
+          <Route path="/admin" component={Admin}/>
           <Footer />
         </BrowserRouter>
     );

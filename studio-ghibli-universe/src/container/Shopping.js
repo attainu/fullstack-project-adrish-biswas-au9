@@ -108,7 +108,7 @@ class Shopping extends Component {
                 <div className="row navbar sticky-top  main" style={{ textAlign: 'center', padding: '15px', backgroundColor: '#111', marginRight: '0px' }}>
                     <div className="col-sm-2 movie_page_navigation">
                     <HashLink className="movie_categories_link" 
-                        to="/shopping#bluray_shopping"
+                        to="/shopping#Blu-Ray_search"
                     ><h6>Blu_Ray</h6>
                     <span className="sr-only">(current)</span>
                     </HashLink>
@@ -116,7 +116,7 @@ class Shopping extends Component {
 
                     <div className="col-sm-2 movie_page_navigation">
                     <HashLink className="movie_categories_link" 
-                        to="/shopping#DVD_shopping"
+                        to="/shopping#DVD_search"
                     ><h6>DVD</h6>
                     <span className="sr-only">(current)</span>
                     </HashLink>
@@ -124,7 +124,7 @@ class Shopping extends Component {
 
                     <div className="col-sm-2 movie_page_navigation">
                     <HashLink className="movie_categories_link" 
-                        to="/shopping#poster_shopping"
+                        to="/shopping#Poster_search"
                     ><h6>Poster</h6>
                     <span className="sr-only">(current)</span>
                     </HashLink>
@@ -132,7 +132,7 @@ class Shopping extends Component {
 
                     <div className="col-sm-2 movie_page_navigation">
                     <HashLink className="movie_categories_link" 
-                        to="/shopping#Tshirt_shopping"
+                        to="/shopping#Tshirt_search"
                     ><h6>T-Shirts</h6>
                     <span className="sr-only">(current)</span>
                     </HashLink>
@@ -140,7 +140,7 @@ class Shopping extends Component {
 
                     <div className="col-sm-2 movie_page_navigation">
                     <HashLink className="movie_categories_link" 
-                        to="/shopping#accessories_shopping"
+                        to="/shopping#Accessories_search"
                     ><h6>Accessories</h6>
                     <span className="sr-only">(current)</span>
                     </HashLink>
@@ -148,7 +148,7 @@ class Shopping extends Component {
 
                     <div className="col-sm-2 movie_page_navigation">
                     <HashLink className="movie_categories_link" 
-                        to="/shopping#videogames_shopping"
+                        to="/shopping#Videogame_search"
                     ><h6>Videogames</h6>
                     <span className="sr-only">(current)</span>
                     </HashLink>

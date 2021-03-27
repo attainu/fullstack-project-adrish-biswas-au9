@@ -78,7 +78,7 @@ class Header extends Component {
               sessionStorage.getItem('role') == 'admin' ?
                 <li className="nav-item nav-item active" >
                   <HashLink className="nav-link" id="home-link"
-                    to="/home#Locations_heading"
+                    to="/admin#top"
                   >Admin Dashboard
                   <span className="sr-only">(current)</span>
                   </HashLink>
@@ -94,13 +94,19 @@ class Header extends Component {
                   <li className="nav-item nav-item active" >
                     {
                       localStorage.getItem("requestGhibli") == "pending" ? 
-                      <h6>Pending request ...</h6>
+                      <button type='button' className='btn btn-info' style={{ marginLeft: '30px', padding: '5px 2px 0px 3px' }}><h6>Pending request...</h6>
+                        <span className="sr-only">(current)</span>
+                      </button>
                       :
                       this.state.allow_button ?
                       <button type='button' className='btn btn-info' style={{ marginLeft: '30px', padding: '5px 2px 0px 3px' }} onClick={this.handleGhiblian}><h6>Become a Ghiblian!</h6>
                         <span className="sr-only">(current)</span>
                       </button> : 
-                      <h6>Pending request ...</h6>
+
+                      <button type='button' className='btn btn-info' style={{ marginLeft: '30px', padding: '5px 2px 0px 3px' }}><h6>Pending request...</h6>
+                        <span className="sr-only">(current)</span>
+                      </button>
+                      
                     }
 
                   </li>
