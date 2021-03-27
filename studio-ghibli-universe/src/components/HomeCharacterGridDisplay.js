@@ -32,7 +32,7 @@ const HomeCharacterGridDisplay = (props) => {
                     return (
                         <div id="character_first" className='movie_poster_container'>
                             {snippet}
-                            <HashLink to={movieRoute}><img className='character_poster' src={item.image_url} alt='character_poster'></img><br /></HashLink>
+                            <HashLink to={movieRoute}><img className='movie_character' src={item.image_url} alt='movie_character'></img><br /></HashLink>
                             <center>{item.name}</center>   
                         </div>
                     )
@@ -41,7 +41,7 @@ const HomeCharacterGridDisplay = (props) => {
                     return (
                         <div className='movie_poster_container'>
     
-                            <HashLink to={movieRoute}><img className='character_poster' src={item.image_url} alt='character_poster'></img><br /></HashLink>
+                            <HashLink to={movieRoute}><img className='movie_character' src={item.image_url} alt='movie_character'></img><br /></HashLink>
                             <center>{item.name}</center>
                         </div>
                     )
