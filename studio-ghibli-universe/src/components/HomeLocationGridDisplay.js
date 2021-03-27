@@ -31,7 +31,7 @@ const HomeLocationGridDisplay = (props) => {
                     return (
                         <div id="location_first" className='movie_poster_container'>
                             {snippet}
-                            <HashLink to={movieRoute}><img className='movie_character' src={item.image_url[0]} alt='movie_character'></img><br /></HashLink>
+                            <center><HashLink to={movieRoute}><img className='movie_character' src={item.image_url[0]} alt='movie_character'></img><br /></HashLink></center>
                             <center>{item.name}</center>
                            
                         </div>
@@ -40,7 +40,7 @@ const HomeLocationGridDisplay = (props) => {
                 else{
                     return (
                         <div className='movie_poster_container'>
-                            <HashLink to={movieRoute}><img className='movie_character' src={item.image_url[0]} alt='movie_character'></img><br /></HashLink>
+                            <center><HashLink to={movieRoute}><img className='movie_character' src={item.image_url[0]} alt='movie_character'></img><br /></HashLink></center>
                             <center>{item.name}</center>
                         </div>
                     )

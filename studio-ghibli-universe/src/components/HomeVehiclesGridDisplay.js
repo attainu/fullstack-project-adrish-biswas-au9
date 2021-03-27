@@ -31,7 +31,7 @@ const HomeVehiclesGridDisplay = (props) => {
                     return (
                         <div id="vehicles_first" className='movie_poster_container'>
                             {snippet}
-                            <HashLink to={movieRoute}><img className='vehicle_poster' src={item.image_url} alt='vehicle_poster'></img><br /></HashLink>
+                            <center><HashLink to={movieRoute}><img className='movie_character' src={item.image_url} alt='movie_character'></img><br /></HashLink></center>
                             <center>{item.name}</center>
                             <div className="overlay">
                             </div>
@@ -42,7 +42,7 @@ const HomeVehiclesGridDisplay = (props) => {
                 else {
                     return (
                         <div className='movie_poster_container'>
-                            <HashLink to={movieRoute}><img className='vehicle_poster' src={item.image_url} alt='vehicle_poster'></img><br /></HashLink>
+                            <center><HashLink to={movieRoute}><img className='movie_character' src={item.image_url} alt='movie_character'></img><br /></HashLink></center>
                             <center>{item.name}</center>
                         </div>
                     )
