@@ -4,11 +4,11 @@ import { withRouter } from "react-router";
 
 const Logout = (props) => {
     const logout = () => {
-        localStorage.removeItem('user')
+        localStorage.removeItem('userGhibli')
         sessionStorage.removeItem('email')
         sessionStorage.removeItem('name')
         sessionStorage.removeItem('role')
-        localStorage.setItem("isloggedin", false);
+        localStorage.setItem("isloggedinGhibli", false);
         props.history.push('/')
     }
     return (

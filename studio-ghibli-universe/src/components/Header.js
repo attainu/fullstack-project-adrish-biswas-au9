@@ -32,6 +32,7 @@ class Header extends Component {
       .then((data) => {
         if (data.message == "Data Registered!") {
           alert("Your request has been registered; wait for a while and login again.")
+          localStorage.setItem("requestGhibli", "pending");
           this.setState({ allow_button: false })
         }
         else {
@@ -40,7 +41,7 @@ class Header extends Component {
 
       })
       .catch((err, data) => {
-        alert("error catch")
+        alert("catch error")
       })
   }
   render() {
@@ -92,10 +93,14 @@ class Header extends Component {
                   </li> :
                   <li className="nav-item nav-item active" >
                     {
+                      localStorage.getItem("requestGhibli") == "pending" ? 
+                      <h6>Pending request ...</h6>
+                      :
                       this.state.allow_button ?
                       <button type='button' className='btn btn-info' style={{ marginLeft: '30px', padding: '5px 2px 0px 3px' }} onClick={this.handleGhiblian}><h6>Become a Ghiblian!</h6>
                         <span className="sr-only">(current)</span>
-                      </button> : null
+                      </button> : 
+                      <h6>Pending request ...</h6>
                     }
 
                   </li>
