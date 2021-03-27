@@ -8,7 +8,6 @@ class VideoComponent extends Component {
     super()
 
     this.state = {
-
       video_url: '',
       movie_url: '',
       allow_modal_1: false,
@@ -124,4 +123,4 @@ class VideoComponent extends Component {
   }
 }
 
-export default VideoComponent
+export default VideoComponent;
