@@ -74,7 +74,7 @@ const AdminUserControlGridDisplay = (props) => {
         return (
           < >
 
-            <div className="card mb-3 " style={{ maxWidth: '', backgroundColor: 'gray' }}>
+            <div className="card mb-3 " style={{ maxWidth: '', backgroundColor: '#687693' }}>
               <div className="row no-gutters">
                 <div className="col-md-3">
                   <div className="card-body">

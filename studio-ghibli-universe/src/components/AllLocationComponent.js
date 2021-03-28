@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './HomeDisplay.css';
 import { HashLink } from 'react-router-hash-link';
 
-const HomeLocationGridDisplay = (props) => {
+const AllLocationComponent = (props) => {
     const display = (locationslist) => {
         if (locationslist) {
             const snippet=(locationslist.length > 3) ?
@@ -52,12 +52,11 @@ const HomeLocationGridDisplay = (props) => {
             })
         }
     }
-    const alllocation = '/alllocations'+'#top';
+
     return (
-        <div className="Home_sub_containers main">
-        <HashLink to={alllocation}><div><h6 style={{textAlign:"right", color:"white"}}>See all</h6></div></HashLink>
+        <div className="Home_sub_containers_all main">
             <div className="container-fluid" >
-                <div className="movie_grid">
+                <div className="movie_grid_all">
                     {display(props.locationslist)}
                 </div>
             </div>
@@ -65,4 +64,4 @@ const HomeLocationGridDisplay = (props) => {
     )
 }
 
-export default HomeLocationGridDisplay;
+export default AllLocationComponent;

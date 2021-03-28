@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 import './HomeDisplay.css';
 import { HashLink } from 'react-router-hash-link';
 
-const HomeMovieGridDisplay = (props) => {
+const AllMovieComponent = (props) => {
     
     const display = (filmslist) => {
         
@@ -31,11 +29,9 @@ const HomeMovieGridDisplay = (props) => {
 
                 const movieRoute = '/films/' + item.id + '#top';
                 
-                
                     if (index === 0) {
                         return (
                             <>
-                                
                                 
                                 <div id="movie_first" className='movie_poster_container'>
                                 {snippet}
@@ -61,17 +57,13 @@ const HomeMovieGridDisplay = (props) => {
         }
 
     }
-    const allmovie = '/movies'+'#top';
+
     return (
-        
-        <div className="Home_sub_containers main">
-        <HashLink to={allmovie}><div><h6 style={{textAlign:"right", color:"white"}}>See all</h6></div></HashLink>
-        
-            <div className="container-fluid" >
+        <div className="Home_sub_containers_all main">
+            <div className="container-fluid_all" >
                
 
-                <div className="movie_grid">
-                
+                <div className="movie_grid_all">
                     {display(props.filmslist)}
                 </div>
             </div>
@@ -79,4 +71,4 @@ const HomeMovieGridDisplay = (props) => {
     )
 }
 
-export default HomeMovieGridDisplay;
+export default AllMovieComponent;

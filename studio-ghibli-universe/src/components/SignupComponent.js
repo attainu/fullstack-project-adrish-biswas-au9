@@ -137,6 +137,8 @@ class SignupComponent extends Component {
                     {
                       this.state.allowSignup ? <button className="but" onClick={this.handleSubmit}>Signup</button> : null
                     }
+                    <hr style={{ backgroundColor: 'black', height: '1px' }}></hr>
+                    <center><h6>----------or----------</h6></center>
                     {/* <button className="but" onClick={this.handleSubmit}>Signup</button> */}
                     <center><div  style={{ padding: '5px' }}><GoogleLoginN /></div></center>
 
