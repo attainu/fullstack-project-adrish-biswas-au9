@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import "./Header.css"
+import "./Header.css";
+import axios from 'axios';
 import { HashLink } from 'react-router-hash-link';
 import { NavHashLink } from 'react-router-hash-link';
 import Logout from './Logout';
@@ -19,33 +20,14 @@ class Header extends Component {
       allow_movie: false
     }
   }
-  handleGhiblian = () => {
-    fetch(gurl, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email: sessionStorage.getItem('email'), status: "pending" })
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message == "Data Registered!") {
-          alert("Your request has been registered; wait for a while and login again.")
-          localStorage.setItem("requestGhibli", "pending");
-          this.setState({ allow_button: false })
-        }
-        else {
-          alert("error")
-        }
-
-      })
-      .catch((err, data) => {
-        alert("catch error")
-      })
-  }
+  
   render() {
-
+    let pending_check = false
+    this.state.orders.map((item, index) => {
+      if (item.email==sessionStorage.getItem('email') && item.status=="pending"){
+        pending_check = true;
+      }
+    })
     return (
       <nav className="navbar sticky-top navbar-expand navbar-dark main" style={{ backgroundColor: "#111" }}>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -123,9 +105,15 @@ class Header extends Component {
         </div>
       </nav>
     )
+    
   }
-
-
+  componentDidMount() {
+    axios.get(orders_url)
+      .then((response) => {
+        this.setState({ orders: response.data });
+      })
+  }
+  
 }
 
 export default Header;
