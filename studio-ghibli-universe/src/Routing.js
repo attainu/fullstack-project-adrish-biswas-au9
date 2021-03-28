@@ -25,6 +25,7 @@ import AllCharacter from './container/AllCharacter';
 import AllLocation from './container/AllLocation'
 
 import Admin from './container/Admin'
+import MyPlan from './container/MyPlan';
 
 
 const Routing = () => {
@@ -52,6 +53,8 @@ const Routing = () => {
           <Route path="/movies" component={AllMovie}/>
           <Route path="/allcharacters" component={AllCharacter}/>
           <Route path="/alllocations" component={AllLocation}/>
+          <Route path="/myplan" component={MyPlan}/>
+
 
           <Footer />
         </BrowserRouter>

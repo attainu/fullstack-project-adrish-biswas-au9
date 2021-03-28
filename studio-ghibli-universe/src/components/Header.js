@@ -73,7 +73,7 @@ class Header extends Component {
                 sessionStorage.getItem('role') == 'ghiblian' ?
                   <li className="nav-item nav-item active" >
                     <HashLink className="nav-link" id="home-link"
-                      to="/home#Locations_heading"
+                      to="/myplan"
                     >My Plan
                   <span className="sr-only">(current)</span>
                     </HashLink>
