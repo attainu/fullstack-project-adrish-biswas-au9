@@ -9,13 +9,14 @@ const HomeLocationGridDisplay = (props) => {
         if (locationslist) {
             const snippet=(locationslist.length > 3) ?
             (
-                <div >See all</div>
+                <div ></div>
             ) :
             (
                 <div ></div>
             );
             if(locationslist.length === 0){
                     return (
+                        
                         <div id="location_first" className='movie_poster_container'>
                             <br/>
                             <div className="overlay">
@@ -29,12 +30,14 @@ const HomeLocationGridDisplay = (props) => {
                 const movieRoute = '/locations/' + item.id + '#top';
                 if(index === 0){
                     return (
+                        <><div><h6 style={{textAlign:"right", color:"white"}}>See all</h6></div>
                         <div id="location_first" className='movie_poster_container'>
                             {snippet}
                             <center><HashLink to={movieRoute}><img className='movie_character' src={item.image_url[0]} alt='movie_character'></img><br /></HashLink></center>
                             <center>{item.name}</center>
                            
                         </div>
+                        </>
                     )
                 }
                 else{

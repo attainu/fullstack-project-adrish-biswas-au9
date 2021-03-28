@@ -20,6 +20,8 @@ import Accessories from './container/Accessories';
 import Poster from './container/Poster';
 import Tshirt from './container/Tshirts';
 import Videogames from './container/Videogames';
+import AllMovie from './container/AllMovie'
+import AllCharacter from './container/AllCharacter'
 
 import Admin from './container/Admin'
 
@@ -46,6 +48,9 @@ const Routing = () => {
           <Route path="/accessories/:id" component={Accessories}/>
           <Route path="/videogames/:id" component={Videogames}/>
           <Route path="/admin" component={Admin}/>
+          <Route path="/movies" component={AllMovie}/>
+          <Route path="/allcharacters" component={AllCharacter}/>
+
           <Footer />
         </BrowserRouter>
     );

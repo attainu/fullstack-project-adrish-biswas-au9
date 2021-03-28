@@ -26,13 +26,11 @@ const HomeCharacterGridDisplay = (props) => {
                 )
             }
             return characterslist.map((item,index) => {
-                const movieRoute ='/characters/'+item.id +'#top';
-                const allcharacter = '/allcharacters'+'#top';
+                const movieRoute ='/characters/'+'#top';
                 
                 if(index === 0){
                     return (
                         <>
-                        <HashLink to={allcharacter}><div><h6 style={{textAlign:"right", color:"white"}}>See all</h6></div></HashLink>
                         <div id="character_first" className='movie_poster_container'>
                             {snippet}
                             <center><HashLink to={movieRoute}><img className='movie_character' src={item.image_url} alt='movie_character'></img><br /></HashLink></center>
@@ -56,10 +54,10 @@ const HomeCharacterGridDisplay = (props) => {
     }
     
     return (
-        <div className="Home_sub_containers main">  
+        <div className="Home_sub_containers_all main">  
             <div className="container-fluid" >
 
-                <div className="movie_grid">
+                <div className="movie_grid_all">
                     {display(props.characterslist)}
                 </div>
             </div>
