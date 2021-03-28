@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import "./Header.css"
+import "./Header.css";
+import axios from 'axios';
 import { HashLink } from 'react-router-hash-link';
 import { NavHashLink } from 'react-router-hash-link';
 import Logout from './Logout';
 
-const gurl = "https://studio-ghibli-universe-backend.herokuapp.com/orders/register"
+const gurl = "https://studio-ghibli-universe-backend.herokuapp.com/orders/register";
+const orders_url = "https://studio-ghibli-universe-backend.herokuapp.com/orders/history";
 
 class Header extends Component {
   constructor() {
     super()
 
     this.state = {
-      video_url: '',
-      movie_url: '',
       allow_button: true,
-      allow_modal_2: false,
-      allow_movie: false
+      orders: ''
     }
   }
   handleGhiblian = () => {
@@ -32,7 +31,7 @@ class Header extends Component {
       .then((data) => {
         if (data.message == "Data Registered!") {
           alert("Your request has been registered; wait for a while and login again.")
-          localStorage.setItem("requestGhibli", "pending");
+          
           this.setState({ allow_button: false })
         }
         else {
@@ -123,9 +122,15 @@ class Header extends Component {
         </div>
       </nav>
     )
+    
   }
 
-
+  componentDidMount(){
+    axios.get(orders_url)
+        .then((response) => {
+            this.setState({ orders: response.data });
+        })
+  }
 }
 
 export default Header;
