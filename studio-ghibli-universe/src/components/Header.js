@@ -24,12 +24,15 @@ class Header extends Component {
   }
   
   render() {
-    let pending_check = false
-    this.state.orders.map((item, index) => {
-      if (item.email==sessionStorage.getItem('email') && item.status=="pending"){
-        pending_check = true;
-      }
-    })
+    let pending_check = false;
+    if(this.state.orders){
+      this.state.orders.map((item, index) => {
+        if (item.email==sessionStorage.getItem('email') && item.status=="pending"){
+          pending_check = true;
+        }
+      })
+    }
+    
     return (
       <nav className="navbar sticky-top navbar-expand navbar-dark main" style={{ backgroundColor: "#111" }}>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
