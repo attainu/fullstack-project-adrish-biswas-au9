@@ -19,7 +19,7 @@ const handle_accept = (item) => {
       'Content-type': 'application/json'
     },
 
-    body: JSON.stringify({ email: item.email, status: "accepted" })
+    body: JSON.stringify({ _id: item._id, status: "accepted" })
   });
   fetch(`${user_edit_url}`, {
     method: 'PUT',
@@ -40,7 +40,7 @@ const handle_reject = (item) => {
       'Content-type': 'application/json'
     },
 
-    body: JSON.stringify({ email: item.email, status: "rejected" })
+    body: JSON.stringify({ _id: item._id, status: "rejected" })
   });
 }
 const AdminUpgradeRequestGridDisplay = (props) => {
@@ -50,7 +50,7 @@ const AdminUpgradeRequestGridDisplay = (props) => {
 
 
       return upgrade_list.map((item, index) => {
-        const upgradeRoute = '/upgrade/' + item.id + '#top';
+        //const upgradeRoute = '/upgrade/' + item.id + '#top';
         return (
           < >
             <div className="card  " style={{ maxWidth: '', backgroundColor: 'gray' }}>
