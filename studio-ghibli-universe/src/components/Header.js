@@ -22,30 +22,7 @@ class Header extends Component {
 
     }
   }
-  handleGhiblian = () => {
-    fetch(gurl, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email: sessionStorage.getItem('email'), status: "pending" })
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message == "Data Registered!") {
-          alert("Your request has been registered; wait for a while and login again.")
-          this.setState({ allow_button: false })
-        }
-        else {
-          alert("error")
-        }
-
-      })
-      .catch((err, data) => {
-        alert("catch error")
-      })
-  }
+  
   render() {
     let pending_check = false
     this.state.orders.map((item, index) => {
