@@ -4,21 +4,19 @@ import "./Header.css"
 import { HashLink } from 'react-router-hash-link';
 import { NavHashLink } from 'react-router-hash-link';
 import Logout from './Logout';
-import HandleUserRequest from './HandleUserRequest';
 
 const gurl = "https://studio-ghibli-universe-backend.herokuapp.com/orders/register"
-const orders_url = "https://studio-ghibli-universe-backend.herokuapp.com/orders/history";
-
 
 class Header extends Component {
   constructor() {
     super()
 
     this.state = {
+      video_url: '',
+      movie_url: '',
       allow_button: true,
-      orders:'',
-
-
+      allow_modal_2: false,
+      allow_movie: false
     }
   }
   handleGhiblian = () => {
@@ -34,6 +32,7 @@ class Header extends Component {
       .then((data) => {
         if (data.message == "Data Registered!") {
           alert("Your request has been registered; wait for a while and login again.")
+          localStorage.setItem("requestGhibli", "pending");
           this.setState({ allow_button: false })
         }
         else {
@@ -46,13 +45,7 @@ class Header extends Component {
       })
   }
   render() {
-    let pending_check = false
-    this.state.orders.map((item, index) => {
-      if (item.email==sessionStorage.getItem(email) && item.status=="pending"){
-        pending_check = true
-        break;
-      }
-    })
+
     return (
       <nav className="navbar sticky-top navbar-expand navbar-dark main" style={{ backgroundColor: "#111" }}>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,7 +92,22 @@ class Header extends Component {
                     </HashLink>
                   </li> :
                   <li className="nav-item nav-item active" >
-                    <HandleUserRequest pending_check={pending_check} />
+                    {
+                      localStorage.getItem("requestGhibli") == "pending" ? 
+                      <button type='button' className='btn btn-info' style={{ marginLeft: '30px', padding: '5px 2px 0px 3px' }}><h6>Pending request...</h6>
+                        <span className="sr-only">(current)</span>
+                      </button>
+                      :
+                      this.state.allow_button ?
+                      <button type='button' className='btn btn-info' style={{ marginLeft: '30px', padding: '5px 2px 0px 3px' }} onClick={this.handleGhiblian}><h6>Become a Ghiblian!</h6>
+                        <span className="sr-only">(current)</span>
+                      </button> : 
+
+                      <button type='button' className='btn btn-info' style={{ marginLeft: '30px', padding: '5px 2px 0px 3px' }}><h6>Pending request...</h6>
+                        <span className="sr-only">(current)</span>
+                      </button>
+                      
+                    }
 
                   </li>
             }
@@ -115,12 +123,6 @@ class Header extends Component {
         </div>
       </nav>
     )
-  }
-  componentDidMount() {
-    axios.get(orders_url)
-      .then((response) => {
-        this.setState({ orders: response.data });
-      })
   }
 
 
