@@ -30,13 +30,13 @@ const HomeMovieGridDisplay = (props) => {
                 
 
                 const movieRoute = '/films/' + item.id + '#top';
-                const allmovie = '/movies'+'#top';
+                
                 
                     if (index === 0) {
                         return (
                             <>
                                 
-                                <HashLink to={allmovie}><div><h6 style={{textAlign:"right", color:"white"}}>See all</h6></div></HashLink>
+                                
                                 <div id="movie_first" className='movie_poster_container'>
                                 {snippet}
                                     <HashLink to={movieRoute}><img className='movie_poster' src={item.image_url} alt='movie_poster'></img></HashLink>
@@ -61,13 +61,17 @@ const HomeMovieGridDisplay = (props) => {
         }
 
     }
-
+    const allmovie = '/movies'+'#top';
     return (
+        
         <div className="Home_sub_containers main">
+        <HashLink to={allmovie}><div><h6 style={{textAlign:"right", color:"white"}}>See all</h6></div></HashLink>
+        
             <div className="container-fluid" >
                
 
                 <div className="movie_grid">
+                
                     {display(props.filmslist)}
                 </div>
             </div>

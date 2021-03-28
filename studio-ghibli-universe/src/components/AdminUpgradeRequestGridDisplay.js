@@ -53,7 +53,7 @@ const AdminUpgradeRequestGridDisplay = (props) => {
         //const upgradeRoute = '/upgrade/' + item.id + '#top';
         return (
           < >
-            <div className="card  " style={{ maxWidth: '', backgroundColor: 'gray' }}>
+            <div className="card mb-3" style={{ maxWidth: '', backgroundColor: 'gray' }}>
               <div className="row no-gutters">
                 <div className="col-md-4">
                 
@@ -69,8 +69,19 @@ const AdminUpgradeRequestGridDisplay = (props) => {
                   
 
 
-                <center><button onClick={() => { handle_accept(item) }} type="button" className="btn btn-success" style={{margin:'8px'}}><p className="card-text " ><small>Accept</small></p></button>
-                <button onClick={() => { handle_reject(item) }} type="button" className="btn btn-danger" style={{margin:'8px'}}><p className="card-text " ><small>Reject</small></p></button></center>
+                { item.status=='pending'?
+                  <center>
+                  <button onClick={() => { handle_accept(item) }} type="button" className="btn btn-success" style={{margin:'8px'}}><p className="card-text " ><small>Accept</small></p></button>
+                
+                  <button onClick={() => { handle_reject(item) }} type="button" className="btn btn-danger" style={{margin:'8px'}}><p className="card-text " ><small>Reject</small></p></button>
+                  </center>
+                  : 
+                  <center>
+                  <button type="button"  className="btn btn-warning" disabled style={{margin:'8px'}}><p className="card-text " ><small>{item.status}</small></p></button>
+                  </center>
+                  
+
+                }
                    
 
                   
