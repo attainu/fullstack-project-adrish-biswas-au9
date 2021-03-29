@@ -107,7 +107,7 @@ class FollowingDisplay extends Component {
         }
 
         return (
-            <div className="container" id="watchlist_display" style={{ paddingTop: '100px' }}>
+            <div className="container" id="following_display" style={{ paddingTop: '100px' }}>
                 <h4 style={{color:'#1daeed'}} className='wishlist_heading'>{sessionStorage.getItem('name')}'s Watchlist</h4>
                 { object }
             </div >

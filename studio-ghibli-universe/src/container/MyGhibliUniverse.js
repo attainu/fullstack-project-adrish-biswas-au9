@@ -69,6 +69,9 @@ class Shopping extends Component {
                 
                 <div className=" main"><Wishlist  /></div>
 
+                <div className=" main"><Following /></div>
+
+
 
             </>
         )
