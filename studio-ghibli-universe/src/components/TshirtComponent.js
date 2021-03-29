@@ -17,7 +17,7 @@ class TshirtComponent extends Component{
       this.props.dispatch(shopping_wishlist_add({
         id: Math.floor(Math.random() * 10000),
         name: this.props.tshirtdetails.name,
-        shopping_id: this.props.tshirtdetails.id,
+        shopping_id: 'tshirt/'+this.props.tshirtdetails.id,
         shopping_image: this.props.tshirtdetails.image_url,
         email: sessionStorage.getItem('email'),
         username: sessionStorage.getItem('name'),

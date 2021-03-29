@@ -18,7 +18,7 @@ class VideogamesComponent extends Component {
       this.props.dispatch(shopping_wishlist_add({
         id: Math.floor(Math.random() * 10000),
         name: this.props.videogamesdetails.name,
-        shopping_id: this.props.videogamesdetails.id,
+        shopping_id: 'videogames/' + this.props.videogamesdetails.id,
         shopping_image: this.props.videogamesdetails.image_url,
         email: sessionStorage.getItem('email'),
         username: sessionStorage.getItem('name'),
