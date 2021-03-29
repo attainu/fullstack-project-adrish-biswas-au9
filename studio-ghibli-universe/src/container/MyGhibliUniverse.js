@@ -32,7 +32,7 @@ class Shopping extends Component {
             <>
                 <Header />
                 <SideBar />
-                <h3 className='wishlist_heading main'>{sessionStorage.getItem('name')}'s Ghibli Universe</h3>
+                <center><h2 style={{color:'#1daeed', padding:'50px'}} className='wishlist_heading main'>{sessionStorage.getItem('name')}'s Ghibli Universe</h2></center>
 
 
                 <div className="row navbar sticky-top  main" style={{ textAlign: 'center', padding: '15px', backgroundColor: '#111', marginRight: '0px' }}>
@@ -53,8 +53,13 @@ class Shopping extends Component {
                     </div>
                        
                 </div>
-                <div className="main"><Watchlist  /></div>
-                <div className="main"><Wishlist  /></div>
+
+                
+                <div className=" main"><Watchlist  /></div>
+                
+
+                
+                <div className=" main"><Wishlist  /></div>
 
 
             </>

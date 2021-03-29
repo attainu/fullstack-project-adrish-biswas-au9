@@ -26,13 +26,42 @@ class WatchlistDisplay extends Component {
                 const route = '/films/' + item.movieid + '#top'
                 return (
                     <>
-                        <tr>
-                            <td ><HashLink to={route}><img className='wishlist_film' alt="movie_poster" src={item.movieimage}></img></HashLink></td>
-                            <td>{item.moviename}<br /><br /><button className="btn" onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button></td>
-                            <td>{item.date}</td>
-                        </tr>
+                        <div className="card mb-3" style={{ maxWidth: '', backgroundColor: '#687693', padding:'5px' }}>
+                        <div className="row no-gutters">
+
+                        <div className="col-md-3">
+                            <HashLink to={route}><img className='wishlist_film' alt="movie_poster" src={item.movieimage}></img></HashLink>
+                            </div>
+
+
+                            <div className="col-md-3" style={{paddingTop:'80px'}}>
+                            <h6>{item.moviename}</h6>
+                            </div>
+                            
+                            
+                            <div className="col-md-3" style={{paddingTop:'80px'}}>
+                            <center><h6>{item.date}</h6></center>
+                            </div>
+
+
+                            <div className="col-md-3" style={{paddingTop:'50px'}}>
+                            <button className="btn" onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button>
+                            </div>
+
+
+                            
+
+
+                            
+
+                        </div></div>
 
                     </>
+
+
+
+
+
 
                 )
 
@@ -55,30 +84,55 @@ class WatchlistDisplay extends Component {
                         <h4 >Add a movie to wishlist to make it a part of your Ghibli Universe!</h4>
                     </div>
                 ) :
-                (<table className="table table-responsive">
-
-                    <thead>
-                        <tr>
-
-                            <th>Movie</th>
-                            <th>Movie name</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-
-
-                    <tbody>
-
-                        {this.renderTable(this.props)}
-
-
-                    </tbody>
-                </table>)
+                (                <>
+                    <div className="card mb-3" style={{ maxWidth: '', backgroundColor: '#1daeed', padding:'10px' }}>
+                    <div className="row no-gutters">
+                      <div className="col-md-3">
+    
+                      <center>Movie</center> 
+    
+                        </div>
+    
+                        <div className="col-md-3">
+    
+    
+                               <center>Movie name</center> 
+    
+                        </div>
+    
+                        <div className="col-md-3">
+    
+    
+                                
+                                <center>Date</center> 
+    
+                        </div>
+    
+                        <div className="col-md-3">
+    
+    
+                                Delete
+    
+                        </div>
+    
+    
+    
+                        </div>
+    
+    
+                        
+                    </div><div>
+    
+    {this.renderTable(this.props)}
+    
+    
+    </div>
+    </>)
         }
 
         return (
             <div className="container" id="watchlist_display" style={{ paddingTop: '100px' }}>
-                <h3 className='wishlist_heading'>{sessionStorage.getItem('name')}'s Watchlist</h3>
+                <h4 style={{color:'#1daeed'}} className='wishlist_heading'>{sessionStorage.getItem('name')}'s Watchlist</h4>
                 { object }
             </div >
             

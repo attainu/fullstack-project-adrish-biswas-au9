@@ -26,11 +26,33 @@ class WishlistDisplay extends Component {
                 const route = '/' + item.shopping_id + '#top'
                 return (
                     <>
-                        <tr>
-                            <td ><HashLink to={route}><img className='wishlist_film' alt="movie_poster" src={item.shopping_image}></img></HashLink></td>
-                            <td>{item.name}<br /><br /><button className="btn" onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button></td>
-                            <td>{item.date}</td>
-                        </tr>
+                        <div className="card mb-3" style={{ maxWidth: '', backgroundColor: '#687693', padding:'5px' }}>
+                        <div className="row no-gutters">
+
+                        <div className="col-md-3">
+                            <HashLink to={route}><img className='wishlist_film' alt="movie_poster" src={item.shopping_image}></img></HashLink>
+                            </div>
+
+
+                            <div className="col-md-3" style={{paddingTop:'80px'}}>
+                            <h6>{item.name}</h6>
+                            </div>
+
+                            <div className="col-md-3" style={{paddingTop:'80px'}}>
+                            <center><h6>{item.date}</h6></center>
+                            </div>
+                            
+                            <div className="col-md-3" style={{paddingTop:'50px'}}>
+                            <button className="btn" onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button>
+                            </div>
+
+
+                            
+
+
+                            
+
+                        </div></div>
 
                     </>
 
@@ -45,33 +67,60 @@ class WishlistDisplay extends Component {
             object = (this.props.shopping_wishlist.length === 0) ?
                 (
                     <div className='empty_wishlist'>
-                        <h4 >Add an item to wishlist to make it a part of your Ghibli Universe!</h4>
+                        <h5 style={{color:'wheat'}} >Add an item to wishlist to make it a part of your Ghibli Universe!</h5>
                     </div>
                 ) :
-                (<table className="table table-responsive">
+                (
+                <>
+                <div className="card mb-3" style={{ maxWidth: '', backgroundColor: '#1daeed', padding:'10px' }}>
+                <div className="row no-gutters">
+                  <div className="col-md-3">
 
-                    <thead>
-                        <tr>
+                  <center>Item</center> 
 
-                            <th>Item</th>
-                            <th>Item name</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
+                    </div>
 
-
-                    <tbody>
-
-                        {this.renderTable(this.props)}
+                    <div className="col-md-3">
 
 
-                    </tbody>
-                </table>)
+                           <center>Item name</center> 
+
+                    </div>
+
+                    <div className="col-md-3">
+
+
+                            
+                            <center>Date</center> 
+
+                    </div>
+
+                    <div className="col-md-3">
+
+
+                            Delete
+
+                    </div>
+
+
+
+                    </div>
+
+
+                    
+                </div><div>
+
+{this.renderTable(this.props)}
+
+
+</div>
+</>
+)
         }
 
         return (
             <div className="container" id="wishlist_display" style={{ paddingTop: '100px' }}>
-                <h3 className='wishlist_heading'>{sessionStorage.getItem('name')}'s Shopping Wishlist</h3>
+                <h4 style={{color:'#1daeed'}} className='wishlist_heading'>{sessionStorage.getItem('name')}'s Shopping Wishlist</h4>
                 { object }
             </div >
             
