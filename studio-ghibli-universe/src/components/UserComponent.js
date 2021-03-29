@@ -75,10 +75,11 @@ class UserComponent extends Component {
   render(){
     const object = (this.props.in_wishlist === false) ?
         (
-          <div > <img alt='wishlist' onClick={this.handleSubmit} src="https://img.icons8.com/officel/80/000000/like--v2.png" /></div>
+          <div > <img style={{filter:' sepia()'}} alt='wishlist' onClick={this.handleSubmit} src="https://img.icons8.com/material-outlined/96/000000/like--v1.png"/></div>
+          
         ) :
         (
-          <div > <img alt='remove_wishlist' onClick={this.handleSubmit} src="https://img.icons8.com/office/80/000000/like--v1.png" /></div>
+          <div > <img  alt='remove_wishlist' onClick={this.handleSubmit} src="https://img.icons8.com/material/96/000000/like--v1.png" /></div>
         );
     return (
       <div className="Shopping_sub_containers main" id='user_shopping'>
@@ -89,13 +90,21 @@ class UserComponent extends Component {
             <div className="card mb-3" style={{ maxWidth: '', backgroundColor: '#0f78af', padding: '5px' }}>
               <div className="row no-gutters">
   
-                <div className="col-md-12" >
-                  <center>
+                <div className="col-md-9" >
+                  
                     {this.props.username ? <h2 style={{ padding: '20px', color: 'black' }}>{this.props.username}'s watchlist </h2> : null}
-                    
-                  </center>
+                  
+                  </div>
+
+                  <div className="col-md-3" >
+                  
                   {object}
-                </div>
+                  
+                  </div>
+
+
+                  
+                
   
               </div></div>
            
