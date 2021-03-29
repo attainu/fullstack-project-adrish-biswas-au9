@@ -16,49 +16,45 @@ import axios from 'axios';
 import './Unimain.css';
 
 
-const upgrade_url = 'https://studio-ghibli-universe-backend.herokuapp.com/orders/history';
-const users_url = 'https://studio-ghibli-universe-backend.herokuapp.com/api/auth/users';
+// const upgrade_url = 'https://studio-ghibli-universe-backend.herokuapp.com/orders/history';
+// const users_url = 'https://studio-ghibli-universe-backend.herokuapp.com/api/auth/users';
 const user_info = 'https://studio-ghibli-universe-backend.herokuapp.com/api/auth/userInfo';
+const films_playlist_url = "https://ghibli-json-server.herokuapp.com/films_playlist";
 
 class User extends Component {
   constructor() {
     super()
     this.state = {
-      users: '',
+      user: '',
       error: '',
+      watchlist: ''
     }
   }
-
-  changeHandler2 = (input) => { //a callback function which is called once it's triggered from the SearchBar.js, input conatins the input by the user inside the search bar
-    const filtering = this.state.users.filter(//using filter to filter the data; it sees whether the input is present in any of the list's city_name
-      (data) => {
-        return data.name.toLowerCase().indexOf(input.toLowerCase()) > -1 //the returned value will always be true if input is present in any of the list's city_name as indexOf() will return a value greater than -1
-      }
-    )
-    this.setState({ users_filtered: filtering });//changing state's value
-  }
-
-
 
 
 
   render() {
+    let filtering=''
     if (sessionStorage.getItem('email') == null) {
       this.props.history.push('/')
     }
-console.log(this.state, 'hello')
+    console.log(this.state, 'hello')
+
+    if(this.state.watchlist){
+      filtering=this.state.watchlist.filter((item,index)=>{
+        return this.state.user.email === item.email
+      })
+    }
+    
+
+
 
     return (
       <>
         <Header />
         <SideBar />
 
-
-        <UserComponent user_list={this.state.user.email} />
-
-
-
-
+        <UserComponent watchlist={filtering} />
 
       </>
     )
@@ -77,20 +73,22 @@ console.log(this.state, 'hello')
 
       .then((res) => res.json())
       .then((data) => {
-        this.setState({user: data})
+        this.setState({ user: data })
 
-       
+
       })
       .catch((err) => {
         this.setState({ error: err })
+      });
+      await axios.get(films_playlist_url)
+      .then((response) => {
+        this.setState({ watchlist: response.data })
       })
-
 
   };
 
   componentDidMount() {
-    this.getUserInfo()
-
+    this.getUserInfo();
   }
 }
 export default User;
