@@ -32,6 +32,8 @@ class Shopping extends Component {
             <>
                 <Header />
                 <SideBar />
+                <h3 className='wishlist_heading main'>{sessionStorage.getItem('name')}'s Ghibli Universe</h3>
+
 
                 <div className="row navbar sticky-top  main" style={{ textAlign: 'center', padding: '15px', backgroundColor: '#111', marginRight: '0px' }}>
                     <div className="col-sm-6 movie_page_navigation">

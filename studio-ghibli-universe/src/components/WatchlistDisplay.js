@@ -79,7 +79,7 @@ class WatchlistDisplay extends Component {
 
         return (
             <div className="container" id="watchlist_display" style={{ paddingTop: '100px' }}>
-                <h3 className='wishlist_heading'>{sessionStorage.getItem('name')}'s Ghibli Universe</h3>
+                <h3 className='wishlist_heading'>{sessionStorage.getItem('name')}'s Watchlist</h3>
                 { object }
             </div >
             
