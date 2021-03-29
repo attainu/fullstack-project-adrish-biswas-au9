@@ -41,8 +41,15 @@ class Community extends Component {
 
 
     render() {
+      let filtering = "";
         if (sessionStorage.getItem('email') == null) {
             this.props.history.push('/')
+        }
+        if(this.state.users_filtered){
+          filtering = this.state.users_filtered.filter((item, index) => {
+          
+            return item.email != sessionStorage.getItem("email")
+          })
         }
 
 
@@ -57,7 +64,7 @@ class Community extends Component {
                 <center>
                     <SearchBar category='Profile' filter={(input) => { this.changeHandler2(input) }} />
                 </center>
-                <CommunityComponent user_list={this.state.users_filtered} />
+                <CommunityComponent user_list={filtering}  />
 
                 
 
