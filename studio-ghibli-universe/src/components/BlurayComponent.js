@@ -5,7 +5,6 @@ import { shopping_wishlist_add, shopping_wishlist_delete } from '../actions/acti
 // import BottomCarousel from './BottomCarousel'
 //import { HashLink } from 'react-router-hash-link';
 
-
 class BlurayComponent extends Component {
 
   handleSubmit = () => {
@@ -59,9 +58,6 @@ class BlurayComponent extends Component {
         </>
       )
     }
-
-
-
 
     // console.log("props")
   }
