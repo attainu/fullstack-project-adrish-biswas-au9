@@ -15,7 +15,7 @@ class PosterComponent extends Component {
       this.props.dispatch(shopping_wishlist_add({
         id: Math.floor(Math.random() * 10000),
         name: this.props.posterdetails.name,
-        shopping_id: this.props.posterdetails.id,
+        shopping_id: 'poster/'+this.props.posterdetails.id,
         shopping_image: this.props.posterdetails.image_url,
         email: sessionStorage.getItem('email'),
         username: sessionStorage.getItem('name'),
