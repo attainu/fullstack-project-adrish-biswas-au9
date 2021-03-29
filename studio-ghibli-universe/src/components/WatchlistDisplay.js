@@ -81,7 +81,7 @@ class WatchlistDisplay extends Component {
             object = (this.props.wishlist.length === 0) ?
                 (
                     <div className='empty_wishlist'>
-                        <h4 >Add a movie to wishlist to make it a part of your Ghibli Universe!</h4>
+                        <h5 style={{color:'wheat'}}>Add a movie to wishlist to make it a part of your Ghibli Universe!</h5>
                     </div>
                 ) :
                 (                <>
