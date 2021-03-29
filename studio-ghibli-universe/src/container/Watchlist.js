@@ -45,7 +45,6 @@ class Watchlist extends Component {
         )
     }
 
-    
 }
 
 function mapStateToProps(state) {

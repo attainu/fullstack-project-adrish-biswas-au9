@@ -6,7 +6,6 @@ import { HashLink } from 'react-router-hash-link';
 
 //const wishlist_url = "https://ghibli-json-server.herokuapp.com/wishlist";
 
-
 class WatchlistDisplay extends Component {
     handleSubmit = (wishlist) => {
         this.props.dispatch(wishlist_delete(wishlist))
@@ -29,7 +28,7 @@ class WatchlistDisplay extends Component {
                     <>
                         <tr>
                             <td ><HashLink to={route}><img className='wishlist_film' alt="movie_poster" src={item.movieimage}></img></HashLink></td>
-                            <td>{item.moviename}<br /><br /><button className="btn" style={{ filter: 'sepia()' }} onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button></td>
+                            <td>{item.moviename}<br /><br /><button className="btn" onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button></td>
                             <td>{item.date}</td>
                         </tr>
 
@@ -83,30 +82,6 @@ class WatchlistDisplay extends Component {
                 { object }
             </div >
             
-            
-            /* <table className="table table-responsive">
-
-                    <thead>
-                        <tr>
-
-                            <th>Movie</th>
-                            <th>Movie name</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-
-
-                    <tbody>
-
-                        {this.renderTable(this.props)}
-
-
-                    </tbody>
-                </table> */
-                
-                
-            
-
         )
     }
 

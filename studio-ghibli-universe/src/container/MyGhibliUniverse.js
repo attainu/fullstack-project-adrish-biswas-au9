@@ -46,22 +46,15 @@ class Shopping extends Component {
 
                     <div className="col-sm-6 movie_page_navigation">
                     <HashLink className="movie_categories_link" 
-                        to="/MyGhibliUniverse#shoppingwishlist"
+                        to="/MyGhibliUniverse#wishlist_display"
                     ><h6>Shopping Wishlist</h6>
                     <span className="sr-only">(current)</span>
                     </HashLink>
                     </div>
-
-                    
-
-                  
+                       
                 </div>
                 <div className="main"><Watchlist  /></div>
-                
-
-
-                
-
+                <div className="main"><Wishlist  /></div>
 
 
             </>
