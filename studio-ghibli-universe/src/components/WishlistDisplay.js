@@ -30,12 +30,12 @@ class WishlistDisplay extends Component {
                         <div className="row no-gutters">
 
                         <div className="col-md-3">
-                            <HashLink to={route}><img className='wishlist_film' alt="movie_poster" src={item.shopping_image}></img></HashLink>
+                            <center><HashLink to={route}><img className='wishlist_film' alt="movie_poster" src={item.shopping_image}></img></HashLink></center>
                             </div>
 
 
                             <div className="col-md-3" style={{paddingTop:'80px'}}>
-                            <h6>{item.name}</h6>
+                            <center><h6>{item.name}</h6></center>
                             </div>
 
                             <div className="col-md-3" style={{paddingTop:'80px'}}>
@@ -43,7 +43,7 @@ class WishlistDisplay extends Component {
                             </div>
                             
                             <div className="col-md-3" style={{paddingTop:'50px'}}>
-                            <button className="btn" onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button>
+                            <center><button className="btn" onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button></center>
                             </div>
 
 
@@ -98,7 +98,7 @@ class WishlistDisplay extends Component {
                     <div className="col-md-3">
 
 
-                            Delete
+                    <center>Delete</center> 
 
                     </div>
 
