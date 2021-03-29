@@ -54,7 +54,7 @@ class User extends Component {
         <Header />
         <SideBar />
 
-        <UserComponent watchlist={filtering} />
+        <UserComponent watchlist={filtering} username={this.state.user.name}/>
 
       </>
     )

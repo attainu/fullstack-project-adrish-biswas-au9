@@ -19,35 +19,51 @@ const UserComponent = (props) => {
     if (watchlist) {
       console.log(watchlist, "user")
 
+      if (watchlist) {
 
-      return watchlist.map((item, index) => {
-        const userRoute = '/user/' + item._id + '#top';
-        
-        return (
-          < >
+        return watchlist.map((item, index) => {
+          const route = '/films/' + item.movieid + '#top';
 
-            <div className="card mb-3 " style={{ maxWidth: '', backgroundColor: '#687693' }}>
-              <div className="row no-gutters">
-                <div className="col-md-6">
-                  <div className="card-body">
+          return (
 
-                    <p className="card-text" ><small>{item.moviename}</small></p>
 
-                  </div></div>
-                <div className="col-md-6">
-                  <div className="card-body">
-                    <center><p className="card-text" ><small><HashLink to={userRoute} className='btn btn-primary'> view profile</HashLink></small></p></center> 
+            <>
+              <div className="card mb-3" style={{ maxWidth: '', backgroundColor: '#687693', padding: '5px' }}>
+                <div className="row no-gutters">
 
-                  </div></div>
+                  <div className="col-md-6" style={{ padding: '80px 0px 0px 20px' }}>
+                    <h4>{item.moviename}</h4>
+                  </div>
 
-                
+                  <div className="col-md-6">
+                    <center><HashLink to={route}><img className='wishlist_film' alt="movie_poster" src={item.movieimage}></img></HashLink></center>
+                  </div>
 
-                
-              </div>
-            </div>
-          </>
-        )
-      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div></div>
+
+            </>
+
+
+
+          )
+        })
+      }
     }
   }
 
@@ -56,26 +72,34 @@ const UserComponent = (props) => {
       <div className="shoppingcontainer" >
         <div className="shopping_grid">
           {console.log(props.user_email, "user")}
-          <div className="card mb-3 " style={{ maxWidth: '', backgroundColor: '#1daeed' }}>
-            <div className="row no-gutters">
-              <div className="col-md-6">
-                <div className="card-body">
-                  <p>name</p>
-                </div></div>
-              <div className="col-md-6">
-                <div className="card-body">
-                  <center><p>profile</p></center>
-                </div></div>
-              
-              
-            </div>
-          </div>
-          {display(props.watchlist)}
 
-        </div>
+          <div className="card mb-3" style={{ maxWidth: '', backgroundColor: '#0f78af', padding: '5px' }}>
+            <div className="row no-gutters">
+
+              <div className="col-md-12" >
+                <center>
+                  {props.username ? <h2 style={{ padding: '20px', color: 'black' }}>{props.username}'s watchlist </h2> : null}
+                </center>
+
+              </div>
+
+            </div></div>
+
+
+
+         
+            {props.watchlist.length > 0 ?
+              display(props.watchlist):<div><h2 style={{color:'wheat', padding:'160px 50px 160px 50px'}}>{props.username}'s watchlist is empty!!!</h2></div>
+            }
+          
+
+
+          </div>
       </div>
     </div>
   )
+
+
 }
 
 export default UserComponent;
