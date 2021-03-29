@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WatchlistDisplay from '../components/WatchlistDisplay';
+import FollowingDisplay from '../components/FollowingDisplay';
 import { following } from '../actions/actionfile';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
@@ -40,7 +40,7 @@ class Following extends Component {
         return (
             <>
             <div className="container">
-                <WatchlistDisplay following={filtering} />
+                <FollowingDisplay following={filtering} />
             </div></>
         )
     }

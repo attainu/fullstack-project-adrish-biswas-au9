@@ -29,9 +29,9 @@ class FollowingDisplay extends Component {
                         <div className="card mb-3" style={{ maxWidth: '', backgroundColor: '#687693', padding:'5px' }}>
                         <div className="row no-gutters">
 
-                        <div className="col-md-3">
+                        {/* <div className="col-md-3">
                             <center><img className='wishlist_film' alt="movie_poster" src={item.movieimage}></img></center>
-                            </div>
+                            </div> */}
 
 
                             <div className="col-md-3" style={{paddingTop:'80px'}}>
@@ -108,7 +108,7 @@ class FollowingDisplay extends Component {
 
         return (
             <div className="container" id="following_display" style={{ paddingTop: '100px' }}>
-                <h4 style={{color:'#1daeed'}} className='wishlist_heading'>{sessionStorage.getItem('name')}'s Watchlist</h4>
+                <h4 style={{color:'#1daeed'}} className='wishlist_heading'>{sessionStorage.getItem('name')}'s Followed Watchlist</h4>
                 { object }
             </div >
             
