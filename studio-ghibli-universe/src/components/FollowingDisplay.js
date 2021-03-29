@@ -32,19 +32,22 @@ class FollowingDisplay extends Component {
                         {/* <div className="col-md-3">
                             <center><img className='wishlist_film' alt="movie_poster" src={item.movieimage}></img></center>
                             </div> */}
+                            <div className="col-md-3" style={{paddingTop:'20px'}}>
+                            <center><h5> coming soon</h5></center>
+                            </div>
 
 
-                            <div className="col-md-3" style={{paddingTop:'80px'}}>
-                            <center><h6><HashLink to={route}>{item.name}</HashLink></h6></center>
+                            <div className="col-md-3" style={{paddingTop:'20px', color: 'black'}}>
+                            <center><HashLink to={route}><h5 style={{color:'white'}} >{item.name}</h5></HashLink></center>
                             </div>
                             
                             
-                            <div className="col-md-3" style={{paddingTop:'80px'}}>
+                            <div className="col-md-3" style={{paddingTop:'20px'}}>
                             <center><h6>{item.date}</h6></center>
                             </div>
 
 
-                            <div className="col-md-3" style={{paddingTop:'50px'}}>
+                            <div className="col-md-3" style={{paddingTop:'5px'}}>
                             <center><button className="btn" onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button></center>
                             </div>   
 
@@ -70,13 +73,13 @@ class FollowingDisplay extends Component {
                     <div className="row no-gutters">
                       <div className="col-md-3">
     
-                      <center>Movie</center>     
+                      <center>Display Picture</center>     
                         </div>
     
                         <div className="col-md-3">
     
     
-                               <center>Movie name</center> 
+                               <center>Name</center> 
     
                         </div>
     
