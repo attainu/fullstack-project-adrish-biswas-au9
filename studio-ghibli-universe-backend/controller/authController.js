@@ -14,20 +14,23 @@ router.use(express.urlencoded({ extended: true }))
 router.use(express.json())
 //router.use(cors())
 
-router.get('/', (req, res) => {
-    return res.status(200).send("Health Ok")
-})
+// router.get('/', (req, res) => {
+//     return res.status(200).send("Health Ok")
+// })
 
 
-router.post('/google', (req,res) => {
+router.post('/google', (req, res) => {
     const info = {
         "name": req.body.name,
         "email": req.body.email,
         "password": '',
-        role: 'user',
-        isActive: true
+        "role": req.body.role ? req.body.role : 'user',
+        "isActive": Boolean(req.body.isActive) ? Boolean(req.body.isActive) : true
     }
-    user.findOne({ "email": req.body.email }, (err, data) => {
+    user.findOne({
+        "isActive": Boolean(req.body.isActive) ? Boolean(req.body.isActive) : true,
+        "email": req.body.email
+    }, (err, data) => {
         if (err) return res.status(500).send(err);
         if (!data) {
             user.create(info, (err, data) => {
@@ -36,14 +39,14 @@ router.post('/google', (req,res) => {
                 // res.setHeader('Access-Control-Allow-Origin', '*')
                 // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
                 // return done(null, { auth: true, token });
-                return res.status(200).send("Registered!");
+                return res.status(200).send(info);
             });
         }
         else {
             // res.setHeader('Access-Control-Allow-Origin', '*')
             // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
             // return done(null, { auth: true, token });
-            return res.status(200).send("Logged In!");
+            return res.status(200).send(data);
         }
 
         //return res.redirect("/register?errmessage=Email already taken! Use another email!")
@@ -65,10 +68,10 @@ router.post('/register', (req, res) => {
     }
     user.findOne({ email: req.body.email }, (err, data) => {
         if (err) throw err;
-        if (data) return res.status(400).send({ auth: false, message:"Email already taken! Use another email!" })
+        if (data) return res.status(400).send({ auth: false, message: "Email already taken! Use another email!" })
         user.create(info, (err, data) => {
             if (err) throw err;
-            return res.status(200).send({ auth: true, message:"Data Registered!" })
+            return res.status(200).send({ auth: true, message: "Data Registered!" })
             // res.redirect('/')
         });
     })
@@ -76,31 +79,39 @@ router.post('/register', (req, res) => {
 });
 
 //get all users
-router.get('/users', (req, res) => {
-    let query = { isActive: true }
-    //console.log("session>>>",req.session.user)
-    // if (!req.session.user) {
-    //     return res.send("login expired, login again!");
-    // }
-    // if (req.session.user.role!=="admin") {
-    //     return res.send("You are not allowed here!");
-    // }
-    // else if (req.query.role) {
-    //     query = { role: req.query.role, isActive: true }
-    // }
-    // else {
-    //     query = { isActive: true }
-    // }
+// router.get('/users', (req, res) => {
+//     let query = { isActive: true }
+//     //console.log("session>>>",req.session.user)
+//     // if (!req.session.user) {
+//     //     return res.send("login expired, login again!");
+//     // }
+//     // if (req.session.user.role!=="admin") {
+//     //     return res.send("You are not allowed here!");
+//     // }
+//     // else if (req.query.role) {
+//     //     query = { role: req.query.role, isActive: true }
+//     // }
+//     // else {
+//     //     query = { isActive: true }
+//     // }
 
-    user.find(query).toArray((err, data) => {
-        if (err) throw err;
+//     user.find(query).toArray((err, data) => {
+//         if (err) throw err;
+//         return res.status(200).send(data);
+//     })
+// })
+
+router.get('/users', (req, res) => {
+    user.find({ isActive: true }, (err, data) => {
+        if (err) return res.status(500).send(err);
         return res.status(200).send(data);
     })
 })
 
+
 //login
 router.post('/login', (req, res) => {
-    
+
     const info = {
         "isActive": Boolean(req.body.isActive) ? Boolean(req.body.isActive) : true,
         "email": req.body.email
@@ -110,7 +121,7 @@ router.post('/login', (req, res) => {
             return res.status(400).send("Inavlid email! Please try again");
         }
         let validPassword = bycrypt.compareSync(req.body.password, data.password)
-        if(!validPassword) return res.status(400).send("Wrong password entered!");
+        if (!validPassword) return res.status(400).send("Wrong password entered!");
         //req.session.user=data;
         return res.status(200).send(data)
         // res.redirect('/')
@@ -122,6 +133,69 @@ router.get('/logout', (req, res) => {
     //req.session.user=null;
     return res.status(200).send("Logout successful!")
 })
+
+router.put('/delete', function (req, res) {
+    // let status;
+    // if (req.body.isActive) {
+    //     if (req.body.isActive == 'true') {
+    //         status = true
+    //     } else {
+    //         status = false
+    //     }
+    // } else {
+    //     status = false
+    // }
+    // var id = req.params.id;
+    // let { id } = req.params //destructuring
+    let id = req.body._id;
+    user.updateOne(
+        { email: req.body.email },
+        {
+            isActive: false
+        },
+        (err, data) => {
+            if (err) res.status(500).send({ auth: true, message: err });
+            return res.status(200).send(data)
+        })
+})
+
+router.put('/edit', function (req, res) {
+    // let status;
+    // if (req.body.isActive) {
+    //     if (req.body.isActive == 'true') {
+    //         status = true
+    //     } else {
+    //         status = false
+    //     }
+    // } else {
+    //     status = false
+    // }
+    // var id = req.params.id;
+    // let { id } = req.params //destructuring
+    let id = req.body._id;
+    user.updateOne(
+        { email: req.body.email },
+        {
+            role: req.body.role
+        },
+        (err, data) => {
+            if (err) res.status(500).send({ auth: true, message: err });
+            return res.status(200).send(data)
+        })
+})
+
+
+router.post('/userInfo', (req, res) => {
+
+
+
+    user.findOne({ _id: req.body._id }, { password: 0 }, (err, data) => {
+        if (err) return res.status(500).send({ auth: true, message: err });
+        return res.status(200).send(data);
+    })
+
+})
+
 
 
 //Hard delete user
