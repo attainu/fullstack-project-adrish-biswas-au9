@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import GoogleLoginN from './GoogleLoginN'
 import './LoginComponent.css';
 import axios from 'axios';
+import { HashLink } from 'react-router-hash-link';
 const burl = "https://studio-ghibli-universe-backend.herokuapp.com/api/auth/login";
 
 
@@ -116,6 +117,7 @@ class LoginComponent extends Component {
                     {
                       this.state.allowLogIn ? <button className="but" onClick={this.handleSubmit}>Login</button> : null
                     }
+                    <br/><HashLink to= '/forgotpassword#top'><small style={{color:'black'}}>forgot password?</small></HashLink>
                     <hr style={{ backgroundColor: 'black', height: '1px' }}></hr>
                     <center><h6>----------or----------</h6></center>
                     
