@@ -28,7 +28,7 @@ class SideBar extends React.Component {
       >Vehicles
             <span className="sr-only">(current)</span>
       </HashLink>
-      <a href="#about">Graphic Novels</a>
+      
 
       <HashLink 
         to="/home#Televisions_heading"
@@ -48,7 +48,11 @@ class SideBar extends React.Component {
             <span className="sr-only">(current)</span>
       </HashLink> */}
       
-      <a href="#contact">Exibitions</a>
+      <HashLink 
+        to="/home#Exhibition_heading"
+      >Exhibitions
+            <span className="sr-only">(current)</span>
+      </HashLink>
       <a href="#contact">Pre-Ghibli</a>
       <a href="#contact">Coperative works</a>
       <a href="#contact">Distributive works</a>

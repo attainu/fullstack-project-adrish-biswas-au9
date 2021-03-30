@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 import './HomeDisplay.css';
 import { HashLink } from 'react-router-hash-link';
 
-const HomeStageProductionGridDisplay = (props) => {
+const HomeExhibition = (props) => {
     return(
         <>
    
 
 
-    <div className='container  main' id='StageProductions_heading'>
-    <h2 style={{color:'#0f78af'}}>Stage Production</h2>
+    <div className='container  main' id='Exhibition_heading'>
+    <h2 style={{color:'#0f78af'}}>Exhibitions</h2>
     <hr style={{ backgroundColor: '#687693', height: '0.02px' }}></hr>
 
 <div className="row " style={{ margin: '80px 0px 80px 0px', color: '#1daeed' }}>
   <div className="col-xs-5 col-sm-6 col-lg-3">
-    <div ><img className='vehicle_banner' src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Princess_Mononoke_Japanese_poster.png/220px-Princess_Mononoke_Japanese_poster.png" alt='vehicle_poster' style={{ border: '3px solid #1daeed ' }}></img><br />
+    <div ><img className='vehicle_banner' src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Museum_of_Contemporary_Art_Tokyo_2009.jpg/480px-Museum_of_Contemporary_Art_Tokyo_2009.jpg" alt='vehicle_poster' style={{ border: '3px solid #1daeed ' }}></img><br />
       
     </div>
 
@@ -49,4 +49,4 @@ const HomeStageProductionGridDisplay = (props) => {
 }
 
 
-export default HomeStageProductionGridDisplay;
+export default HomeExhibition;
