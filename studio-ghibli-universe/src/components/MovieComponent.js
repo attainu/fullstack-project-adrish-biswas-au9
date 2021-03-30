@@ -86,7 +86,7 @@ class MovieComponent extends Component {
                 return (
                     <>
 
-                        <div className='movie_p_c '><HashLink to={characterRoute}><img className='movie_character' src={item.image_url} alt='movie_poster'></img></HashLink><br /><center>{item.name}</center></div>
+                        <div className='movie_p_c '><HashLink to={characterRoute}><img className='movie_character' src={item.image_url} alt='movie_poster'></img></HashLink><br /><center style={{color:'wheat'}}>{item.name}</center></div>
 
 
                     </>
@@ -100,7 +100,7 @@ class MovieComponent extends Component {
                 const locationRoute = '/locations/' + item.id + '#top';
                 return (
                     <>
-                        <div className='movie_p_c'><HashLink to={locationRoute}><img className='movie_character' src={item.image_url} alt='movie_poster'></img></HashLink><br /><center>{item.name}</center></div>
+                        <div className='movie_p_c'><HashLink to={locationRoute}><img className='movie_character' src={item.image_url} alt='movie_poster'></img></HashLink><br /><center style={{color:'wheat'}}>{item.name}</center></div>
 
                     </>
                 )
@@ -115,7 +115,7 @@ class MovieComponent extends Component {
                     const vehicleRoute = '/vehicles/' + item.id + '#top';
                     return (
                         <>
-                            <div className='movie_p_c'><HashLink to={vehicleRoute}><img className='movie_character' src={item.image_url} alt='movie_poster'></img></HashLink><br /><center>{item.name}</center></div>
+                            <div className='movie_p_c'><HashLink to={vehicleRoute}><img className='movie_character' src={item.image_url} alt='movie_poster'></img></HashLink><br /><center style={{color:'wheat'}}>{item.name}</center></div>
 
                         </>
                     )
@@ -195,7 +195,7 @@ class MovieComponent extends Component {
                     </div>
 
 
-                    <h4 id='movie_page_character' style={{ marginLeft: '20px', paddingTop: '80px' }}>Characters</h4>
+                    <h4 id='movie_page_character' style={{ marginLeft: '20px', paddingTop: '80px', color:'#1daeed' }}>Characters</h4>
                     <hr style={{ backgroundColor: '#687693', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                     <div className="character_tile scrollmenu" >
                         {this.character_tile(this.props.moviedetails)}
@@ -204,14 +204,14 @@ class MovieComponent extends Component {
                     {/* <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#687693', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center> */}
 
                     <div className="character_tile" >
-                        <h4 id='movie_page_location' style={{ marginLeft: '20px', paddingTop: '80px' }}>Locations</h4>
+                        <h4 id='movie_page_location' style={{ marginLeft: '20px', paddingTop: '80px', color:'#1daeed' }}>Locations</h4>
                         <hr style={{ backgroundColor: '#687693', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                         {this.location_tile(this.props.moviedetails)}
                         {/* <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#687693', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center> */}
                     </div>
 
                     <div className="character_tile" id='movie_page_vehicle'>
-                        <h4 style={{ marginLeft: '20px', paddingTop: '80px' }}>Vehicles</h4>
+                        <h4 style={{ marginLeft: '20px', paddingTop: '80px', color:'#1daeed' }}>Vehicles</h4>
                         <hr style={{ backgroundColor: '#687693', height: '2px', marginLeft: '10px', marginRight: '10px' }}></hr>
                         {this.vehicle_tile(this.props.moviedetails)}
                         {/* <center><a class="movie_categories_link" href="#movie_page_navbar"><button type="button" style={{ backgroundColor: '#687693', color: '#cccdb4', fontFamily: 'Times New Roman' }} class="btn">Back <img alt="up" src="https://img.icons8.com/plumpy/24/000000/circled-up-2.png" /> to categories</button></a ></center> */}

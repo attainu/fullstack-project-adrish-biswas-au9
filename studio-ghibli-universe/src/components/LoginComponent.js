@@ -113,11 +113,12 @@ class LoginComponent extends Component {
                       <label className="control-label">Password</label>
                       <input type="password" name="order_id" value={this.state.password} className="form-control"
                         onChange={this.handleChangePassword} required />
+                        <HashLink to= '/forgotpassword#top'><small style={{color:'black'}}>forgot password?</small></HashLink>
                     </div>
                     {
                       this.state.allowLogIn ? <button className="but" onClick={this.handleSubmit}>Login</button> : null
                     }
-                    <br/><HashLink to= '/forgotpassword#top'><small style={{color:'black'}}>forgot password?</small></HashLink>
+                    
                     <hr style={{ backgroundColor: 'black', height: '1px' }}></hr>
                     <center><h6>----------or----------</h6></center>
                     

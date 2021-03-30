@@ -83,15 +83,15 @@ class SideBar extends React.Component {
       
 
       
-      <h4 onClick={this.opennew1} >Pre-Ghibli</h4>
+      <h4 onClick={this.opennew1} >Pre-Ghibli <img src="https://img.icons8.com/officexs/16/000000/external-link.png"/></h4>
 
-      <h4 onClick={this.opennew2} >Significant achievements</h4>
+      <h4 onClick={this.opennew2} >Significant achievements <img src="https://img.icons8.com/officexs/16/000000/external-link.png"/></h4>
 
-      <h4 onClick={this.opennew3} >Coperative works</h4>
+      <h4 onClick={this.opennew3} >Coperative works <img src="https://img.icons8.com/officexs/16/000000/external-link.png"/></h4>
 
-      <h4 onClick={this.opennew4} >Contributive works</h4>
+      <h4 onClick={this.opennew4} >Contributive works <img src="https://img.icons8.com/officexs/16/000000/external-link.png"/></h4>
 
-      <h4 onClick={this.opennew5} >Distributive works</h4>
+      <h4 onClick={this.opennew5} >Distributive works <img src="https://img.icons8.com/officexs/16/000000/external-link.png"/></h4>
 
       
 

@@ -69,7 +69,7 @@ class ForgotPassword extends Component {
 
      
 
-        <div className="container" > <br />
+        <div className="container-fluid " style={{padding:'160px 0px 160px 0px', backgroundColor:'#111'}}  > <br />
           
 
 
