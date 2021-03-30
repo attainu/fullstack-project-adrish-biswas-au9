@@ -32,22 +32,20 @@ class FollowingDisplay extends Component {
                         {/* <div className="col-md-3">
                             <center><img className='wishlist_film' alt="movie_poster" src={item.movieimage}></img></center>
                             </div> */}
-                            <div className="col-md-3" style={{paddingTop:'20px'}}>
-                            <center><h5> coming soon</h5></center>
-                            </div>
+                            
 
 
-                            <div className="col-md-3" style={{paddingTop:'20px', color: 'black'}}>
+                            <div className="col-md-4" style={{paddingTop:'20px', color: 'black'}}>
                             <center><HashLink to={route}><h5 style={{color:'white'}} >{item.name}</h5></HashLink></center>
                             </div>
                             
                             
-                            <div className="col-md-3" style={{paddingTop:'20px'}}>
+                            <div className="col-md-4" style={{paddingTop:'20px'}}>
                             <center><h6>{item.date}</h6></center>
                             </div>
 
 
-                            <div className="col-md-3" style={{paddingTop:'5px'}}>
+                            <div className="col-md-4" style={{paddingTop:'5px'}}>
                             <center><button className="btn" onClick={() => { this.handleSubmit(item) }}><img alt='delete_bin' src="https://img.icons8.com/fluent/48/000000/filled-trash.png" /></button></center>
                             </div>   
 
@@ -71,19 +69,16 @@ class FollowingDisplay extends Component {
                 (                <>
                     <div className="card mb-3" style={{ maxWidth: '', backgroundColor: '#1daeed', padding:'10px' }}>
                     <div className="row no-gutters">
-                      <div className="col-md-3">
+                      
     
-                      <center>Display Picture</center>     
-                        </div>
-    
-                        <div className="col-md-3">
+                        <div className="col-md-4">
     
     
                                <center>Name</center> 
     
                         </div>
     
-                        <div className="col-md-3">
+                        <div className="col-md-4">
     
     
                                 
@@ -91,7 +86,7 @@ class FollowingDisplay extends Component {
     
                         </div>
     
-                        <div className="col-md-3">
+                        <div className="col-md-4">
     
     
                         <center>Delete</center> 
