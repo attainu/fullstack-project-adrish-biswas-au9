@@ -48,7 +48,6 @@ class LoginComponent extends Component {
         sessionStorage.setItem('email', this.state.email);
         sessionStorage.setItem('name', data.name);
         sessionStorage.setItem('role', data.role);
-        sessionStorage.setItem('image_url', data.image_url);
         localStorage.setItem('userGhibli', JSON.stringify(data));
         localStorage.setItem("isloggedinGhibli", true);
         this.props.history.push('/home');

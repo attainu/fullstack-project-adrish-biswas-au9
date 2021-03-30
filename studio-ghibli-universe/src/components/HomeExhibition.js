@@ -23,12 +23,12 @@ const HomeExhibition = (props) => {
   </div>
 
   <div className="col-xs-7 col-sm-6 col-lg-9" style={{ marginTop: '20px' }}>
-    <p>Princess Mononoke </p>
+    <p>List of Exhibitions </p>
     <hr style={{ backgroundColor: '#687693', height: '0.01px' }}></hr>
 
     <br />
     <small><p style={{color:'white'}}>
-    In Muromachi Japan, an Emishi village is attacked by a demon. The last Emishi prince, Ashitaka, kills it before it reaches the village, but its corruption curses his right arm. The curse gives him superhuman strength, but will eventually spread through his body and kill him. The villagers discover that the demon was a boar god, Nago, corrupted by an iron ball lodged in his body. The village's wise woman tells Ashitaka that he may find a cure in the western lands Nago came from, but he cannot return to his homeland.
+    A selection of layout designs for animated productions was exhibited in the Studio Ghibli Layout Designs: Understanding the Secrets of Takahata and Miyazaki Animation exhibition tour, which started in the Museum of Contemporary Art Tokyo (July 28, 2008 to September 28, 2008) and subsequently travelled to different museums throughout Japan and Asia, concluding its tour of Japan in the Fukuoka Asian Art Museum (October 12, 2013 to January 26, 2014) and its tour of Asia in the Hong Kong Heritage Museum (May 14, 2014 to August 31, 2014). Between October 4, 2014 and March 1, 2015 the layout designs were exhibited at Art Ludique in Paris. The exhibition catalogues contain annotated reproductions of the displayed artwork
 </p>
     </small>
 

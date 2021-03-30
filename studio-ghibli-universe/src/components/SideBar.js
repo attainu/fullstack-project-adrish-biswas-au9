@@ -5,6 +5,10 @@ import { HashLink } from 'react-router-hash-link';
 import './SideBar.css'
 
 class SideBar extends React.Component {
+
+  // opennew = () => {
+  //   console.log('this is:', this);
+  // }
   render() {
     return <div class="sidenav">
       <HashLink to="/home#top">Home<span className="sr-only">(current)</span></HashLink>
@@ -53,7 +57,15 @@ class SideBar extends React.Component {
       >Exhibitions
             <span className="sr-only">(current)</span>
       </HashLink>
-      <a href="#contact">Pre-Ghibli</a>
+
+      
+
+{/*       
+      <p onClick={this.opennew} >Pre-Ghibli</p>
+            <span className="sr-only">(current)</span>
+      
+      {window.open('https://en.wikipedia.org/wiki/List_of_Studio_Ghibli_works#Pre-Ghibli', '_blank')}; */}
+
       <a href="#contact">Coperative works</a>
       <a href="#contact">Distributive works</a>
       <a href="#contact">Contributive works</a>
