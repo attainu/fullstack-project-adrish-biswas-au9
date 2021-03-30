@@ -27,6 +27,7 @@ class GoogleLoginN extends React.Component {
       sessionStorage.setItem('role', obj.role);
       sessionStorage.setItem('email', obj.email);
       sessionStorage.setItem('name', obj.name);
+      sessionStorage.setItem('image_url', obj.image_url);
       this.props.history.push('/home');
     }
   }
@@ -61,6 +62,7 @@ class GoogleLoginN extends React.Component {
         sessionStorage.setItem('email', this.state.email);
         sessionStorage.setItem('name', data.name);
         sessionStorage.setItem('role', data.role);
+        sessionStorage.setItem('image_url', data.image_url);
         localStorage.setItem('userGhibli', JSON.stringify(data));
         localStorage.setItem("isloggedinGhibli", true);
         this.props.history.push('/home');
