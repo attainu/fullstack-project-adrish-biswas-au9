@@ -2,7 +2,7 @@ const base_url ="https://ghibli-json-server.herokuapp.com"
 
 
 export function wishlist(){
-    const output = fetch(`${base_url}/films_playlist`,{method:'GET'})
+    const output = fetch('https://studio-ghibli-universe-backend.herokuapp.com/filmsPlaylist/view',{method:'GET'})
     .then((data) => data.json())
 
     return{
@@ -12,7 +12,7 @@ export function wishlist(){
 }
 
 export function wishlist_add(obj){
-    fetch(`${base_url}/films_playlist`, {
+    fetch('https://studio-ghibli-universe-backend.herokuapp.com/filmsPlaylist/add', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -33,7 +33,7 @@ export function wishlist_add(obj){
 }
 
 export function wishlist_delete(wishlist){
-    fetch(`${base_url}/films_playlist/${wishlist.id}`, {
+    fetch(`https://studio-ghibli-universe-backend.herokuapp.com/filmsPlaylist/delete/${wishlist._id}`, {
         method: 'DELETE',
         headers: {
             'Content-type': 'application/json'

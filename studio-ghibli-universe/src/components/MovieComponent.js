@@ -15,7 +15,6 @@ class MovieComponent extends Component {
         }
         else {
             this.props.dispatch(wishlist_add({
-                id: Math.floor(Math.random() * 10000),
                 moviename: this.props.moviedetails.title,
                 movieid: this.props.moviedetails.id,
                 movieimage: this.props.moviedetails.image_url,
