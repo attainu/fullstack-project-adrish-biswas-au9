@@ -41,9 +41,9 @@ class MovieComponent extends Component {
 
             return (
                 <>
-                    <div className='backgroundWall' style={{ backgroundImage: `url(${moviedetails.back_wall})` }} ></div>
+                    <div className='backgroundWall' style={{ backgroundImage: `url(${moviedetails[0].back_wall})` }} ></div>
 
-                    <VideoComponent name={moviedetails.title} thumbnail={moviedetails.image_url} video={moviedetails.trailer_url} movie={moviedetails.video_url} />
+                    <VideoComponent name={moviedetails[0].title} thumbnail={moviedetails[0].image_url} video={moviedetails[0].trailer_url} movie={moviedetails[0].video_url} />
 
 
 
@@ -53,21 +53,21 @@ class MovieComponent extends Component {
 
                         <div className="row " style={{ margin: '80px 0px 80px 0px' }}>
                             <div className="col-xs-5 col-sm-6 col-lg-3">
-                                <div ><img className='movie_banner' src={moviedetails.image_url} alt='movie_poster' style={{ border: '3px solid #1daeed ' }}></img><br />
-                                    <div style={{ textAlign: 'left' }}>{moviedetails.title}</div>
+                                <div ><img className='movie_banner' src={moviedetails[0].image_url} alt='movie_poster' style={{ border: '3px solid #1daeed ' }}></img><br />
+                                    <div style={{ textAlign: 'left' }}>{moviedetails[0].title}</div>
                                 </div>
 
                             </div>
 
                             <div className="col-xs-7 col-sm-6 col-lg-9" style={{ marginTop: '20px' }}>
-                                <p>Directed by <b>{moviedetails.director} </b></p>
+                                <p>Directed by <b>{moviedetails[0].director} </b></p>
                                 <hr style={{ backgroundColor: '#687693', height: '0.01px' }}></hr>
-                                <div> {moviedetails.description}</div>
+                                <div> {moviedetails[0].description}</div>
                                 <br />
                                 <small>
-                                    Year of Production : <b> {moviedetails.release_date} </b>
-                                Rotten Tomatoes score : <b> {moviedetails.rt_score} </b> <br />
-                                Producer : <b> {moviedetails.producer} </b>
+                                    Year of Production : <b> {moviedetails[0].release_date} </b>
+                                Rotten Tomatoes score : <b> {moviedetails[0].rt_score} </b> <br />
+                                Producer : <b> {moviedetails[0].producer} </b>
                                 </small>
                                 {object}
                             </div>
@@ -80,7 +80,7 @@ class MovieComponent extends Component {
 
     character_tile = (moviedetails) => {
         if (moviedetails) {
-            return moviedetails.char.map((item) => {
+            return moviedetails[0].char.map((item) => {
                 const characterRoute = '/characters/' + item.id + '#top';
                 return (
                     <>
@@ -95,7 +95,7 @@ class MovieComponent extends Component {
     }
     location_tile = (moviedetails) => {
         if (moviedetails) {
-            return moviedetails.loc.map((item) => {
+            return moviedetails[0].loc.map((item) => {
                 const locationRoute = '/locations/' + item.id + '#top';
                 return (
                     <>
@@ -109,8 +109,8 @@ class MovieComponent extends Component {
 
     vehicle_tile = (moviedetails) => {
         if (moviedetails) {
-            if (moviedetails.veh.length > 0) {
-                return moviedetails.veh.map((item) => {
+            if (moviedetails[0].veh.length > 0) {
+                return moviedetails[0].veh.map((item) => {
                     const vehicleRoute = '/vehicles/' + item.id + '#top';
                     return (
                         <>
@@ -125,7 +125,7 @@ class MovieComponent extends Component {
     }
     merch = (moviedetails) => {
         if (moviedetails) {
-            return moviedetails.video_buy.map((item) => {
+            return moviedetails[0].video_buy.map((item) => {
                 return (
                     <>
                         <div className="card mb-3 card movie_p_c" style={{ maxWidth: '370px', backgroundColor: '#1daeed' }}>
@@ -151,7 +151,7 @@ class MovieComponent extends Component {
 
     collectables = (moviedetails) => {
         if (moviedetails) {
-            return moviedetails.merch_buy.map((item) => {
+            return moviedetails[0].merch_buy.map((item) => {
                 return (
                     <>
                         <div className="card mb-3 card movie_p_c" style={{ maxWidth: '370px', backgroundColor: '#1daeed' }}>
@@ -175,6 +175,7 @@ class MovieComponent extends Component {
         }
     }
     render() {
+        console.log(this.props.moviedetails, 'moviedetails')
         return (
             <>
                 <div className='main'>

@@ -14,7 +14,7 @@ import axios from 'axios';
 import './Unimain.css'
 
 
-const filmsUrl = 'https://ghibli-json-server.herokuapp.com/films';
+const filmsUrl = 'https://studio-ghibli-universe-backend.herokuapp.com/films/view';
 const characters_url = 'https://ghibli-json-server.herokuapp.com/characters';
 const locations_url = 'https://ghibli-json-server.herokuapp.com/locations';
 const vehicles_url = 'https://ghibli-json-server.herokuapp.com/vehicles';
