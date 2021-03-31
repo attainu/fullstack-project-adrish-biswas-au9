@@ -40,9 +40,10 @@ class Movie extends Component {
     let in_wishlist = false;
     let wishlist = {};
     console.log(this.props.wishlist, 'inside render')
-    if (this.props.wishlist) {
+    console.log(this.state.movie[0], 'inside render')
+    if (this.props.wishlist && this.state.movie[0]) {
       this.props.wishlist.map((item) => {
-        if (item.email === sessionStorage.getItem('email') && item.moviename === this.state.movie.title) {
+        if (item.email === sessionStorage.getItem('email') && item.moviename === this.state.movie[0].title) {
           in_wishlist = true;
           wishlist = item;
         }

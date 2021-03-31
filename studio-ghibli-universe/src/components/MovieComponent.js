@@ -15,9 +15,9 @@ class MovieComponent extends Component {
         }
         else {
             this.props.dispatch(wishlist_add({
-                moviename: this.props.moviedetails.title,
-                movieid: this.props.moviedetails.id,
-                movieimage: this.props.moviedetails.image_url,
+                moviename: this.props.moviedetails[0].title,
+                movieid: this.props.moviedetails[0].id,
+                movieimage: this.props.moviedetails[0].image_url,
                 email: sessionStorage.getItem('email'),
                 username: sessionStorage.getItem('name'),
                 date: new Date().toDateString()
