@@ -56,11 +56,7 @@ class SideBar extends React.Component {
       </HashLink>
       
 
-      <HashLink 
-        to="/home#Televisions_heading"
-      >TV-series
-            <span className="sr-only">(current)</span>
-      </HashLink>
+      
 
       <HashLink 
         to="/home#StageProductions_heading"

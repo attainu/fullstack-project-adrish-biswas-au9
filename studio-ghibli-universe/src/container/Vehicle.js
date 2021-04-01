@@ -30,7 +30,7 @@ class Vehicle extends Component {
       <Header />
       <SideBar/>
         {/* <Logout history={this.props.history} /> */}
-        <VehicleComponent vehicledetails={this.state.vehicle} />
+        <VehicleComponent vehicledetails={this.state.vehicle[0]} />
 
 
 
