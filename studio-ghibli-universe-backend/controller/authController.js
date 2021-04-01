@@ -39,6 +39,7 @@ router.post('/google', (req, res) => {
                 // res.setHeader('Access-Control-Allow-Origin', '*')
                 // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
                 // return done(null, { auth: true, token });
+                req.session.user = data;
                 return res.status(200).send(info);
             });
         }
@@ -46,6 +47,7 @@ router.post('/google', (req, res) => {
             // res.setHeader('Access-Control-Allow-Origin', '*')
             // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
             // return done(null, { auth: true, token });
+            req.session.user = data;
             return res.status(200).send(data);
         }
 
@@ -102,6 +104,7 @@ router.post('/register', (req, res) => {
 // })
 
 router.get('/users', (req, res) => {
+
     user.find({ isActive: true }, (err, data) => {
         if (err) return res.status(500).send(err);
         return res.status(200).send(data);
@@ -122,7 +125,7 @@ router.post('/login', (req, res) => {
         }
         let validPassword = bycrypt.compareSync(req.body.password, data.password)
         if (!validPassword) return res.status(400).send("Wrong password entered!");
-        //req.session.user=data;
+        req.session.user = data;
         return res.status(200).send(data)
         // res.redirect('/')
     });
@@ -130,7 +133,7 @@ router.post('/login', (req, res) => {
 
 //logout
 router.get('/logout', (req, res) => {
-    //req.session.user=null;
+    req.session.user = null;
     return res.status(200).send("Logout successful!")
 })
 
@@ -147,6 +150,7 @@ router.put('/delete', function (req, res) {
     // }
     // var id = req.params.id;
     // let { id } = req.params //destructuring
+
     let id = req.body._id;
     user.updateOne(
         { email: req.body.email },
@@ -172,6 +176,7 @@ router.put('/edit', function (req, res) {
     // }
     // var id = req.params.id;
     // let { id } = req.params //destructuring
+
     let id = req.body._id;
     user.updateOne(
         { email: req.body.email },
@@ -197,9 +202,47 @@ router.post('/userInfo', (req, res) => {
 })
 
 
+router.put('/editPassword', function (req, res) {
+    // let status;
+    // if (req.body.isActive) {
+    //     if (req.body.isActive == 'true') {
+    //         status = true
+    //     } else {
+    //         status = false
+    //     }
+    // } else {
+    //     status = false
+    // }
+    // var id = req.params.id;
+    // let { id } = req.params //destructuring
+
+    let hashedPassword = bycrypt.hashSync(req.body.password, 8)
+    //let id = req.body._id;
+    user.findOne({ email: req.body.email }, (err, data) => {
+        if (err) throw err;
+        if (data) {
+            user.updateOne(
+                { email: req.body.email },
+                {
+                    password: hashedPassword
+                },
+                (err, data) => {
+                    if (err) res.status(500).send({ auth: true, message: err });
+                    return res.status(200).send(data)
+                })
+        }
+        else {
+            return res.status(200).send({ auth: true, message: "Wrong email entered!" })
+        }
+    })
+
+})
+
+
 
 //Hard delete user
 router.delete('/deleteUser', (req, res) => {
+
     let id = req.body._id;
     user.remove(
         { _id: mongoose.ObjectId(id) },
