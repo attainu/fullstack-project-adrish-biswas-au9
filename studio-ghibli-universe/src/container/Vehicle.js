@@ -7,7 +7,7 @@ import VideoComponent from '../components/VideoComponent'
 import Header from '../components/Header';
 import SideBar from '../components/SideBar'
 import './Unimain.css'
-const vehicle_url = 'https://ghibli-json-server.herokuapp.com/vehicles';
+const vehicle_url = 'https://studio-ghibli-universe-backend.herokuapp.com/vehicle/view';
 
 
 class Vehicle extends Component {
